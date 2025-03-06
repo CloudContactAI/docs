@@ -4,3 +4,4 @@
 - saveorupdateusingput
 - deleteclientusingdelete
 - patchusingpatch
+- getclientfieldsusingget
