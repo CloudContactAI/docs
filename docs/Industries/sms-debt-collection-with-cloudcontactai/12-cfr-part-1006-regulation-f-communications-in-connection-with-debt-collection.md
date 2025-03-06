@@ -16,7 +16,7 @@ CloudContactAI by default provides checks to ensure thatc ontacts aren't contact
 
 A link to the CFPB inconvenient timezone rule is here
 
-<https://www.consumerfinance.gov/rules-policy/regulations/1006/6/#de38a82277268f404065254dafd5d4914192d0c3b36d54d4642f206f>
+[https://www.consumerfinance.gov/rules-policy/regulations/1006/6/#de38a82277268f404065254dafd5d4914192d0c3b36d54d4642f206f](https://www.consumerfinance.gov/rules-policy/regulations/1006/6/#de38a82277268f404065254dafd5d4914192d0c3b36d54d4642f206f)
 
 The inconvenient timezone rule is defined as
 
