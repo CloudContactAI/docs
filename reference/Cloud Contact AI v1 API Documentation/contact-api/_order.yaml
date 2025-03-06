@@ -7,3 +7,4 @@
 - list-contacts-without-call-records
 - get-contact
 - deletes-a-single-contact
+- list-the-call-record-for-a-contact-give-its-id
