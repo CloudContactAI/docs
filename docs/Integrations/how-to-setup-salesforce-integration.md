@@ -19,42 +19,14 @@ next:
 2. Click the acknowledgment option
 3. Select ‘Upgrade’ / ‘Add’ to add the package to your SFDC instance
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/c94e2c3-salesforce1.png",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+<Image align="center" src="https://files.readme.io/c94e2c3-salesforce1.png" />
 
 ## Update Apex Settings
 
 1. Click the ‘Deploy Metadata from Non-Certified Package Versions via Apex’
 2. Click Save
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/4d31f96-salesforce2_copy.jpeg",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+<Image align="center" src="https://files.readme.io/4d31f96-salesforce2_copy.jpeg" />
 
 ## Update Connected Apps
 
@@ -64,21 +36,7 @@ next:
 4. Update IP Relaxation to ‘Enforce IP restrictions, but relax for refresh tokens’
 5. Update Refresh Token Policy to ‘Refresh Token is valid until revoked’
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/2312164-salesforce3.png",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+<Image align="center" src="https://files.readme.io/2312164-salesforce3.png" />
 
 ## CloudContactAI / SFDC Connection
 
@@ -88,21 +46,7 @@ next:
 4. If Connection is good, click ‘Authorize.’ Authorize allows for SMS messages to sync back to SFDC objects as tasks
 5. Click Save
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/382732a-salesforce4.png",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+<Image align="center" src="https://files.readme.io/382732a-salesforce4.png" />
 
 ## CloudContactAI / SFDC Property Mapping
 
@@ -111,21 +55,7 @@ next:
 3. The Property Sync Enabled toggle is important to have enabled to sync these fields
 4. Click Save when finished mapping
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/28eb906-salesforce5.png",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+<Image align="center" src="https://files.readme.io/28eb906-salesforce5.png" />
 
 ## Setup Send Text Button
 
@@ -137,21 +67,7 @@ next:
 4. Click and drag the ‘Send Text’ button to the designated area. The order that you place these buttons will determine the order of buttons on a lightning page.
 5. Save Layout
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/930a394-salesforce6_copy.jpeg",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+<Image align="center" src="https://files.readme.io/930a394-salesforce6_copy.jpeg" />
 
 ### Salesforce Classic
 
@@ -161,17 +77,4 @@ next:
 4. Click and drag the ‘Send Text’ button to the designated area
 5. Save Layout
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/1425708-salesforce7_copy.jpeg",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
+<Image align="center" src="https://files.readme.io/1425708-salesforce7_copy.jpeg" />
