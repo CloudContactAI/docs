@@ -10,31 +10,108 @@ metadata:
 next:
   description: ''
 ---
-[block:parameters]
-{
-  "data": {
-    "h-0": "Jira Ticket",
-    "h-1": "Description",
-    "0-0": "CLOUD-1200",
-    "0-1": "Added the contact name to the header of the contact details screen.",
-    "1-0": "CLOUD-1192",
-    "1-1": "Added the ability to copy an invitation link on admin if the invite email doesn't work.",
-    "2-0": "CLOUD-1198",
-    "2-1": "Resolved issue where sorting contacts by 'last updated' wouldn't work.",
-    "3-0": "CLOUD-1205",
-    "3-1": "Added export function for the contacts list.",
-    "4-0": "CLOUD-1199",
-    "4-1": "Added email history list that is viewable when the user drills into a specific contact.",
-    "5-0": "CLOUD-1209",
-    "5-1": "Added the ability to edit a scheduled campaign if it is awaiting launch.",
-    "6-0": "CLOUD-1195",
-    "6-1": "Added TrustPilot functionality to show users on admin when new signups occur.",
-    "7-0": "CLOUD-1202",
-    "7-1": "Resolved issue when procuring a new client, the area code search wouldn't work.",
-    "8-0": "CLOUD-1208",
-    "8-1": "Added improved details to the scheduled emails, including from email and scheduled date."
-  },
-  "cols": 2,
-  "rows": 9
-}
-[/block]
+<Table align={["left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+        Jira Ticket
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        CLOUD-1200
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Added the contact name to the header of the contact details screen.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        CLOUD-1192
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Added the ability to copy an invitation link on admin if the invite email doesn't work.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        CLOUD-1198
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Resolved issue where sorting contacts by 'last updated' wouldn't work.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        CLOUD-1205
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Added export function for the contacts list.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        CLOUD-1199
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Added email history list that is viewable when the user drills into a specific contact.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        CLOUD-1209
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Added the ability to edit a scheduled campaign if it is awaiting launch.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        CLOUD-1195
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Added TrustPilot functionality to show users on admin when new signups occur.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        CLOUD-1202
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Resolved issue when procuring a new client, the area code search wouldn't work.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        CLOUD-1208
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Added improved details to the scheduled emails, including from email and scheduled date.
+      </td>
+    </tr>
+  </tbody>
+</Table>
