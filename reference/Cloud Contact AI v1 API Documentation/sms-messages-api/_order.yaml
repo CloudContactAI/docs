@@ -3,3 +3,4 @@
 - get-sms-message-campaign-status-count
 - get-sms-messages-for-a-specific-contact
 - sends-an-sms-to-an-specific-contact
+- incoming-sms-messages
