@@ -20,7 +20,7 @@ You will need your CloudContactAI Client ID and API Key. Check the [Acquire the 
 
 Sending an MMS requires three easy steps:
 
-**_1. Request an upload URL for your file inside CloudContactAI storage._**
+***1. Request an upload URL for your file inside CloudContactAI storage.***
 
 To create your MMS, you must upload your image/video to CloudContactAI's storage. This requires calling a CloudContactAI API endpoint that will return a URL where you will need to PUT your file.
 
@@ -38,7 +38,7 @@ curl -X POST https://files.cloudcontactai.com/upload/url \
 EOF
 ```
 
-Remember to replace the \<api_key>, \<file_name>, \<mime_type>, and \<client_id>\`with your values.  
+Remember to replace the \<api\_key>, \<file\_name>, \<mime\_type>, and \<client\_id>\`with your values.  
 
 Here's an example with values.
 
@@ -64,7 +64,7 @@ Once this request is executed, the server will respond with a piece of JSON.
 }
 ```
 
-**_2. Upload your file to the given URL _**
+***2. Upload your file to the given URL***
 
 Using the URL obtained from the JSON of the previous step, proceed to upload a local image to CloudContactAI storage using a request like this.
 
@@ -75,7 +75,7 @@ curl -X PUT \
 "<presigned_url_from_previous_step>"
 ```
 
-Remember to replace \<mime_type> and \<file_name>.  The \<presigned_url_from_previous_step> will come from the response of the previous step.  
+Remember to replace \<mime\_type> and \<file\_name>.  The \<presigned\_url\_from\_previous\_step> will come from the response of the previous step.  
 
 Here's an example with values.
 
@@ -88,7 +88,7 @@ curl -X PUT \
 
 This request will return an empty 200 OK response.
 
-**_3. Create your Campaign, including your uploaded image path_**
+***3. Create your Campaign, including your uploaded image path***
 
 Finally, proceed to create a normal campaign, specifying all the basic data, including the key or path to the file you just uploaded, like this:
 
@@ -115,7 +115,7 @@ EOF
 
 ```
 
-Remember to replace \<api_key>, \<client_id> and \<file_name>.
+Remember to replace \<api\_key>, \<client\_id> and \<file\_name>.
 
 Here's an example.
 
@@ -202,41 +202,13 @@ This response confirms your campaign was created successfully, and will be sent 
 
 You can navigate into CloudContactAI to see your messages. 
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/99df73c36d45287583fe49c14f87081b114edcfe179390b02d6b2107d7010395-CCAI_SMS_Sent_Messages.png",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+<Image align="center" src="https://files.readme.io/99df73c36d45287583fe49c14f87081b114edcfe179390b02d6b2107d7010395-CCAI_SMS_Sent_Messages.png" />
 
 If you don't see that your SMS messages are being sent, deselect the Show Sent Messages Only to view the errors.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/9dd36f937e577be120abfb143175675adc24582048c1eb87555c7425ea3af9ea-CCAI_SMS_Sent_Messages_Errors.png",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+<Image align="center" src="https://files.readme.io/9dd36f937e577be120abfb143175675adc24582048c1eb87555c7425ea3af9ea-CCAI_SMS_Sent_Messages_Errors.png" />
 
 **Final Notes**
 
-- Files have a maximum size of 1 mb to upload, any file bigger than 1 mb will fail to upload.
-- File uploads are not tied to specific campaigns, and thus, are reusable. That means you can upload your file once, and use the same file key on multiple campaigns without any drawback.
+* Files have a maximum size of 1 mb to upload, any file bigger than 1 mb will fail to upload.
+* File uploads are not tied to specific campaigns, and thus, are reusable. That means you can upload your file once, and use the same file key on multiple campaigns without any drawback.
