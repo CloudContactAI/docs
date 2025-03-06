@@ -19,7 +19,7 @@ next:
 | CLOUD-1740  | Added breadcrumbs when a user drills into a scheduled SMS campaign.                                                                          |
 | CLOUD-1790  | Fixed issue where expired trial accounts couldn't upgrade.                                                                                   |
 | CLOUD-1779  | Flows now have autosaves anytime a new step is added and a popup will appear when the user wants to save the flow prompting for a flow name. |
-| CLOUD-1735  | Added <html> tags to email messages.                                                                                                         |
+| CLOUD-1735  | Added &lt;html&gt; tags to email messages.                                                                                                   |
 | CLOUD-1777  | Added more timer options to flows, including minutes, hours, and days.                                                                       |
 | CLOUD-1695  | Fixed issues involving adding contacts to lists.                                                                                             |
 | CLOUD-1773  | If a users drills into a contact they are looking up, hitting back will retain any filters they had applied to find the contact.             |
