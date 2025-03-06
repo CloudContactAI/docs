@@ -22,7 +22,7 @@ When sending emails through CloudContactAI, we recommend that you provision mult
    4. We can manage your Email Deliverability in CloudFlare 
 3. After we've setup your domain with CloudFlare, then we'll login to CloudContactAI.
 4. On the Settings\\Email Config tab, you'll have the option of picking SendGrid or AWS SES. We prefer AWS SES.
-5. Next, you'll need to put in the recently purchased domains and specify the email inboxes. Please work with the CloudContactAI Support team to configure SES. If you're familiar with AWS, you can try to follow these steps [here](https://developer.cloudcontactai.com/docs/aws-simple-email-system-how-to-setup-integration)
-![](https://files.readme.io/be3482743ea2d498fdece9b920b8200c7da5b2c93c05c55f2eabc9195caf2345-image.png)
+5. Next, you'll need to put in the recently purchased domains and specify the email inboxes. Please work with the CloudContactAI Support team to configure SES. If you're familiar with AWS, you can try to follow these steps [here](https://developer.cloudcontactai.com/docs/aws-simple-email-system-how-to-setup-integration)\
+   ![](https://files.readme.io/be3482743ea2d498fdece9b920b8200c7da5b2c93c05c55f2eabc9195caf2345-image.png)
 6. After your Settings\\Email Config tab have been configured properly, CloudContactAI will add SNS topics and Webhooks to track bounces, complaints, unsubscribes, and opens. 
 7. Navigate to the Email Campaigns section to start your outbound email campaigns!
