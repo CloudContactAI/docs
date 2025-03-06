@@ -14,7 +14,9 @@ To bring other users into the same account on CloudContactAI, users can send ema
 
 When the user receives their invite email, they will be prompted to signup with their own name and password.  The email will be auto-filled by default.
 
-	There are 3 categories of user accounts:
-	(1) Client Admin
-	(2) Compliance User
-	(3) Client User
+```
+There are 3 categories of user accounts:
+(1) Client Admin
+(2) Compliance User
+(3) Client User
+```
