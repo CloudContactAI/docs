@@ -16,42 +16,14 @@ This integration is an extension of CloudContactAI placed conveniently within yo
 
 ## Desktop
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/813d6d7-salesforce10.png",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+<Image align="center" src="https://files.readme.io/813d6d7-salesforce10.png" />
 
 # iFrame Setup (Lightning Only)
 
 1. Search ‘Lightning App Builder’ in Setup
 2. Click ‘Edit’ on the Page you wish to add an iFrame to
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/0fb1e13-salesforce11.png",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+<Image align="center" src="https://files.readme.io/0fb1e13-salesforce11.png" />
 
 3. From the middle section of the page, find where you want to add the iFrame and select that section
 4. Add a new tab in that section
