@@ -14,7 +14,7 @@ next:
 ---
 1. Create a Campaign 
 2. Take the campaignID from the Campaign. 
-3. POST to this URL replacing {clientId} and {campaignID} accordingly.  <https://core.cloudcontactai.com/api/clients/{clientId}/campaign/{campaignId}/message> 
+3. POST to this URL replacing \{clientId} and \{campaignID} accordingly.  [https://core.cloudcontactai.com/api/clients/\{clientId}/campaign/\{campaignId}/message](https://core.cloudcontactai.com/api/clients/\{clientId}/campaign/\{campaignId}/message) 
    ```json
    {
        "message": "Hello, ${firstName}",
