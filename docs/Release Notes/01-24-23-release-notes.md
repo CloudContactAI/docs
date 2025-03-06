@@ -10,15 +10,38 @@ metadata:
 next:
   description: ''
 ---
-[block:parameters]
-{
-  "data": {
-    "0-1": "Put together a plan to integrate into a CRM: Hubspot",
-    "0-0": "CLOUD-500",
-    "1-1": "LPS Payments using CCAI",
-    "1-0": "CLOUD-1126"
-  },
-  "cols": 2,
-  "rows": 2
-}
-[/block]
+<Table align={["left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        CLOUD-500
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Put together a plan to integrate into a CRM: Hubspot
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        CLOUD-1126
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        LPS Payments using CCAI
+      </td>
+    </tr>
+  </tbody>
+</Table>
