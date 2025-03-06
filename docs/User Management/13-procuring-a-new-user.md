@@ -10,19 +10,7 @@ metadata:
 next:
   description: ''
 ---
-[block:embed]
-{
-  "html": "<iframe class=\"embedly-embed\" src=\"//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FU3jVtOup0yA%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DU3jVtOup0yA&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FU3jVtOup0yA%2Fhqdefault.jpg&type=text%2Fhtml&schema=youtube\" width=\"854\" height=\"480\" scrolling=\"no\" title=\"YouTube embed\" frameborder=\"0\" allow=\"autoplay; fullscreen; encrypted-media; picture-in-picture;\" allowfullscreen=\"true\"></iframe>",
-  "url": "https://www.youtube.com/watch?v=U3jVtOup0yA",
-  "title": "CloudContactAI User Invitation Tutorial",
-  "favicon": "https://www.youtube.com/favicon.ico",
-  "image": "https://i.ytimg.com/vi/U3jVtOup0yA/hqdefault.jpg",
-  "provider": "https://www.youtube.com/",
-  "href": "https://www.youtube.com/watch?v=U3jVtOup0yA",
-  "typeOfEmbed": "youtube"
-}
-[/block]
-
+<Embed url="https://www.youtube.com/watch?v=U3jVtOup0yA" title="CloudContactAI User Invitation Tutorial" favicon="https://www.youtube.com/favicon.ico" image="https://i.ytimg.com/vi/U3jVtOup0yA/hqdefault.jpg" provider="youtube.com" href="https://www.youtube.com/watch?v=U3jVtOup0yA" typeOfEmbed="youtube" html="%3Ciframe%20class%3D%22embedly-embed%22%20src%3D%22%2F%2Fcdn.embedly.com%2Fwidgets%2Fmedia.html%3Fsrc%3Dhttps%253A%252F%252Fwww.youtube.com%252Fembed%252FU3jVtOup0yA%253Ffeature%253Doembed%26display_name%3DYouTube%26url%3Dhttps%253A%252F%252Fwww.youtube.com%252Fwatch%253Fv%253DU3jVtOup0yA%26image%3Dhttps%253A%252F%252Fi.ytimg.com%252Fvi%252FU3jVtOup0yA%252Fhqdefault.jpg%26type%3Dtext%252Fhtml%26schema%3Dyoutube%22%20width%3D%22854%22%20height%3D%22480%22%20scrolling%3D%22no%22%20title%3D%22YouTube%20embed%22%20frameborder%3D%220%22%20allow%3D%22autoplay%3B%20fullscreen%3B%20encrypted-media%3B%20picture-in-picture%3B%22%20allowfullscreen%3D%22true%22%3E%3C%2Fiframe%3E" />
 
 <br />
 
@@ -36,9 +24,9 @@ Clicking on "+ Invite Friends" will bring the user to a basic setup screen with 
 
 There are 3 roles: "Client User", "Client Admin", and "Compliance User".
 
-- Client User - Enables the User to have access to a specific client.
-- Client Admin - Enables the User to administer all of the clients.
-- Compliance User - Enables the User to audit the account for compliance.
+* Client User - Enables the User to have access to a specific client.
+* Client Admin - Enables the User to administer all of the clients.
+* Compliance User - Enables the User to audit the account for compliance.
 
 ![](https://files.readme.io/1244287-User_Setup.png "User Setup.png")
 
