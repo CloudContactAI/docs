@@ -10,29 +10,98 @@ metadata:
 next:
   description: ''
 ---
-[block:parameters]
-{
-  "data": {
-    "h-0": "Jira Ticket",
-    "h-1": "Description",
-    "0-0": "CLOUD-1180",
-    "0-1": "Creating a contact list from existing contacts will now retain the contacts' phone numbers.",
-    "1-0": "CLOUD-1179",
-    "1-1": "When manually adding contacts to a list, contacts will now properly paginate at 10 contacts instead of 9.",
-    "2-0": "CLOUD-1163",
-    "2-1": "Resolved issues with payments not cancelling if a first payment attempt fails and a second/subsequent one clears.",
-    "3-0": "CLOUD-1167",
-    "3-1": "Added timestamps to admin view as to when an account was made.",
-    "4-0": "CLOUD-1174",
-    "4-1": "Added last/first page buttons to pagination.",
-    "5-0": "CLOUD-1166",
-    "5-1": "Added alerts for admin when people make a purchase.",
-    "6-0": "CLOUD-1115",
-    "6-1": "Added option to phone numbers where all inbound SMS get the same response.",
-    "7-0": "CLOUD-1175",
-    "7-1": "Added a 'to' and 'from' number to the view campaign results tab."
-  },
-  "cols": 2,
-  "rows": 8
-}
-[/block]
+<Table align={["left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+        Jira Ticket
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        CLOUD-1180
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Creating a contact list from existing contacts will now retain the contacts' phone numbers.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        CLOUD-1179
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        When manually adding contacts to a list, contacts will now properly paginate at 10 contacts instead of 9.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        CLOUD-1163
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Resolved issues with payments not cancelling if a first payment attempt fails and a second/subsequent one clears.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        CLOUD-1167
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Added timestamps to admin view as to when an account was made.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        CLOUD-1174
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Added last/first page buttons to pagination.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        CLOUD-1166
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Added alerts for admin when people make a purchase.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        CLOUD-1115
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Added option to phone numbers where all inbound SMS get the same response.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        CLOUD-1175
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Added a 'to' and 'from' number to the view campaign results tab.
+      </td>
+    </tr>
+  </tbody>
+</Table>
