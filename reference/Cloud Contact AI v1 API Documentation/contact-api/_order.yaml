@@ -6,3 +6,4 @@
 - list-contacts-with-phone-number
 - list-contacts-without-call-records
 - get-contact
+- deletes-a-single-contact
