@@ -19,14 +19,15 @@ next:
 First, let's import the Postman Collection and Configure your Client ID and API Key
 
 1. If you don't have Postman already, you can get Postman [here](https://www.postman.com/)
-2. Download the Postman Collection from [here](https://www.cloudcontactai.com/wp-content/uploads/2024/01/CCAI.Campaigns.postman_collection.json_.zip). 
+2. Download the Postman Collection from 
+[here](https://www.cloudcontactai.com/wp-content/uploads/2024/01/CCAI.Campaigns.postman_collection.json_.zip). 
 3. Unzip the file on your local machine. 
 4. Import the Postman Collection into your Postman
 5. Once you have the collection imported, you'll need to specify your environment variables. In the upper right-hand corner of Postman, click on the "Environment quick look button. Specify an environment, and then enter the following variables into your environment. 
 6. |           | Initial Value                               | Current Value                               |
    | :-------- | :------------------------------------------ | :------------------------------------------ |
-   | coreURL   | <https://core.cloudcontactai.com>           | <https://core.cloudcontactai.com>           |
-   | authURL   | <https://auth.cloudcontactai.com>           | <https://auth.cloudcontactai.com>           |
+   | coreURL   | [https://core.cloudcontactai.com](https://core.cloudcontactai.com)           | [https://core.cloudcontactai.com](https://core.cloudcontactai.com)           |
+   | authURL   | [https://auth.cloudcontactai.com](https://auth.cloudcontactai.com)           | [https://auth.cloudcontactai.com](https://auth.cloudcontactai.com)           |
    | clientId  | The clientId from the Settings/Security Tab | The clientId from the Settings/Security Tab |
    | authToken | The API Key from the Settings/Security Tab  | The API Key from the Settings/Security Tab  |
 
@@ -58,7 +59,7 @@ First, let's import the Postman Collection and Configure your Client ID and API 
 12. In the JSON for the Campaign make sure to 
     1. Include +1 in front of the phone attribute.
     2. If you're scheduling a campaign, pass in the scheduledTimestamp in UTC.
-    3. If you're scheduling a campaign, specify a scheduledTimezone according to the Java standards - <https://www.ibm.com/docs/en/mq-appliance/9.1?topic=commands-name>
+    3. If you're scheduling a campaign, specify a scheduledTimezone according to the Java standards - [https://www.ibm.com/docs/en/mq-appliance/9.1?topic=commands-name](https://www.ibm.com/docs/en/mq-appliance/9.1?topic=commands-name)
 13. Hit the send Button 
 14. Hopefully, you'll receive a 200 OK with the following JSON response. Save off the JSON response for safe keeping in the event that you want to modify your campaign.
 15. ```json
