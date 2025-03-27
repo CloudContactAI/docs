@@ -1,14 +1,14 @@
 ---
-title: (03-12-25) Release Notes (COPY)
+title: (03-27-25) Release Notes
 deprecated: false
 hidden: false
 metadata:
   robots: index
 ---
-| Jira Ticket | Description                                                                                                                                                         |
-| :---------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| CLOUD-2025  | Updated the campaign split count and improved data throughput for downloading large campaign results.                                                               |
-| CLOUD-2071  | A lot of data is now on campaign\_messages table.  To avoid it, the email text will be empty.  The message preview use the contact data and render it in client UI. |
-| CLOUD-2060  | Messages queries are excluded and now use the same mechanics of the regular messages.                                                                               |
-| CLOUD-2051  | Added replica database to emails.                                                                                                                                   |
-| CLOUD-2028  | Made fixes to the email dashboard displaying incorrect information.                                                                                                 |
+| Jira Ticket | Description                                                                                                                       |
+| :---------- | :-------------------------------------------------------------------------------------------------------------------------------- |
+| CLOUD-2039  | Render the previously used Client in Email Campaign Detail                                                                        |
+| CLOUD-2103  | Base Engager: Update Email Campaign Report Section - Add download excluded contacts option with the reason why they were excluded |
+| CLOUD-2093  | Base Engager: Improve Dashboard drill down page performance and download campaign feature                                         |
+| CLOUD-2083  | Move all the stats to be calculated from the respective read replica                                                              |
+| CLOUD-2092  | OpenAi Intents should be saved outside of mongo                                                                                   |
