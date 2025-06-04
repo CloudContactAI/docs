@@ -1,7 +1,7 @@
 ---
 title: (06-11-25) Release Notes
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   title: (06-11-25) Release Notes
   robots: index
