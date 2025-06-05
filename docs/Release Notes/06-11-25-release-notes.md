@@ -1,5 +1,5 @@
 ---
-title: (06-11-25) Release Notes
+title: (06-10-25) Release Notes
 deprecated: false
 hidden: false
 metadata:
