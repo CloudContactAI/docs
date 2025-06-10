@@ -11,11 +11,11 @@ QuickStart
 Learn how to get CloudContactAI setup in your project
 
 <Cards columns={4}>
-  <Card title="Node.js" href="https://developer.cloudcontactai.com/docs/nodejs#/" icon="fa-home" />
+  <Card title="Node.js" href="https://developer.cloudcontactai.com/docs/nodejs#/" icon="fa-node" />
 
-  <Card title="Python" href="https://developer.cloudcontactai.com/docs/python#/" icon="fa-user" />
+  <Card title="Python" href="https://developer.cloudcontactai.com/docs/python#/" icon="fa-python" />
 
-  <Card title="PHP" href="https://developer.cloudcontactai.com/docs/php#/" icon="fa-star" />
+  <Card title="PHP" href="https://developer.cloudcontactai.com/docs/php#/" icon="fa-php" />
 
-  <Card title="C#" href="https://developer.cloudcontactai.com/docs/c#/" icon="fa-question" />
+  <Card title="C#" href="https://developer.cloudcontactai.com/docs/c#/" icon="fa-csharp" />
 </Cards>
