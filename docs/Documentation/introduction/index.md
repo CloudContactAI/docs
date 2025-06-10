@@ -11,19 +11,11 @@ QuickStart
 Learn how to get CloudContactAI setup in your project
 
 <Cards columns={4}>
-  <Card title="Node.js" href="https://readme.com" icon="fa-home" target="_blank">
-    Neque porro quisquam est qui dolorem ipsum quia
-  </Card>
+  <Card title="Node.js" href="https://developer.cloudcontactai.com/docs/nodejs#/" icon="fa-home" target="_blank" />
 
-  <Card title="Python" icon="fa-user">
-    *Lorem ipsum dolor sit amet, consectetur adipiscing elit*
-  </Card>
+  <Card title="Python" icon="fa-user" />
 
-  <Card title="PHP" icon="fa-star">
-    > Ut enim ad minim veniam, quis nostrud ullamco
-  </Card>
+  <Card title="PHP" icon="fa-star" />
 
-  <Card title="C#" icon="fa-question">
-    **Excepteur sint occaecat cupidatat non proident**
-  </Card>
+  <Card title="C#" icon="fa-question" />
 </Cards>
