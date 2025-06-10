@@ -1,9 +1,11 @@
 ---
 title: Introduction
-excerpt: CloudContactAI enables SMS, Email, AI API communication for Developers
+excerpt: CloudContactAI provides an SMS, email, and AI API  for Developers
 deprecated: false
 hidden: false
 metadata:
   robots: index
 ---
 QuickStart
+
+Learn how to get CloudContactAI setup in your project
