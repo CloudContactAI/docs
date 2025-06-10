@@ -11,7 +11,7 @@ QuickStart
 Learn how to get CloudContactAI setup in your project
 
 <Cards columns={4}>
-  <Card title="Node.js" href="https://developer.cloudcontactai.com/docs/nodejs#/" icon="fa-home" target="_blank" />
+  <Card title="Node.js" href="https://developer.cloudcontactai.com/docs/nodejs#/" icon="fa-home" />
 
   <Card title="Python" href="https://developer.cloudcontactai.com/docs/python#/" icon="fa-user" />
 
