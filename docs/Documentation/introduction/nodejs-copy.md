@@ -1,12 +1,12 @@
 ---
-title: Node.js (COPY)
-excerpt: Send SMS with Node.js
+title: C#
+excerpt: Send SMS with C#
 deprecated: false
 hidden: false
 metadata:
   robots: index
 ---
-Learn how to send your first SMS using the CCAI Node.js SDK
+Learn how to send your first SMS using the CCAI C# SDK
 
 ## Prerequisites
 
@@ -20,49 +20,61 @@ To get the most out of this guide, you'll need to:
 Get the CCAI Node.js SDK
 
 ```node
-npm install ccai-node
+dotnet add package CloudContactAI.CCAI.NET
 ```
 
 ## 2. Send SMS message
 
-```node
-import { CCAI } from 'ccai-node';
+```csharp
+using CCAI.NET;
+using CCAI.NET.SMS;
 
 // Initialize the client
-const ccai = new CCAI({
-  clientId: 'YOUR-CLIENT-ID',
-  apiKey: 'API-KEY-TOKEN'
-});
+var config = new CCAIConfig
+{
+    ClientId = "YOUR-CLIENT-ID",
+    ApiKey = "YOUR-API-KEY"
+};
 
-// Send an SMS to multiple recipients
-const accounts = [
-  {
+using var ccai = new CCAIClient(config);
+
+// Send a single SMS
+var response = await ccai.SMS.SendSingleAsync(
     firstName: "John",
     lastName: "Doe",
-    phone: "+15551234567"
-  }
-];
+    phone: "+15551234567",
+    message: "Hello ${FirstName}, this is a test message!",
+    title: "Test Campaign"
+);
 
-ccai.sms.send(
-  accounts,
-  "Hello ${firstName} ${lastName}, this is a test message!",
-  "Test Campaign"
-)
-  .then(response => console.log('Success:', response))
-  .catch(error => console.error('Error:', error));
+Console.WriteLine($"Message sent with ID: {response.Id}");
 
-// Send an SMS to a single recipient
-ccai.sms.sendSingle(
-  "Jane",
-  "Smith",
-  "+15559876543",
-  "Hi ${firstName}, thanks for your interest!",
-  "Single Message Test"
-)
-  .then(response => console.log('Success:', response))
-  .catch(error => console.error('Error:', error));
+// Send to multiple recipients
+var accounts = new List<Account>
+{
+    new Account
+    {
+        FirstName = "John",
+        LastName = "Doe",
+        Phone = "+15551234567"
+    },
+    new Account
+    {
+        FirstName = "Jane",
+        LastName = "Smith",
+        Phone = "+15559876543"
+    }
+};
+
+var campaignResponse = await ccai.SMS.SendAsync(
+    accounts: accounts,
+    message: "Hello ${FirstName} ${LastName}, this is a test message!",
+    title: "Bulk Test Campaign"
+);
+
+Console.WriteLine($"Campaign sent with ID: {campaignResponse.CampaignId}");
 ```
 
 ## 3. Try it yourself
 
-See the full source code [here](https://github.com/CloudContactAI/ccai-node).
+See the full source code [here](https://github.com/CloudContactAI/CCAI.NET).
