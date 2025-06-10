@@ -1,12 +1,12 @@
 ---
-title: Node.js (COPY)
-excerpt: Send SMS with Node.js
+title: PHP
+excerpt: Send SMS with PHP
 deprecated: false
 hidden: false
 metadata:
   robots: index
 ---
-Learn how to send your first SMS using the CCAI Node.js SDK
+Learn how to send your first SMS using the CCAI PHP SDK
 
 ## Prerequisites
 
@@ -17,52 +17,54 @@ To get the most out of this guide, you'll need to:
 
 ## 1. Install
 
-Get the CCAI Node.js SDK
+Get the CCAI PHP SDK
 
 ```node
-npm install ccai-node
+composer require cloudcontactai/ccai-php
 ```
 
 ## 2. Send SMS message
 
 ```node
-import { CCAI } from 'ccai-node';
+<?php
+
+require 'vendor/autoload.php';
+
+use CloudContactAI\CCAI\CCAI;
+use CloudContactAI\CCAI\SMS\Account;
 
 // Initialize the client
-const ccai = new CCAI({
-  clientId: 'YOUR-CLIENT-ID',
-  apiKey: 'API-KEY-TOKEN'
-});
+$ccai = new CCAI([
+    'clientId' => 'YOUR-CLIENT-ID',
+    'apiKey' => 'YOUR-API-KEY'
+]);
 
-// Send an SMS to multiple recipients
-const accounts = [
-  {
-    firstName: "John",
-    lastName: "Doe",
-    phone: "+15551234567"
-  }
+// Send a single SMS
+$response = $ccai->sms->sendSingle(
+    firstName: 'John',
+    lastName: 'Doe',
+    phone: '+15551234567',
+    message: 'Hello ${firstName}, this is a test message!',
+    title: 'Test Campaign'
+);
+
+echo "Message sent with ID: " . $response->id . "\n";
+
+// Send to multiple recipients
+$accounts = [
+    new Account('John', 'Doe', '+15551234567'),
+    new Account('Jane', 'Smith', '+15559876543')
 ];
 
-ccai.sms.send(
-  accounts,
-  "Hello ${firstName} ${lastName}, this is a test message!",
-  "Test Campaign"
-)
-  .then(response => console.log('Success:', response))
-  .catch(error => console.error('Error:', error));
+$campaignResponse = $ccai->sms->send(
+    accounts: $accounts,
+    message: 'Hello ${firstName} ${lastName}, this is a test message!',
+    title: 'Bulk Test Campaign'
+);
 
-// Send an SMS to a single recipient
-ccai.sms.sendSingle(
-  "Jane",
-  "Smith",
-  "+15559876543",
-  "Hi ${firstName}, thanks for your interest!",
-  "Single Message Test"
-)
-  .then(response => console.log('Success:', response))
-  .catch(error => console.error('Error:', error));
+echo "Campaign sent with ID: " . $campaignResponse->campaignId . "\n";
 ```
 
 ## 3. Try it yourself
 
-See the full source code [here](https://github.com/CloudContactAI/ccai-node).
+See the full source code [here](https://github.com/CloudContactAI/ccai-php).
