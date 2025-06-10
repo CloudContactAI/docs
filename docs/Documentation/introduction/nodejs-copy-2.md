@@ -1,12 +1,12 @@
 ---
-title: Node.js (COPY)
-excerpt: Send SMS with Node.js
+title: Python
+excerpt: Send SMS with Python
 deprecated: false
 hidden: false
 metadata:
   robots: index
 ---
-Learn how to send your first SMS using the CCAI Node.js SDK
+Learn how to send your first SMS using the CCAI Python SDK
 
 ## Prerequisites
 
@@ -17,52 +17,49 @@ To get the most out of this guide, you'll need to:
 
 ## 1. Install
 
-Get the CCAI Node.js SDK
+Get the CCAI Python SDK
 
 ```node
-npm install ccai-node
+pip install ccai-python
 ```
 
 ## 2. Send SMS message
 
-```node
-import { CCAI } from 'ccai-node';
+```python
+from ccai_python import CCAI
 
-// Initialize the client
-const ccai = new CCAI({
-  clientId: 'YOUR-CLIENT-ID',
-  apiKey: 'API-KEY-TOKEN'
-});
-
-// Send an SMS to multiple recipients
-const accounts = [
-  {
-    firstName: "John",
-    lastName: "Doe",
-    phone: "+15551234567"
-  }
-];
-
-ccai.sms.send(
-  accounts,
-  "Hello ${firstName} ${lastName}, this is a test message!",
-  "Test Campaign"
+# Initialize the client
+ccai = CCAI(
+    client_id="YOUR-CLIENT-ID",
+    api_key="YOUR-API-KEY"
 )
-  .then(response => console.log('Success:', response))
-  .catch(error => console.error('Error:', error));
 
-// Send an SMS to a single recipient
-ccai.sms.sendSingle(
-  "Jane",
-  "Smith",
-  "+15559876543",
-  "Hi ${firstName}, thanks for your interest!",
-  "Single Message Test"
+# Send a single SMS
+response = ccai.sms.send_single(
+    first_name="John",
+    last_name="Doe",
+    phone="+15551234567",
+    message="Hello ${first_name}, this is a test message!",
+    title="Test Campaign"
 )
-  .then(response => console.log('Success:', response))
-  .catch(error => console.error('Error:', error));
+
+print(f"Message sent with ID: {response.id}")
+
+# Send to multiple recipients
+accounts = [
+    {"first_name": "John", "last_name": "Doe", "phone": "+15551234567"},
+    {"first_name": "Jane", "last_name": "Smith", "phone": "+15559876543"}
+]
+
+campaign_response = ccai.sms.send(
+    accounts=accounts,
+    message="Hello ${first_name} ${last_name}, this is a test message!",
+    title="Bulk Test Campaign"
+)
+
+print(f"Campaign sent with ID: {campaign_response.campaign_id}")
 ```
 
 ## 3. Try it yourself
 
-See the full source code [here](https://github.com/CloudContactAI/ccai-node).
+See the full source code [here](https://github.com/CloudContactAI/ccai-python).
