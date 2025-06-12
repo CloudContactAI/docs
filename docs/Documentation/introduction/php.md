@@ -1,6 +1,6 @@
 ---
 title: PHP
-excerpt: Send SMS with PHP
+excerpt: Send SMS or MMS with PHP
 deprecated: false
 hidden: false
 metadata:
