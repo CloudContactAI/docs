@@ -8,6 +8,14 @@ hidden: false
 metadata:
   title: ''
   description: ''
+  image: >-
+    https://files.readme.io/73b6a283332744eac11b15249d69914dbe71e07a46706b1ff5c2239d7e9b6602-Group_84_1.png
+  keywords:
+    - scheduled campaign
+    - api
+    - sms
+    - email
+    - cloudcontactai
   robots: index
 next:
   description: ''
