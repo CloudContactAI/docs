@@ -4,6 +4,18 @@ excerpt: Send SMS or MMS with Ruby
 deprecated: false
 hidden: false
 metadata:
+  title: Send emails, SMS, and MMS with Ruby - CloudContactAI
+  description: >-
+    Learn how to send your first email, SMS, and MMS using the CloudContactAI
+    Ruby SDK
+  image: >-
+    https://files.readme.io/98fd17d59b6565ca03710a2f5873caf99b41db37aa9721ba341cd3b783f6706a-Group_14.png
+  keywords:
+    - email
+    - mms
+    - sms
+    - ruby
+    - api
   robots: index
 ---
 Learn how to send your first SMS or MMS using the CCAI Ruby SDK
