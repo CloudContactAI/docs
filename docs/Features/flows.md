@@ -1,5 +1,5 @@
 ---
-title: Flows
+title: SMS and Email Workflows
 excerpt: ''
 deprecated: false
 hidden: false
