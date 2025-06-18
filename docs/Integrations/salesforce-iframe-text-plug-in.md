@@ -4,8 +4,17 @@ excerpt: ''
 deprecated: false
 hidden: false
 metadata:
-  title: ''
-  description: ''
+  title: Salesforce iFrame integration with CloudContactAI
+  description: >-
+    It's easy to integrate CloudContactAI into Salesforce with the user of an
+    iframe
+  image: >-
+    https://files.readme.io/3bbd665be457b53de5e84555756d578573044b3a70f9878edc46617c629d29ed-Group_84_1.png
+  keywords:
+    - iframe
+    - salesforce
+    - integration
+    - cloudcontactai
   robots: index
 next:
   description: ''
