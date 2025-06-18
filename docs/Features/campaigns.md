@@ -1,11 +1,21 @@
 ---
-title: Campaigns
+title: SMS, MMS, and Email Campaigns
 excerpt: ''
 deprecated: false
 hidden: false
 metadata:
-  title: ''
-  description: ''
+  title: SMS, MMS, and Email Campaigns with CloudContactAI
+  description: >-
+    You can send SMS, Email, MMS, Workflow, and Payment Campaigns with
+    CloudContactAI
+  image: >-
+    https://files.readme.io/40c9405ab770f3aa8ac955fdf34afd346383fae9e7b539352ad0db89ccf95518-Group_84_1.png
+  keywords:
+    - sms
+    - email
+    - mms
+    - workflow
+    - and payment campaigns
   robots: index
 next:
   description: ''
