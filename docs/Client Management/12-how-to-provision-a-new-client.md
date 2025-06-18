@@ -1,6 +1,8 @@
 ---
-title: 1.2 How to Provision a New Client
-excerpt: ''
+title: How to Provision a New Client
+excerpt: >-
+  Creating a client within CloudContactAI is easy. You will be prompted to
+  assign a new phone number to the client. 
 deprecated: false
 hidden: false
 metadata:
