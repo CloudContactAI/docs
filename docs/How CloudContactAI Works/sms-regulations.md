@@ -4,9 +4,18 @@ excerpt: ''
 deprecated: false
 hidden: false
 metadata:
-  title: ''
-  description: ''
-  robots: noindex
+  title: SMS Regulation Support within CloudContactAI
+  description: >-
+    SMS Messaging has all sorts of compliance rules that need to be adhered to.
+    CloudContactAI enables you to adhere with an out of the box configuration.
+  image: >-
+    https://files.readme.io/9f17b02a4901839ed2f402cad8a248608c94b623870ed3155fa81245729660a0-Group_84_1.png
+  keywords:
+    - sms
+    - regulations
+    - compliance
+    - cloudcontactai
+  robots: index
 next:
   description: ''
 ---
