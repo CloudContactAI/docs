@@ -1,12 +1,20 @@
 ---
-title: Compliance
+title: SMS Compliance
 excerpt: ''
 deprecated: false
 hidden: false
 metadata:
-  title: ''
-  description: ''
-  robots: noindex
+  title: SMS and Email Compliance with CloudContactAI
+  description: >-
+    Compliance is tricky when you're sending SMS, MMS, and email. CloudContactAI
+    can handle your compliance requirements for TCPA for you
+  image: >-
+    https://files.readme.io/5faf266cf274ae71ef65e51b13fd14de7ec2c68b31620cbbda393bbd7615cb0d-Group_84_1.png
+  keywords:
+    - sms compliance
+    - email compliance
+    - cloudcontactai
+  robots: index
 next:
   description: ''
 ---
