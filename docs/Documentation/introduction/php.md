@@ -23,7 +23,7 @@ To get the most out of this guide, you'll need to:
 
 Get the CCAI PHP SDK
 
-```node
+```text
 composer require cloudcontactai/ccai-php
 ```
 
