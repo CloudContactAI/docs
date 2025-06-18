@@ -4,8 +4,16 @@ excerpt: ''
 deprecated: false
 hidden: false
 metadata:
-  title: ''
-  description: ''
+  description: >-
+    Setup your CloudContactAI account to send emails with Amazon Simple Email
+    Services (SES)
+  image: >-
+    https://files.readme.io/3a0b39a3a80e3732c2f8f6c13d03a367fb2304294426addbb3e1434e6932fa85-Group_84_1.png
+  keywords:
+    - amazon SES
+    - email
+    - api
+    - cloudcontactai
   robots: index
 next:
   description: ''
