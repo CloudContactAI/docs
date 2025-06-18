@@ -1,13 +1,23 @@
 ---
-title: Delete a Scheduled Campaign
+title: Delete a Scheduled Campaign with the CloudContactAI API
 excerpt: >-
   In this tutorial, we'll show you how to delete a scheduled campaign. This
   article assumes that you completed steps 1 and 2 of How to use the Public API
 deprecated: false
 hidden: false
 metadata:
-  title: ''
+  title: >-
+    How to delete a scheduled SMS campaign with Postman and CloudContactAI using
+    the API
   description: ''
+  image: >-
+    https://files.readme.io/0721d10ee4e8c114fbcd88c6d5802ea1e56f1eac6d7f89b714448538063dcc47-Group_84_1.png
+  keywords:
+    - api
+    - delete campaign
+    - scheduled campaign
+    - cloudcontactai
+    - api
   robots: index
 next:
   description: ''
