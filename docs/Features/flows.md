@@ -4,8 +4,17 @@ excerpt: ''
 deprecated: false
 hidden: false
 metadata:
-  title: ''
-  description: ''
+  title: SMS and EMail Workflows with CloudContactAI
+  description: SMS and EMail Workflows are supported by CloudContactAI's UI and API
+  image: >-
+    https://files.readme.io/edc575a9cc903999b7552c1bbc07a92c0441d7d1ee32d03d5859958fff744333-Group_84_1.png
+  keywords:
+    - sms
+    - email
+    - workflow
+    - api
+    - ui
+    - cloudcontactai
   robots: index
 next:
   description: ''
