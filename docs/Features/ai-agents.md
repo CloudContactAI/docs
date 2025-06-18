@@ -4,8 +4,18 @@ excerpt: CloudContactAI Semi-Agentic Workflow Solution
 deprecated: false
 hidden: false
 metadata:
-  title: ''
-  description: ''
+  title: Semi-Agentic Workflows with CloudContactAI
+  description: >-
+    CloudContactAI enables Semi-Agentic bots to respond to inbound SMS messages
+    based upon your prompts.
+  image: >-
+    https://files.readme.io/9c34fc90e99b3fe9134e34cb047572df42d878e2ece3792045dd887707fca2f8-CCAI_800x800.png
+  keywords:
+    - ai agents
+    - sms
+    - inbound
+    - respond
+    - cloudcontactai
   robots: index
 next:
   description: ''
