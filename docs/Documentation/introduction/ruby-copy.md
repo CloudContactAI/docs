@@ -1,6 +1,6 @@
 ---
 title: Go
-excerpt: Send SMS or MMS with Go
+excerpt: Send SMS or MMS with the CloudContactAI Go SDK
 deprecated: false
 hidden: false
 metadata:
