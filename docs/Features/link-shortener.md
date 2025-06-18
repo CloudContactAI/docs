@@ -4,9 +4,17 @@ excerpt: ''
 deprecated: false
 hidden: false
 metadata:
-  title: ''
-  description: ''
-  robots: noindex
+  title: Link Shortener with CloudContactAI
+  description: >-
+    CloudContactAI comes equipped with a link shortener to ensure that the URL
+    is small.
+  image: >-
+    https://files.readme.io/4f169c0900005e9ae1899b5d4c64945ce3ae906ff09a45be649ee0d5ff7d0ea1-Group_84_1.png
+  keywords:
+    - link shortener
+    - URL
+    - cloudcontactai
+  robots: index
 next:
   description: ''
 ---
