@@ -4,9 +4,19 @@ excerpt: ''
 deprecated: false
 hidden: false
 metadata:
-  title: ''
-  description: ''
-  robots: noindex
+  title: Importing and Exporting CSV files with CloudContactAI
+  description: >-
+    You can use the CloudContactAI UI to import and export CSV files. If you're
+    looking for more complicated ETL, then please contact support to either make
+    use of our SFTP or API services.
+  image: >-
+    https://files.readme.io/a0c292a7e938fa82bd47987f42bec4a019e15976a03440ad593d3e503ebefbbb-Group_84_1.png
+  keywords:
+    - import csv
+    - export csv
+    - sftp
+    - API
+  robots: index
 next:
   description: ''
 ---
