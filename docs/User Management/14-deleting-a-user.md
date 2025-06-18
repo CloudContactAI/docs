@@ -4,9 +4,14 @@ excerpt: ''
 deprecated: false
 hidden: false
 metadata:
-  title: ''
-  description: ''
-  robots: noindex
+  title: Deleting a user within CloudContactAI
+  description: Deleting a user in CloudContactAI is easy
+  image: >-
+    https://files.readme.io/fa80fdf7fb99c77d4d54c34732823c6f4174164c2e12f8ec4965201cb08a2add-Group_84_1.png
+  keywords:
+    - delete user
+    - cloudcontactai
+  robots: index
 next:
   description: ''
 ---
