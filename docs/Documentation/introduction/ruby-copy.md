@@ -4,6 +4,18 @@ excerpt: Send SMS or MMS with the CloudContactAI Go SDK
 deprecated: false
 hidden: false
 metadata:
+  title: Send emails, SMS, and MMS with Go - CloudContactAI
+  description: >-
+    Learn how to send your first email, SMS, and MMS using the CloudContactAI Go
+    SDK
+  image: >-
+    https://files.readme.io/6d6b3f6f85975b1c8fa771a87c77534740fc9ff180908b7e7ea32ab89154336a-Group_14.png
+  keywords:
+    - email
+    - sms
+    - mms
+    - go
+    - api
   robots: index
 ---
 Learn how to send your first SMS or MMS using the CCAI Go SDK
