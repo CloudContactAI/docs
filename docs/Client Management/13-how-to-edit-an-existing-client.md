@@ -4,9 +4,15 @@ excerpt: ''
 deprecated: false
 hidden: false
 metadata:
-  title: ''
-  description: ''
-  robots: noindex
+  title: Edit an Existing Client with CloudContactAI
+  description: >-
+    Editing a client within CloudContactAI is easy. You can assign a new phone
+    number or email address in minutes
+  image: >-
+    https://files.readme.io/b350609f8cc53b2de4bf8ba9c23f33f92ef9090931474522b6f58a2332f42b70-Group_84_1.png
+  keywords:
+    - editing a client
+  robots: index
 next:
   description: ''
 ---
