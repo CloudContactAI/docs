@@ -16,7 +16,7 @@ metadata:
     - email
     - sms
     - api
-  robots: noindex
+  robots: index
 next:
   description: ''
 ---
