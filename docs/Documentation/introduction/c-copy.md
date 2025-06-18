@@ -1,12 +1,12 @@
 ---
-title: C# (COPY)
-excerpt: Send SMS with C#
+title: Ruby
+excerpt: Send SMS or MMS with Ruby
 deprecated: false
 hidden: false
 metadata:
   robots: index
 ---
-Learn how to send your first SMS using the CCAI C# SDK
+Learn how to send your first SMS or MMS using the CCAI Ruby SDK
 
 ## Prerequisites
 
@@ -21,64 +21,112 @@ To get the most out of this guide, you'll need to:
 
 ## 1. Install
 
-Get the CCAI C# SDK
+Get the CCAI Ruby SDK.
+
+**Requirements:** Ruby 2.6 or higher
 
 ```text
-dotnet add package CloudContactAI.CCAI.NET
+gem install ccai
 ```
+
+Or add your Gemfile:
+
+```ruby
+gem 'ccai'
+```
+
+<br />
 
 ## 2. Send SMS message
 
-```csharp
-using CCAI.NET;
-using CCAI.NET.SMS;
+```ruby
+require 'ccai'
 
-// Initialize the client
-var config = new CCAIConfig
-{
-    ClientId = "YOUR-CLIENT-ID",
-    ApiKey = "YOUR-API-KEY"
-};
+# Initialize the client
+client = CCAI.new(
+  client_id: 'YOUR-CLIENT-ID',
+  api_key: 'YOUR-API-KEY'
+)
 
-using var ccai = new CCAIClient(config);
+# Send a single SMS
+response = client.sms.send_single(
+  'John',
+  'Doe',
+  '+15551234567',
+  'Hello ${firstName}, this is a test message!',
+  'Test Campaign'
+)
 
-// Send a single SMS
-var response = await ccai.SMS.SendSingleAsync(
-    firstName: "John",
-    lastName: "Doe",
-    phone: "+15551234567",
-    message: "Hello ${FirstName}, this is a test message!",
-    title: "Test Campaign"
-);
+puts "Message sent with ID: #{response.id}"
 
-Console.WriteLine($"Message sent with ID: {response.Id}");
+# Send to multiple recipients
+accounts = [
+  CCAI::SMS::Account.new(
+    first_name: 'John',
+    last_name: 'Doe',
+    phone: '+15551234567'
+  ),
+  CCAI::SMS::Account.new(
+    first_name: 'Jane',
+    last_name: 'Smith',
+    phone: '+15559876543'
+  )
+]
 
-// Send to multiple recipients
-var accounts = new List<Account>
-{
-    new Account
-    {
-        FirstName = "John",
-        LastName = "Doe",
-        Phone = "+15551234567"
-    },
-    new Account
-    {
-        FirstName = "Jane",
-        LastName = "Smith",
-        Phone = "+15559876543"
-    }
-};
+campaign_response = client.sms.send(
+  accounts,
+  'Hello ${firstName} ${lastName}, this is a test message!',
+  'Bulk Test Campaign'
+)
 
-var campaignResponse = await ccai.SMS.SendAsync(
-    accounts: accounts,
-    message: "Hello ${FirstName} ${LastName}, this is a test message!",
-    title: "Bulk Test Campaign"
-);
-
-Console.WriteLine($"Campaign sent with ID: {campaignResponse.CampaignId}");
+puts "Campaign sent with ID: #{campaign_response.campaign_id}"
 ```
 
-## 3. Try it yourself
+<br />
 
-See the full source code [here](https://github.com/CloudContactAI/CCAI.NET).
+## 3. Send MMS message
+
+```ruby
+require 'ccai'
+
+# Initialize the client
+client = CCAI.new(
+  client_id: 'YOUR-CLIENT-ID',
+  api_key: 'YOUR-API-KEY'
+)
+
+# Define progress tracking
+options = CCAI::SMS::Options.new(
+  timeout: 60,
+  on_progress: ->(status) {
+    puts "Progress: #{status}"
+  }
+)
+
+# Complete MMS workflow (get URL, upload image, send MMS)
+image_path = 'path/to/your/image.jpg'
+content_type = 'image/jpeg'
+
+# Define recipient
+account = CCAI::SMS::Account.new(
+  first_name: 'John',
+  last_name: 'Doe',
+  phone: '+15551234567'  # Use E.164 format
+)
+
+# Send MMS with image in one step
+response = client.mms.send_with_image(
+  image_path,
+  content_type,
+  [account],
+  'Hello ${firstName}, check out this image!',
+  'MMS Campaign Example',
+  options
+)
+
+puts "MMS sent! Campaign ID: #{response.campaign_id}"
+```
+
+## 4. Try it yourself
+
+See the full source code [here](https://github.com/CloudContactAI/ccai-ruby).
