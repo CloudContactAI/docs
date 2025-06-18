@@ -1,12 +1,12 @@
 ---
-title: Ruby (COPY)
-excerpt: Send SMS or MMS with Ruby
+title: Go
+excerpt: Send SMS or MMS with Go
 deprecated: false
 hidden: false
 metadata:
   robots: index
 ---
-Learn how to send your first SMS or MMS using the CCAI Ruby SDK
+Learn how to send your first SMS or MMS using the CCAI Go SDK
 
 ## Prerequisites
 
@@ -21,112 +21,140 @@ To get the most out of this guide, you'll need to:
 
 ## 1. Install
 
-Get the CCAI Ruby SDK.
-
-**Requirements:** Ruby 2.6 or higher
+Get the CCAI Go SDK.
 
 ```text
-gem install ccai
+go get github.com/cloudcontactai/ccai-go
 ```
-
-Or add your Gemfile:
-
-```ruby
-gem 'ccai'
-```
-
-<br />
 
 ## 2. Send SMS message
 
-```ruby
-require 'ccai'
+```go
+package main
 
-# Initialize the client
-client = CCAI.new(
-  client_id: 'YOUR-CLIENT-ID',
-  api_key: 'YOUR-API-KEY'
+import (
+	"fmt"
+	"log"
+
+	"github.com/cloudcontactai/ccai-go/pkg/ccai"
+	"github.com/cloudcontactai/ccai-go/pkg/sms"
 )
 
-# Send a single SMS
-response = client.sms.send_single(
-  'John',
-  'Doe',
-  '+15551234567',
-  'Hello ${firstName}, this is a test message!',
-  'Test Campaign'
-)
+func main() {
+	// Initialize the client
+	client, err := ccai.NewClient(ccai.Config{
+		ClientID: "YOUR-CLIENT-ID",
+		APIKey:   "YOUR-API-KEY",
+	})
+	if err != nil {
+		log.Fatalf("Failed to create CCAI client: %v", err)
+	}
 
-puts "Message sent with ID: #{response.id}"
+	// Send a single SMS
+	response, err := client.SMS.SendSingle(
+		"John",
+		"Doe",
+		"+15551234567",
+		"Hello ${firstName}, this is a test message!",
+		"Test Campaign",
+		nil,
+	)
+	if err != nil {
+		log.Fatalf("Failed to send SMS: %v", err)
+	}
 
-# Send to multiple recipients
-accounts = [
-  CCAI::SMS::Account.new(
-    first_name: 'John',
-    last_name: 'Doe',
-    phone: '+15551234567'
-  ),
-  CCAI::SMS::Account.new(
-    first_name: 'Jane',
-    last_name: 'Smith',
-    phone: '+15559876543'
-  )
-]
+	fmt.Printf("Message sent with ID: %s\n", response.ID)
 
-campaign_response = client.sms.send(
-  accounts,
-  'Hello ${firstName} ${lastName}, this is a test message!',
-  'Bulk Test Campaign'
-)
+	// Send to multiple recipients
+	accounts := []sms.Account{
+		{
+			FirstName: "John",
+			LastName:  "Doe",
+			Phone:     "+15551234567",
+		},
+		{
+			FirstName: "Jane",
+			LastName:  "Smith",
+			Phone:     "+15559876543",
+		},
+	}
 
-puts "Campaign sent with ID: #{campaign_response.campaign_id}"
+	campaignResponse, err := client.SMS.Send(
+		accounts,
+		"Hello ${firstName} ${lastName}, this is a test message!",
+		"Bulk Test Campaign",
+		nil,
+	)
+	if err != nil {
+		log.Fatalf("Failed to send bulk SMS: %v", err)
+	}
+
+	fmt.Printf("Campaign sent with ID: %s\n", campaignResponse.CampaignID)
+}
 ```
 
 <br />
 
 ## 3. Send MMS message
 
-```ruby
-require 'ccai'
+```go
+package main
 
-# Initialize the client
-client = CCAI.new(
-  client_id: 'YOUR-CLIENT-ID',
-  api_key: 'YOUR-API-KEY'
+import (
+	"fmt"
+	"log"
+
+	"github.com/cloudcontactai/ccai-go/pkg/ccai"
+	"github.com/cloudcontactai/ccai-go/pkg/sms"
 )
 
-# Define progress tracking
-options = CCAI::SMS::Options.new(
-  timeout: 60,
-  on_progress: ->(status) {
-    puts "Progress: #{status}"
-  }
-)
+func main() {
+	// Initialize the client
+	client, err := ccai.NewClient(ccai.Config{
+		ClientID: "YOUR-CLIENT-ID",
+		APIKey:   "YOUR-API-KEY",
+	})
+	if err != nil {
+		log.Fatalf("Failed to create CCAI client: %v", err)
+	}
 
-# Complete MMS workflow (get URL, upload image, send MMS)
-image_path = 'path/to/your/image.jpg'
-content_type = 'image/jpeg'
+	// Define progress tracking
+	options := &sms.Options{
+		Timeout: 60,
+		OnProgress: func(status string) {
+			fmt.Printf("Progress: %s\n", status)
+		},
+	}
 
-# Define recipient
-account = CCAI::SMS::Account.new(
-  first_name: 'John',
-  last_name: 'Doe',
-  phone: '+15551234567'  # Use E.164 format
-)
+	// Complete MMS workflow (get URL, upload image, send MMS)
+	imagePath := "path/to/your/image.jpg"
+	contentType := "image/jpeg"
 
-# Send MMS with image in one step
-response = client.mms.send_with_image(
-  image_path,
-  content_type,
-  [account],
-  'Hello ${firstName}, check out this image!',
-  'MMS Campaign Example',
-  options
-)
+	// Define recipient
+	account := sms.Account{
+		FirstName: "John",
+		LastName:  "Doe",
+		Phone:     "+15551234567",  // Use E.164 format
+	}
 
-puts "MMS sent! Campaign ID: #{response.campaign_id}"
+	// Send MMS with image in one step
+	response, err := client.MMS.SendWithImage(
+		imagePath,
+		contentType,
+		[]sms.Account{account},
+		"Hello ${firstName}, check out this image!",
+		"MMS Campaign Example",
+		options,
+		true,
+	)
+	if err != nil {
+		log.Fatalf("Error sending MMS: %v", err)
+	}
+
+	fmt.Printf("MMS sent! Campaign ID: %s\n", response.CampaignID)
+}
 ```
 
 ## 4. Try it yourself
 
-See the full source code [here](https://github.com/CloudContactAI/ccai-ruby).
+See the full source code [here](https://github.com/CloudContactAI/ccai-go).
