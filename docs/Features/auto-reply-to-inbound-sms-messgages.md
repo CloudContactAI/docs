@@ -6,8 +6,14 @@ excerpt: >-
 deprecated: false
 hidden: false
 metadata:
-  title: ''
+  title: Auto-Reply to Inbound SMS Messages without an Agent
   description: ''
+  image: >-
+    https://files.readme.io/bad0be854d50f33df558cf713c25155af9af61686194006adbe487e1ad19d188-Group_14.png
+  keywords:
+    - auto-reply
+    - sms inbound
+    - cloudcontactai
   robots: index
 next:
   description: ''
