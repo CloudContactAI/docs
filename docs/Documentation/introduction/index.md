@@ -18,4 +18,8 @@ Learn how to get CloudContactAI setup in your project
   <Card title="PHP" href="https://developer.cloudcontactai.com/docs/php#/" icon="fa-brands fa-php" />
 
   <Card title="C#" href="https://developer.cloudcontactai.com/docs/c#/" icon="fa-brands fa-csharp" />
+
+  <Card title="Ruby" href="https://developer.cloudcontactai.com/docs/ruby#/" icon="fa-brands fa-ruby" />
+
+  <Card title="Go" href="https://developer.cloudcontactai.com/docs/go#/" icon="fa-brands fa-go" />
 </Cards>
