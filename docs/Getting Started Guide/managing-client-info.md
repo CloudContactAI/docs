@@ -4,8 +4,17 @@ excerpt: ''
 deprecated: false
 hidden: false
 metadata:
-  title: ''
-  description: ''
+  title: Manage Contact Information in CloudContactAI
+  description: >-
+    Managing contact info with CloudContactAI is simple and easy. You can also
+    manage contact info through the API
+  image: >-
+    https://files.readme.io/15fa5940e35d43ddd21ce020b65526b64bbb78267b3126933abfaf42374e559c-Group_14.png
+  keywords:
+    - contact
+    - manage
+    - ui
+    - api
   robots: index
 next:
   description: ''
