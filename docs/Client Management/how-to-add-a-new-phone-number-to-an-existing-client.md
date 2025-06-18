@@ -1,5 +1,5 @@
 ---
-title: 1.4 How to Add a New Phone Number to an Existing Client
+title: How to Add a New Phone Number to an Existing Client
 excerpt: ''
 deprecated: false
 hidden: false
