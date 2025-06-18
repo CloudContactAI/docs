@@ -4,9 +4,15 @@ excerpt: ''
 deprecated: false
 hidden: false
 metadata:
-  title: ''
-  description: ''
-  robots: noindex
+  title: Support for Opt-In Messages in CloudContactAI
+  description: Users can opt-in to receiving SMS messages with CloudContactAI
+  image: >-
+    https://files.readme.io/31b14c023c0244a8937bfbe1164de391727d41eb2baa29a364f7f0cf928f0d18-Group_84_1.png
+  keywords:
+    - opt-in
+    - sms
+    - cloudcontactai
+  robots: index
 next:
   description: ''
 ---
