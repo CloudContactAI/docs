@@ -1,12 +1,20 @@
 ---
-title: Delivery Details
+title: SMS Delivery Details
 excerpt: ''
 deprecated: false
 hidden: false
 metadata:
-  title: ''
-  description: ''
-  robots: noindex
+  title: SMS Deliverability with CloudContactAI
+  description: >-
+    SMS Deliverability is tricky. CloudContactAI enables you to get a better
+    understanding of your deliverability rates by keep track of this fo ryou.
+  image: >-
+    https://files.readme.io/8a01c53f7cb0120f76f58003a1fcfd0bbe5c079fd75f9f8ac304743a69318190-Group_84_1.png
+  keywords:
+    - sms deliverability
+    - cloudcontactai
+    - delivery
+  robots: index
 next:
   description: ''
 ---
