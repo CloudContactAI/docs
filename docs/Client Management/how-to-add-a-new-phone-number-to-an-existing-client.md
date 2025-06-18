@@ -4,9 +4,17 @@ excerpt: ''
 deprecated: false
 hidden: false
 metadata:
-  title: ''
-  description: ''
-  robots: noindex
+  title: Add a New Phone Number to your CloudContactAI Client
+  description: >-
+    Adding a new phone number to your CloudContactAI client is easy. You can
+    assign a different area or country code
+  image: >-
+    https://files.readme.io/042d898bd17b80e0dfb8dbeed74f3c9e5173865963b2bb08953fd678118e39e8-Group_14.png
+  keywords:
+    - add phone number
+    - area code
+    - country code
+  robots: index
 next:
   description: ''
 ---
