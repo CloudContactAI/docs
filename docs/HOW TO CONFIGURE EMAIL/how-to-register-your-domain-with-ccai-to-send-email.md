@@ -8,8 +8,12 @@ hidden: false
 metadata:
   title: ''
   description: ''
+  image: >-
+    https://files.readme.io/ba5ee28dfce9ec7d3017eda238a017629112b99e9a8b0f0eb587a5ce42009399-Group_84_1.png
   keywords:
     - register your domain
+    - email deliverability
+    - cloudcontactai
   robots: index
 next:
   description: ''
