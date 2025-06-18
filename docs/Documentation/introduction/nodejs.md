@@ -4,6 +4,18 @@ excerpt: Send SMS with Node.js
 deprecated: false
 hidden: false
 metadata:
+  title: Send emails, SMS, and MMS with Node.js - CloudContactAI
+  description: >-
+    Learn how to send your first email, SMS, and MMS using the CloudContactAI
+    Node.js SDK
+  image: >-
+    https://files.readme.io/d0e3164cc01be24b9f6edfc8d999466a442c65fe9f98f999cc7e2b997cb9f88e-Group_14.png
+  keywords:
+    - email
+    - sms
+    - mms
+    - node.js
+    - api
   robots: index
 ---
 Learn how to send your first SMS using the CCAI Node.js SDK
