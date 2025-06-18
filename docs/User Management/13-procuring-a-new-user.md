@@ -4,8 +4,13 @@ excerpt: ''
 deprecated: false
 hidden: false
 metadata:
-  title: ''
-  description: ''
+  title: Adding and Removing Users to CloudContactAI
+  description: You can add or remove new users to your CloudContactAI account easily
+  image: >-
+    https://files.readme.io/097c5ed1675fe5c77b39edbb3aaf9a366c7ef6700ca9f0e9ac80c04242c6f8ac-Group_14.png
+  keywords:
+    - user management
+    - cloudcontactai
   robots: index
 next:
   description: ''
