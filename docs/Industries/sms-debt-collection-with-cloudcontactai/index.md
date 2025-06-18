@@ -5,8 +5,17 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: >-
+    Debt Collection with CloudContactAI is quick and easy. Simple upload the
+    account information and the amount do an CloudContactAI will render a
+    payment portal for your end users
+  image: >-
+    https://files.readme.io/c75c70e1ea62f8f8904742dc062e1a9a49baba4447099049d281af992764c387-Group_84_1.png
+  keywords:
+    - debt collection
+    - cloudcontactai
+    - payment portal
+  robots: index
 next:
   description: ''
 ---
