@@ -1,12 +1,21 @@
 ---
-title: 1.1 Abstract of Clients
-excerpt: ''
+title: Managing Clients with CloudContactAI
+excerpt: The CloudContactAI Client model enables Agencies to manage multiple clients
 deprecated: false
 hidden: false
 metadata:
-  title: ''
-  description: ''
-  robots: noindex
+  title: 'Manage Clients withing CloudContactAI '
+  description: >-
+    The client framework within CloudContactAI enables Agencies to manage their
+    clients.
+  image: >-
+    https://files.readme.io/284889c60f2afe6bcf70a7a2810e6c42e3805c366d114c82f2a37c9518d57d6c-Group_84_1.png
+  keywords:
+    - agency
+    - client
+    - manage tenants
+    - cloudcontactai
+  robots: index
 next:
   description: ''
 ---
