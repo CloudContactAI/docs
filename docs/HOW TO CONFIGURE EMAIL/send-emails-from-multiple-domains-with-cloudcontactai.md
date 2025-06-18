@@ -8,6 +8,12 @@ hidden: false
 metadata:
   title: ''
   description: ''
+  image: >-
+    https://files.readme.io/3285d374332cba32317c0b62153bd409f48476b1c2aea4f8991d82723e3ba607-Group_84_1.png
+  keywords:
+    - multiple domains
+    - emails
+    - send email campaigns
   robots: index
 next:
   description: ''
