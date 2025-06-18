@@ -4,9 +4,20 @@ excerpt: ''
 deprecated: false
 hidden: false
 metadata:
-  title: ''
-  description: ''
-  robots: noindex
+  title: Adding Contacts to your CloudContactAI account
+  description: >-
+    Import contacts into your CloudContactAI account using the file upload,
+    SFTP, or the API
+  image: >-
+    https://files.readme.io/73d3dc6ba45362469e97b734c5057f3c54d14ff97b5fe1873e99705cdc549bbc-Group_14.png
+  keywords:
+    - sftp
+    - file upload
+    - api
+    - sms
+    - email
+    - mms
+  robots: index
 next:
   description: ''
 ---
