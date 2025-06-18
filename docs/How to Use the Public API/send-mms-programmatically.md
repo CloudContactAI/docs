@@ -8,6 +8,8 @@ hidden: false
 metadata:
   title: ''
   description: ''
+  image: >-
+    https://files.readme.io/6f8751af4861482eccac691679f7215e312bdc8f582cd54fa4bf98b371ebfe7b-Group_84_1.png
   robots: index
 next:
   description: ''
