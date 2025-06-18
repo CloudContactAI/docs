@@ -4,8 +4,18 @@ excerpt: ''
 deprecated: false
 hidden: false
 metadata:
-  title: ''
-  description: ''
+  title: QuickStart for using the CloudContactAI API
+  description: >-
+    Create your API Key and grab your Client ID to start using the
+    CloudContactAI API in your code
+  image: >-
+    https://files.readme.io/89ad69052cb6620b245422b906035da9e855caa9c134ac674df60d0e01d8084f-Group_14.png
+  keywords:
+    - sms
+    - email
+    - mms
+    - api
+    - developer
   robots: index
 next:
   description: ''
