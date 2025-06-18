@@ -4,9 +4,20 @@ excerpt: ''
 deprecated: false
 hidden: false
 metadata:
-  title: ''
-  description: ''
-  robots: noindex
+  title: Sending and Receiving SMS Messages in CloudContactAI
+  description: >-
+    Sending and Receiving SMS Messages in CloudContactAI is easy. You can use
+    our campaign mechanism to send out SMS messages. Responses will be routed to
+    your inbox
+  image: >-
+    https://files.readme.io/c301fe065d430b5616f1a3dd0a505cb62ab5f5108d5a4ecdee4e7190d5db49c0-Group_14.png
+  keywords:
+    - send
+    - receive
+    - sms
+    - reporting
+    - inbox
+  robots: index
 next:
   description: ''
 ---
