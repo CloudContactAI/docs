@@ -4,9 +4,17 @@ excerpt: ''
 deprecated: false
 hidden: false
 metadata:
-  title: ''
-  description: ''
-  robots: noindex
+  title: Error Codes with CloudContactAI
+  description: >-
+    CloudContactAI renders error codes from the platform and the carriers when
+    rendering why a SMS message did not get sent.
+  image: >-
+    https://files.readme.io/497444768448e8ab31257da8a14c52449c45fdb64376adf3e66ada708f59b874-CCAI_800x800.png
+  keywords:
+    - error codes
+    - sms messages
+    - cloudcontactai
+  robots: index
 next:
   description: ''
 ---
