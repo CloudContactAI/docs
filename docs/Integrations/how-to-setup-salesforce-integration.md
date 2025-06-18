@@ -7,8 +7,13 @@ excerpt: >-
 deprecated: false
 hidden: false
 metadata:
-  title: ''
+  title: 'CloudContactAI''s Salesforce Integration '
   description: ''
+  image: >-
+    https://files.readme.io/8d71e8d9fe5dfd515b6fd19b640d0f82f7b7b0b7dae5f04c65ec72ddddc89e28-CCAI_800x800.png
+  keywords:
+    - salesforce
+    - cloudcontactai
   robots: index
 next:
   description: ''
