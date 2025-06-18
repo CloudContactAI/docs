@@ -4,8 +4,19 @@ excerpt: ''
 deprecated: false
 hidden: false
 metadata:
-  title: ''
-  description: ''
+  title: Hubspot Integration with CloudContactAI
+  description: >-
+    CloudContactAI offers a sophisticated integration with Hubspot, which
+    enables HubSpot workflows to trigger SMS or Email messages within
+    CloudContactAI
+  image: >-
+    https://files.readme.io/f26bf169b241ce787958c5402ccfb74f02fe2528327330797bb8d9cb66360151-Group_84_1.png
+  keywords:
+    - hubspot
+    - integration
+    - email
+    - sms
+    - cloudcontactai
   robots: index
 next:
   description: ''
