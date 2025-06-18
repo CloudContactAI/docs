@@ -4,9 +4,16 @@ excerpt: ''
 deprecated: false
 hidden: false
 metadata:
-  title: ''
-  description: ''
-  robots: noindex
+  title: SMS Templates for CloudContactAI
+  description: >-
+    CloudContactAI has pre-defined SMS templates. You can also create user
+    generated templates for your CloudContactAI users to make use of.
+  image: >-
+    https://files.readme.io/8e0bb9001f59540b1b813c5bdd03d0b52fca69fbc22057b7a0431f0a1c79c4f7-Group_14.png
+  keywords:
+    - sms templates
+    - cloudcontactai
+  robots: index
 next:
   description: ''
 ---
