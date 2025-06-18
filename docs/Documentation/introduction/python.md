@@ -4,6 +4,18 @@ excerpt: Send SMS with Python
 deprecated: false
 hidden: false
 metadata:
+  title: Send emails, SMS, and MMS with Python - CloudContactAI
+  description: >-
+    Learn how to send your first email, SMS, and MMS using the CloudContactAI
+    Python SDK
+  image: >-
+    https://files.readme.io/ca2fb6972a15bc44e0b15a63fc2636c6425ccb123c26a22213dec5f627006a72-Group_14.png
+  keywords:
+    - email
+    - sms
+    - mms
+    - python
+    - api
   robots: index
 ---
 Learn how to send your first SMS using the CCAI Python SDK
