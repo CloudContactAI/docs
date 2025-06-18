@@ -4,9 +4,17 @@ excerpt: ''
 deprecated: false
 hidden: false
 metadata:
-  title: ''
-  description: ''
-  robots: noindex
+  title: Opt-Out of receiving messages with CloudContactAI
+  description: >-
+    Users can opt-out of receiving messages from CloudContactAI to stop
+    receiving messages.
+  image: >-
+    https://files.readme.io/a25aabebb0bdcf7849c308c47afeff466f34c3e896633b6855aa8d579c209423-Group_14.png
+  keywords:
+    - opt-out
+    - sms
+    - cloudcontactai
+  robots: index
 next:
   description: ''
 ---
