@@ -1,5 +1,5 @@
 ---
-title: 1.1 Abstract of Users
+title: Managing Users
 excerpt: ''
 deprecated: false
 hidden: false
