@@ -23,7 +23,7 @@ To get the most out of this guide, you'll need to:
 
 Get the CCAI Python SDK
 
-```node
+```text text
 pip install ccai-python
 ```
 
