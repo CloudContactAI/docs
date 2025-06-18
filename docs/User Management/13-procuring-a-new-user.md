@@ -1,5 +1,5 @@
 ---
-title: 1.3 Adding or Removing a User
+title: Adding or Removing a User in CloudContactAI
 excerpt: ''
 deprecated: false
 hidden: false
