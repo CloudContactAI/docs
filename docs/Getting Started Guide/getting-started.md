@@ -6,8 +6,16 @@ excerpt: >-
 deprecated: false
 hidden: false
 metadata:
-  title: ''
-  description: ''
+  title: Quickstart with CloudContactAI
+  description: >-
+    How to use the CloudContactAI to get sending emails and SMS messages in
+    minutes.
+  image: >-
+    https://files.readme.io/25f246c82ca730ffcb9b35c64323e936119d314ca4dacf7031b43ed912c72333-Group_14.png
+  keywords:
+    - email
+    - sms
+    - api
   robots: noindex
 next:
   description: ''
