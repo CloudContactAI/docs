@@ -1,5 +1,5 @@
 ---
-title: 1.3 How to Edit an Existing Client
+title: How to Edit an Existing Client in CloudContactAI
 excerpt: ''
 deprecated: false
 hidden: false
