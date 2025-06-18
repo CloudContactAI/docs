@@ -4,9 +4,18 @@ excerpt: ''
 deprecated: false
 hidden: false
 metadata:
-  title: ''
-  description: ''
-  robots: noindex
+  title: Managing Users within CloudContactAI
+  description: >-
+    CloudContactAI supports three different user roles: Admin, Client Admin, and
+    User. 
+  image: >-
+    https://files.readme.io/cc6e1646f7af5328123fc7336bcceec2c19acef12e6deb1271b30493979389e7-CCAI_800x800.png
+  keywords:
+    - user roles
+    - admin
+    - client admin
+    - user
+  robots: index
 next:
   description: ''
 ---
