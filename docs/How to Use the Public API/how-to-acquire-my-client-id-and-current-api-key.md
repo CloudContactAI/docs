@@ -8,6 +8,14 @@ hidden: false
 metadata:
   title: ''
   description: ''
+  image: >-
+    https://files.readme.io/7108053286db387042f6fe16578e87a3718289bf692caae2fea0d4954fba67a4-CCAI_800x800.png
+  keywords:
+    - api key
+    - developer
+    - cloudcontactai
+    - sms
+    - email
   robots: index
 next:
   description: ''
