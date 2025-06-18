@@ -4,6 +4,18 @@ excerpt: Send SMS with C#
 deprecated: false
 hidden: false
 metadata:
+  title: Send emails, SMS, and MMS with C# - CloudContactAI
+  description: >-
+    Learn how to send your first email, SMS, and MMS using the CloudContactAI C#
+    SDK
+  image: >-
+    https://files.readme.io/a5190d507936a4d6cf838dbf1d065aeacb7db8c29867dfcffb47e319cf32827d-Group_14.png
+  keywords:
+    - email
+    - mms
+    - sms
+    - api
+    - C#
   robots: index
 ---
 Learn how to send your first SMS using the CCAI C# SDK
