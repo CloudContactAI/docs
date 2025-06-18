@@ -1,5 +1,5 @@
 ---
-title: 1.4 Deleting a User
+title: Deleting a User
 excerpt: ''
 deprecated: false
 hidden: false
