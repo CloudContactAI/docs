@@ -4,6 +4,18 @@ excerpt: Send SMS or MMS with PHP
 deprecated: false
 hidden: false
 metadata:
+  title: Send emails, SMS, and MMS with PHP - CloudContactAI
+  description: >-
+    Learn how to send your first email, SMS, and MMS using the CloudContactAI
+    PHP SDK
+  image: >-
+    https://files.readme.io/d1bab7924f7126429ffa5626418d89005171ccfcfc1b375c3fc4454a273bc716-Group_14.png
+  keywords:
+    - email
+    - sms
+    - mms
+    - api
+    - php
   robots: index
 ---
 Learn how to send your first SMS using the CCAI PHP SDK
