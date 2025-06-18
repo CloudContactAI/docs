@@ -4,9 +4,18 @@ excerpt: ''
 deprecated: false
 hidden: false
 metadata:
-  title: ''
-  description: ''
-  robots: noindex
+  title: SMS Message Segments on CloudContactAI
+  description: >-
+    SMS message segments are 160 characters long. CloudContactAI charges by
+    segment. If you send a message that is 350 characters long, you will be
+    charged for 3 segments
+  image: >-
+    https://files.readme.io/7e9ae0fab062cc4ed137850fd02a6e66bbc102422b9f8a9f0a68b11165ff6684-CCAI_800x800.png
+  keywords:
+    - sms message
+    - segment
+    - pricing
+  robots: index
 next:
   description: ''
 ---
