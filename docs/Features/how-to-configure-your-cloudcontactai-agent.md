@@ -5,7 +5,15 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
+  description: >-
+    CloudContactAI supports configuring a Vertical AI Agent to respond to
+    inbound SMS requests.
+  image: >-
+    https://files.readme.io/614fea77369cc8c8b43e3026b405a5d2b383804f643de152f1ff89fc4611549a-Group_84_1.png
+  keywords:
+    - vertical AI agent
+    - SMS inbound
+    - cloudcontactai
   robots: index
 next:
   description: ''
