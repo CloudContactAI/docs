@@ -3,7 +3,10 @@ title: (06-10-25) Release Notes
 deprecated: false
 hidden: false
 metadata:
-  title: (06-11-25) Release Notes
+  title: CloudContactAI (06-11-25) Release Notes
+  description: Jira tickets that were in CloudContactAI (6-11-25) Release
+  image: >-
+    https://files.readme.io/5d39275576e47cd0870e78ee42c1429fe9fb7ea66d6b42b12a35cece343eced6-Group_84_1.png
   robots: index
 ---
 | Jira Ticket | Description                                                                                                                                                                                                                                                        |
