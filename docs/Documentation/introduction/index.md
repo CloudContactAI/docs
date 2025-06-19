@@ -16,7 +16,7 @@ metadata:
     - developers
   robots: index
 ---
-QuickStart
+# QuickStart
 
 Learn how to get CloudContactAI setup in your project
 
