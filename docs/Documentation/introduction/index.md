@@ -1,6 +1,6 @@
 ---
 title: Introduction
-excerpt: CloudContactAI provides an SMS, email, and AI API  for Developers
+excerpt: CloudContactAI provides an SMS, email, and AI API  for developers
 deprecated: false
 hidden: false
 metadata:
