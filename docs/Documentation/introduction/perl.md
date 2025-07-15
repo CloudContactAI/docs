@@ -18,7 +18,7 @@ metadata:
     - perl
   robots: index
 ---
-Learn how to send your first SMS using the CCAI PerL SDK
+Learn how to send your first SMS using the CCAI Perl SDK
 
 ## Prerequisites
 
