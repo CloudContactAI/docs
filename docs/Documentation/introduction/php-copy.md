@@ -4,10 +4,10 @@ excerpt: Send SMS or MMS with Perl
 deprecated: false
 hidden: false
 metadata:
-  title: Send emails, SMS, and MMS with PHP - CloudContactAI
+  title: Send emails, SMS, and MMS with Perl - CloudContactAI
   description: >-
     Learn how to send your first email, SMS, and MMS using the CloudContactAI
-    PHP SDK
+    Perl SDK
   image: >-
     https://files.readme.io/d1bab7924f7126429ffa5626418d89005171ccfcfc1b375c3fc4454a273bc716-Group_14.png
   keywords:
@@ -15,7 +15,7 @@ metadata:
     - sms
     - mms
     - api
-    - php
+    - perl
   robots: index
 ---
 Learn how to send your first SMS using the CCAI PerL SDK
