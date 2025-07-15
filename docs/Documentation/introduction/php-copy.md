@@ -1,6 +1,6 @@
 ---
-title: PHP (COPY)
-excerpt: Send SMS or MMS with PHP
+title: Perl
+excerpt: Send SMS or MMS with Perl
 deprecated: false
 hidden: false
 metadata:
