@@ -33,5 +33,5 @@ Learn how to get CloudContactAI setup in your project
 
   <Card title="Go Quickstart" href="https://developer.cloudcontactai.com/docs/go#/" icon="fa-duotone fa-rocket" />
 
-  <Card title="Perl Quickstart" href="https://developer.cloudcontactai.com/docs/perl#/" icon="fa-solid fa-code" />
+  <Card title="Perl Quickstart" href="https://developer.cloudcontactai.com/docs/perl#/" icon="fa-solid fa-terminal" />
 </Cards>
