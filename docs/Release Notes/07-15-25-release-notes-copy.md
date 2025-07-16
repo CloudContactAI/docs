@@ -1,7 +1,7 @@
 ---
-title: (07-15-25) Release Notes (COPY)
+title: (07-16-25) Release Notes
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
