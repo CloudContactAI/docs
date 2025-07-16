@@ -48,6 +48,9 @@ perl verify_ssl.pl
 ## 2. Send SMS message
 
 ```perl
+#Update YOUR-CLIENT-ID and API-KEY-TOKEN in sms_example.pl
+#Update the account object to send messages to a valid phone number. 
+
 use lib '.';
 use CCAI;
 
@@ -98,14 +101,8 @@ if ($single_response->{success}) {
     print "Error: " . $single_response->{error} . "\n";
     }
     
-#Update YOUR-CLIENT-ID and API-KEY-TOKEN in sms_example.sh
 
-# Test with example
-./runs_sms_example.pl
 
-or 
-
-perl -Ilib examples/sms_example.pl
 ```
 
 ## 3. Send MMS Message
