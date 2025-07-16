@@ -55,6 +55,8 @@ You can create a tunnel to your localhost server using a tool like\
 [ngrok](https://ngrok.com/download). For example:
 `https://8733-191-204-177-89.sa.ngrok.io/api/webhooks`
 
+Using ngrok will allow you to create a secure tunnel from the internet to your local machine and provide a public HTTPS URL for webhook testing
+
 <br />
 
 ## 3. Test that your webhook endpoint is working properly
