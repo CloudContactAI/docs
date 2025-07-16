@@ -39,6 +39,18 @@ Get the CCAI Perl SDK
 git clone https://github.com/cloudcontactai/ccai-perl.git
 cd ccai-perl
 cpanm --installdeps .
+
+# Verify SSL configuration
+perl verify_ssl.pl
+
+#Update YOUR-CLIENT-ID and API-KEY-TOKEN in sms_example.sh
+
+# Test with examples
+./runs_sms_example.pl
+
+or 
+
+perl -Ilib examples/sms_example.pl
 ```
 
 ## 2. Send SMS message
