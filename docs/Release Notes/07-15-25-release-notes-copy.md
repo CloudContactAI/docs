@@ -1,17 +1,15 @@
 ---
 title: (07-16-25) Release Notes
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
-| Jira Ticket | Description                                                                                                  |
-| :---------- | :----------------------------------------------------------------------------------------------------------- |
-| CLOUD-2268  | Moved the webhook features to a callback processor microservice.                                             |
-| CLOUD-2304  | New trial accounts need their limits set through admin per account.                                          |
-| CLOUD-2232  | Added option to export billing data from a single tab on the billing page.                                   |
-| CLOUD-2277  | Removed Mongo DB models using on-login or on-signup processes.                                               |
-| CLOUD-2227  | Clicking on a row in the campaign listings will now more generally show the campaign details                 |
-| CLOUD-1985  | The SendMMS campaign API will now return false if an image isn't properly formed.                            |
-| CLOUD-2266  | Added tabs to separate sent campaigns, pending campaigns, and campaigns facing an error.                     |
-| CLOUD-2294  | Trial accounts no longer allowed to use API; changes involving trial duration and other API functions later. |
+| Jira Ticket | Description                                                                                                                                                                                       |
+| :---------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| CLOUD-2268  | Now the callbacks for incoming and out messages will work as intended.                                                                                                                            |
+| CLOUD-2277  | Other non-visible things like we move the config for the questionnaires and the answers for subscriptions out of Mongo into Postgres.                                                             |
+| CLOUD-2270  | Put up the config for a default message for all the incoming messages that is only sent if there is no other key matching the user message and if the message is an opt-out message, like 'stop'. |
+| CLOUD-2111  | Opt-out messages like a stop will now mark the contact as do not text, likewise opt-in messages like a start will remove the do not text mark from that contact.                                  |
+| CLOUD-2266  | Send messages screen will now have tabs for sent, all, error, and pending messages.                                                                                                               |
+| CLOUD-2294  | Trial accounts now can use API keys and their limit can be configure from the account details on the Admin and also their trial date can be configure from the Admin.                             |
