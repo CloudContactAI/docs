@@ -42,6 +42,13 @@ cpanm --installdeps .
 
 # Verify SSL configuration
 perl verify_ssl.pl
+
+#In examples/sms_example.pl
+#Update YOUR-CLIENT-ID and API-KEY-TOKEN 
+#Update the account object to send messages to a valid phone number. 
+
+#After you make changes to examples/sms_example.pl
+./run_sms_example.sh   
 ```
 
 ## 2. Send SMS message
@@ -107,6 +114,10 @@ if ($single_response->{success}) {
 ## 3. Send MMS Message
 
 ```perl
+#Update YOUR-CLIENT-ID and API-KEY-TOKEN in sms_example.pl
+#Update the account object to send messages to a valid phone number. 
+#Update path/to/your/image.jpg to be an actual jpg file
+
 use lib '.';
 use CCAI;
 
