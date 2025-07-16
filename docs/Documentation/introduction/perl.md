@@ -43,14 +43,6 @@ cpanm --installdeps .
 # Verify SSL configuration
 perl verify_ssl.pl
 
-#Update YOUR-CLIENT-ID and API-KEY-TOKEN in sms_example.sh
-
-# Test with examples
-./runs_sms_example.pl
-
-or 
-
-perl -Ilib examples/sms_example.pl
 ```
 
 ## 2. Send SMS message
@@ -104,7 +96,16 @@ if ($single_response->{success}) {
     print "Single SMS sent successfully!\n";
 } else {
     print "Error: " . $single_response->{error} . "\n";
-}
+    }
+    
+#Update YOUR-CLIENT-ID and API-KEY-TOKEN in sms_example.sh
+
+# Test with example
+./runs_sms_example.pl
+
+or 
+
+perl -Ilib examples/sms_example.pl
 ```
 
 ## 3. Send MMS Message
