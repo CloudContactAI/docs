@@ -62,13 +62,13 @@ my $ccai = CCAI->new({
 # Send an SMS to multiple recipients
 my @accounts = (
     {
-        first_name => "John",
-        last_name  => "Doe",
+        firstName => "John",
+        lastName  => "Doe",
         phone      => "+15551234567"
     },
     {
-        first_name => "Jane",
-        last_name  => "Smith", 
+        firstName => "Jane",
+        lastName  => "Smith", 
         phone      => "+15559876543"
     }
 );
@@ -90,7 +90,7 @@ my $single_response = $ccai->sms->send_single(
     "Jane",
     "Smith",
     "+15559876543",
-    "Hi \${first_name}, thanks for your interest!",
+    "Hi \${firstName}, thanks for your interest!",
     "Single Message Test"
 );
 
@@ -136,8 +136,8 @@ sub send_mms_with_image {
     
     # Define recipient
     my @accounts = ({
-        first_name => 'John',
-        last_name  => 'Doe',
+        firstName => 'John',
+        lastName  => 'Doe',
         phone      => '+15551234567'
     });
     
@@ -146,7 +146,7 @@ sub send_mms_with_image {
         $image_path,
         $content_type,
         \@accounts,
-        "Hello \${first_name}, check out this image!",
+        "Hello \${firstName}, check out this image!",
         "MMS Campaign Example",
         $options
     );
