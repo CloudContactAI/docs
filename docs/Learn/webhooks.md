@@ -67,7 +67,7 @@ Send a few test emails to check that your webhook endpoint is receiving the even
 
 ## 4. Deploy your webhook endpoint
 
-After you're done testing, deploy your webhook endpoint to production.
+Once you've tested your webhook listener locally and confirmed it's receiving events correctly, it's time to deploy it to a production environment so it can handle real traffic reliably.
 
 ## 5. Register your production webhook endpoint
 
