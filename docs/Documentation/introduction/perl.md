@@ -42,7 +42,6 @@ cpanm --installdeps .
 
 # Verify SSL configuration
 perl verify_ssl.pl
-
 ```
 
 ## 2. Send SMS message
