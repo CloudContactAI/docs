@@ -9,7 +9,7 @@ metadata:
 
 ## What is a webhook?
 
-CloudContactAI uses webhooks to push real-time notifications to you about your SMS and email sending. All webhooks use HTTPS and deliver a JSON payload that can be used by your application. You can use webhook feeds to do things like:
+A webhook is a way for CloudContactAI to notify your application in real time when specific events occur. Instead of having your app repeatedly check for updates, CloudContactAI sends the data to you automatically as soon as something happens.All webhooks use HTTPS and deliver a JSON payload that can be used by your application. You can use webhook feeds to do things like:
 
 * Receive SMS delivery notifications
 * Receive incoming SMS messages
@@ -57,13 +57,9 @@ You can create a tunnel to your localhost server using a tool like\
 
 Using ngrok will allow you to create a secure tunnel from the internet to your local machine and provide a public HTTPS URL for webhook testing
 
-<br />
-
 ## 3. Test that your webhook endpoint is working properly
 
 Send a few test emails to check that your webhook endpoint is receiving the events.
-
-<img alt="Webhook Events List" src="https://mintlify.s3.us-west-1.amazonaws.com/cloudcontactai/images/dashboard-webhook-events-list.png" />
 
 ## 4. Deploy your webhook endpoint
 
