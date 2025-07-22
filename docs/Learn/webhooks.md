@@ -88,18 +88,6 @@ Each message is attempted based on the following schedule, where each period is 
 
 After the conclusion of the above attempts the message will be marked as failed, and you will get a webhook of type `message.attempt.exhausted` notifying you of this error.
 
-### What IPs do webhooks POST from?
-
-If your server requires an allowlist, our webhooks come from the following IP addresses:
-
-* `44.228.126.217`
-* `50.112.21.217`
-* `52.24.126.164`
-* `54.148.139.208`
-* `2600:1f24:64:8000::/52`
-
 ## Try it yourself
 
-<Card title="Webhook Code Example" icon="arrow-up-right-from-square" href="https://github.com/cloudcontactai/resend-examples/tree/main/with-webhooks">
-  See an example of how to receive webhooks events for CloudContactAI emails.
-</Card>
+Checkout an example implementation here [https://github.com/CloudContactAI/ccai-node/blob/main/src/webhook/webhook.ts](https://github.com/CloudContactAI/ccai-node/blob/main/src/webhook/webhook.ts)
