@@ -51,29 +51,33 @@ This will create a public tunnel to your local webhook server.
 
 If you have not signed up for ngrok, you will need to:
 
-**ERROR:** Sign up for an account: https://dashboard.ngrok.com/signup  
-**ERROR:** Install your authtoken: https://dashboard.ngrok.com/get-started/your-authtoken
+**ERROR:** Sign up for an account: [https://dashboard.ngrok.com/signup](https://dashboard.ngrok.com/signup)\
+**ERROR:** Install your authtoken: [https://dashboard.ngrok.com/get-started/your-authtoken](https://dashboard.ngrok.com/get-started/your-authtoken)
 
 ### Step 5: Get your ngrok URL
 
 ngrok will display something like:
+
 ```
 Forwarding    https://abc123.ngrok.io -> http://localhost:3000
 ```
 
 Copy that `https://abc123.ngrok.io` URL - this is your public webhook URL.
 
-Example: `https://81dbae920589.ngrok-free.app`
+Example: `https://81dbae920588.ngrok-free.app`
 
 ### Step 6: Configure CCAI with your Ngrok URL
 
-1. Log in to your CCAI account 
+1. Log in to your CCAI account
 2. Navigate to the Settings\Integration tab
 3. Specify your ngrok url + '/webhook'
 
 **SMS Callbacks:**
-- Call this URL when an inbound message is received: `https://81dbae920589.ngrok-free.app/webhook`
-- Call this URL after an outbound message has been delivered: `https://81dbae920589.ngrok-free.app/webhook`
+
+* Call this URL when an inbound message is received: `https://81dbae920588.ngrok-free.app/webhook`
+* Call this URL after an outbound message has been delivered: `https://81dbae920588.ngrok-free.app/webhook`
+
+<Image align="center" src="https://files.readme.io/9738d378d124c3eeeaba01ef47e20b07abbf146f9c6717e8b27f644c315e61ea-sms_callbacks.jpg" />
 
 ### Step 7: Send a test SMS to trigger webhook
 
@@ -153,6 +157,7 @@ info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
 ```
 
 This demonstrates a complete webhook testing workflow where:
+
 1. Outbound SMS messages trigger delivery notifications
 2. Inbound SMS responses trigger message received notifications
 3. All webhook events are captured and logged by your local webhook server
