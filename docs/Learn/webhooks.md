@@ -9,85 +9,150 @@ metadata:
 
 ## What is a webhook?
 
-A webhook is a way for CloudContactAI to notify your application in real time when specific events occur. Instead of having your app repeatedly check for updates, CloudContactAI sends the data to you automatically as soon as something happens.All webhooks use HTTPS and deliver a JSON payload that can be used by your application. You can use webhook feeds to do things like:
+A webhook is a way for CloudContactAI to notify your application in real time when specific events occur. Instead of having your app repeatedly check for updates, CloudContactAI sends the data to you automatically as soon as something happens. All webhooks use HTTPS and deliver a JSON payload that can be used by your application. You can use webhook feeds to do things like:
 
-* Receive SMS delivery notifications
-* Receive incoming SMS messages
-* Automatically remove bounced email addresses from mailing lists
-* Create alerts in your messaging or incident tools based on event types
-* Store all send events in your own database for custom reporting/retention
+* Receive outbound SMS delivery notifications
+* Receive incoming SMS message notifications
 
-## Steps to receive webhooks
+## Testing Webhook Installation
 
-You can start receiving real-time events in your app using the steps:
+### Step 1: Install Ngrok
 
-1. Create a local endpoint to receive requests
-2. Register your development webhook endpoint
-3. Test that your webhook endpoint is working properly
-4. Deploy your webhook endpoint to production
-5. Register your production webhook endpoint
-
-## 1) Create a local endpoint to receive requests
-
-In your local application, create a new route that can accept POST requests.
-
-For example, you can add an API route on Next.js:
-
-```js pages/api/webhooks.ts
-import type { NextApiRequest, NextApiResponse } from 'next';
-
-export default (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.method === 'POST') {
-    const payload = req.body;
-    console.log(payload);
-    res.status(200);
-  }
-};
+```bash
+brew install ngrok
 ```
 
-On receiving an event, you should respond with an `HTTP 200 OK` to signal to CloudContactAI that the event was successfully delivered.
+### Step 2: Verify Ngrok
 
-## 2. Register your development webhook endpoint
+```bash
+ngrok version
+```
 
-Register your publicly accessible HTTPS URL in the CloudContactAI dashboard.
+### Step 3: Start the standalone webhook server
 
-You can create a tunnel to your localhost server using a tool like\
-[ngrok](https://ngrok.com/download). For example:
-`https://8733-191-204-177-89.sa.ngrok.io/api/webhooks`
+Open a new terminal window and run:
 
-Using ngrok will allow you to create a secure tunnel from the internet to your local machine and provide a public HTTPS URL for webhook testing
+```bash
+cd /Users/../CCAI.NET/examples/webhook-server
+dotnet run
+```
 
-## 3. Test that your webhook endpoint is working properly
+This will start a webhook server on `http://localhost:3000`
 
-Send a few test emails to check that your webhook endpoint is receiving the events.
+### Step 4: In another terminal, start ngrok
 
-## 4. Deploy your webhook endpoint
+Open another terminal window and run:
 
-Once you've tested your webhook listener locally and confirmed it's receiving events correctly, it's time to deploy it to a production environment so it can handle real traffic reliably.
+```bash
+ngrok http 3000
+```
 
-## 5. Register your production webhook endpoint
+This will create a public tunnel to your local webhook server.
 
-Once your webhook endpoint is deployed to production, you can register it in the CloudContactAI dashboard.
+If you have not signed up for ngrok, you will need to:
 
-## FAQ
+**ERROR:** Sign up for an account: https://dashboard.ngrok.com/signup  
+**ERROR:** Install your authtoken: https://dashboard.ngrok.com/get-started/your-authtoken
 
-### What is the retry schedule?
+### Step 5: Get your ngrok URL
 
-If CloudContactAI does not receive a 200 response from a webhook server, we will retry the webhooks.
+ngrok will display something like:
+```
+Forwarding    https://abc123.ngrok.io -> http://localhost:3000
+```
 
-Each message is attempted based on the following schedule, where each period is started following the failure of the preceding attempt:
+Copy that `https://abc123.ngrok.io` URL - this is your public webhook URL.
 
-* 5 seconds
-* 5 minutes
-* 30 minutes
-* 2 hours
-* 5 hours
-* 10 hours
+Example: `https://81dbae920589.ngrok-free.app`
 
-### What happens after all the retries fail?
+### Step 6: Configure CCAI with your Ngrok URL
 
-After the conclusion of the above attempts the message will be marked as failed, and you will get a webhook of type `message.attempt.exhausted` notifying you of this error.
+1. Log in to your CCAI account 
+2. Navigate to the Settings\Integration tab
+3. Specify your ngrok url + '/webhook'
 
-## Try it yourself
+**SMS Callbacks:**
+- Call this URL when an inbound message is received: `https://81dbae920589.ngrok-free.app/webhook`
+- Call this URL after an outbound message has been delivered: `https://81dbae920589.ngrok-free.app/webhook`
 
-Checkout an example implementation here [https://github.com/CloudContactAI/ccai-node/blob/main/src/webhook/webhook.ts](https://github.com/CloudContactAI/ccai-node/blob/main/src/webhook/webhook.ts)
+### Step 7: Send a test SMS to trigger webhook
+
+```bash
+cd /Users/../CCAI.NET/examples
+dotnet run
+```
+
+### Step 8: The Web server should receive the delivery notification
+
+Press Ctrl+C to stop the server
+
+```
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://localhost:3000
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /Users/joelgarcia/Documents/github/ccai-git/playground/CCAI.NET/examples/webhook-server
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 POST http://81dbae920589.ngrok-free.app/webhook - application/json 175
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'HTTP: POST /webhook'
+Received webhook event at /webhook path!
+Headers:
+  Accept: application/json, application/*+json
+  Host: 81dbae920589.ngrok-free.app
+  User-Agent: Java/14-ea
+  Accept-Encoding: gzip
+  Content-Type: application/json
+  Content-Length: 175
+  X-Forwarded-For: 157.245.236.180
+  X-Forwarded-Host: 81dbae920589.ngrok-free.app
+  X-Forwarded-Proto: https
+Body:
+{"message":"Hello John! We are testing the CCAI SMS functionality with the webhooks","segments":1,"smsSid":141321,"messageStatus":"SENT","totalPrice":0.03,"to":"+1XXXYYYZZZZ"}
+info: Microsoft.AspNetCore.Http.Result.OkObjectResult[1]
+      Setting HTTP status code 200.
+info: Microsoft.AspNetCore.Http.Result.OkObjectResult[3]
+      Writing value of type 'String' as Json.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'HTTP: POST /webhook'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 POST http://81dbae920589.ngrok-free.app/webhook - 200 - application/json;+charset=utf-8 137.6141ms
+```
+
+### Step 9: From your phone, respond to the message
+
+On your mobile phone, respond to the message that was sent to you by CCAI
+
+### Step 10: Web Server should receive the response notification
+
+```
+Received webhook event at /webhook path!
+Headers:
+  Accept: text/plain, application/json, application/*+json, */*
+  Host: 81dbae920589.ngrok-free.app
+  User-Agent: Java/14-ea
+  Accept-Encoding: gzip
+  Content-Type: application/json
+  Content-Length: 204
+  X-Forwarded-For: 157.245.236.180
+  X-Forwarded-Host: 81dbae920589.ngrok-free.app
+  X-Forwarded-Proto: https
+Body:
+{"campaign":{"id":141293,"title":"Default Campaign","message":"","senderPhone":null,"createdAt":"2025-08-13T21:20:50.212623Z","runAt":"null"},"from":"+1XXXYYYZZZZ","to":"+14158735045","message":"Rockin "}
+info: Microsoft.AspNetCore.Http.Result.OkObjectResult[1]
+      Setting HTTP status code 200.
+info: Microsoft.AspNetCore.Http.Result.OkObjectResult[3]
+      Writing value of type 'String' as Json.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'HTTP: POST /webhook'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 POST http://81dbae920589.ngrok-free.app/webhook - 200 - application/json;+charset=utf-8 3.7664ms
+```
+
+This demonstrates a complete webhook testing workflow where:
+1. Outbound SMS messages trigger delivery notifications
+2. Inbound SMS responses trigger message received notifications
+3. All webhook events are captured and logged by your local webhook server
