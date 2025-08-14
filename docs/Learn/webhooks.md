@@ -28,7 +28,7 @@ brew install ngrok
 ngrok version
 ```
 
-### Step 3: Start the standalone webhook server
+### Step 3: Start the standalone webhook server in Terminal 1
 
 Open a new terminal window and run:
 
@@ -39,7 +39,7 @@ dotnet run
 
 This will start a webhook server on `http://localhost:3000`
 
-### Step 4: In another terminal, start ngrok
+### Step 4: In another terminal, start ngrok in Terminal 2
 
 Open another terminal window and run:
 
@@ -79,7 +79,7 @@ Example: `https://81dbae920588.ngrok-free.app`
 
 <Image align="center" src="https://files.readme.io/9738d378d124c3eeeaba01ef47e20b07abbf146f9c6717e8b27f644c315e61ea-sms_callbacks.jpg" />
 
-### Step 7: Send a test SMS to trigger webhook
+### Step 7: Send a test SMS to trigger webhook notification in Terminal 3
 
 ```bash
 cd /Users/../CCAI.NET/examples
@@ -98,9 +98,9 @@ info: Microsoft.Hosting.Lifetime[0]
 info: Microsoft.Hosting.Lifetime[0]
       Hosting environment: Production
 info: Microsoft.Hosting.Lifetime[0]
-      Content root path: /Users/joelgarcia/Documents/github/ccai-git/playground/CCAI.NET/examples/webhook-server
+      Content root path: /Users/../CCAI.NET/examples/webhook-server
 info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
-      Request starting HTTP/1.1 POST http://81dbae920589.ngrok-free.app/webhook - application/json 175
+      Request starting HTTP/1.1 POST http://81dbae920588.ngrok-free.app/webhook - application/json 175
 info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
       Executing endpoint 'HTTP: POST /webhook'
 Received webhook event at /webhook path!
@@ -153,7 +153,7 @@ info: Microsoft.AspNetCore.Http.Result.OkObjectResult[3]
 info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
       Executed endpoint 'HTTP: POST /webhook'
 info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
-      Request finished HTTP/1.1 POST http://81dbae920589.ngrok-free.app/webhook - 200 - application/json;+charset=utf-8 3.7664ms
+      Request finished HTTP/1.1 POST http://81dbae920588.ngrok-free.app/webhook - 200 - application/json;+charset=utf-8 3.7664ms
 ```
 
 This demonstrates a complete webhook testing workflow where:
