@@ -6,6 +6,15 @@ excerpt: >-
 deprecated: false
 hidden: false
 metadata:
+  title: CCAI SMS Webhook Notifications
+  description: How to receive SMS Webhook Notifications in C#
+  image: >-
+    https://files.readme.io/304cbc299350d0a7df08b0aba4e2892f36638df288dff7b486a2cffe87ac855d-sms_callbacks.jpg
+  keywords:
+    - C$
+    - webhook
+    - SMS
+    - notifications
   robots: index
 ---
 > Use webhooks to notify your application about SMS and email events.
