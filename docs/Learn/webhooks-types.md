@@ -19,7 +19,7 @@ Configure your webhook URL in the CloudContact dashboard under **Client Settings
 
 **When it's sent:**
 
-* Message has been delivered to the carrier (Twilio/Telnyx)
+* Message has been delivered to the carrier
 * Occurs for both individual messages and campaign messages
 * Includes pricing and segmentation information
 
@@ -117,7 +117,7 @@ Configure your webhook URL in the CloudContact dashboard under **Client Settings
 
 ### message.error.carrier
 
-**Description:** Triggered when a message fails to be delivered due to carrier-level errors (Twilio, Telnyx, etc.).
+**Description:** Triggered when a message fails to be delivered due to carrier-level errors.
 
 **When it's sent:**
 
