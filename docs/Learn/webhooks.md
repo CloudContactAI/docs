@@ -31,7 +31,7 @@ You can use the CloudContactAI webhook to see the following things about your SM
 * Error Carrier - An outbound message was not delivered to the contact due to a carrier-level error.
 * Error CloudContactAI - An outbound message was not delivered due to an error with CloudContactAI. For example, your account has insufficient balance.
 
-Details on the event types can be found [here](). []()
+Details on the event types can be found [here](https://developer.cloudcontactai.com/docs/webhooks-types#/). []()
 
 ## Testing Webhook Installation
 
