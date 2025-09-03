@@ -1,5 +1,5 @@
 ---
-title: Webhooks Types
+title: Webhook Event Types
 deprecated: false
 hidden: false
 metadata:
