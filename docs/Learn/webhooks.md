@@ -21,10 +21,17 @@ metadata:
 
 ## What is a webhook?
 
-A webhook is a way for CloudContactAI to notify your application in real time when specific events occur. Instead of having your app repeatedly check for updates, CloudContactAI sends the data to you automatically as soon as something happens. All webhooks use HTTPS and deliver a JSON payload that can be used by your application. You can use webhook feeds to do things like:
+A webhook is a way for CloudContactAI to notify your application in real time when specific events occur. Instead of having your app repeatedly check for updates, CloudContactAI sends the data to you automatically as soon as something happens. All webhooks use HTTPS and deliver a JSON payload that can be used by your application. 
 
-* Receive outbound SMS delivery notifications
-* Receive incoming SMS message notifications
+You can use the CloudContactAI webhook to see the following things about your SMS messages:
+
+* Sent - An outbound SMS message is sent successfully to a contact.
+* Incoming - An inbound SMS message is received by a CloudContactAI phone number.
+* Excluded - An outbound SMS message was excluded from being sent. This can take place for a number of different reasons, but the most common is that the user has unsubscribed from your CloudContactAI phone number.
+* Error Carrier - An outbound message was not delivered to the contact due to a carrier-level error.
+* Error CloudContactAI - An outbound message was not delivered due to an error with CloudContactAI. For example, your account has insufficient balance.
+
+Details on the event types can be found [here](). []()
 
 ## Testing Webhook Installation
 
@@ -63,7 +70,7 @@ This will create a public tunnel to your local webhook server.
 
 If you have not signed up for ngrok, you will need to:
 
-**ERROR:** Sign up for an account: [https://dashboard.ngrok.com/signup](https://dashboard.ngrok.com/signup)\
+**ERROR:** Sign up for an account: [https://dashboard.ngrok.com/signup](https://dashboard.ngrok.com/signup)
 **ERROR:** Install your authtoken: [https://dashboard.ngrok.com/get-started/your-authtoken](https://dashboard.ngrok.com/get-started/your-authtoken)
 
 ### Step 5: Get your ngrok URL
@@ -84,12 +91,11 @@ Example: `https://81dbae920588.ngrok-free.app`
 2. Navigate to the Settings\Integration tab
 3. Specify your ngrok url + '/webhook'
 
-**SMS Callbacks:**
+**Webhook URL:**`
 
-* Call this URL when an inbound message is received: `https://81dbae920588.ngrok-free.app/webhook`
-* Call this URL after an outbound message has been delivered: `https://81dbae920588.ngrok-free.app/webhook`
+![](https://files.readme.io/3b812ff9e7fa942aab01445000b247a2eb34d32ce7d7ae2783d79946506f99b5-image.png)
 
-<Image align="center" src="https://files.readme.io/9738d378d124c3eeeaba01ef47e20b07abbf146f9c6717e8b27f644c315e61ea-sms_callbacks.jpg" />
+<br />
 
 ### Step 7: Send a test SMS to trigger webhook notification in Terminal 3
 
