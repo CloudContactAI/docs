@@ -17,7 +17,7 @@ metadata:
     - notifications
   robots: index
 ---
-> Use webhooks to notify your application about SMS and email events.
+> Use the CloudContactAI webhook to notify your application about SMS events.
 
 ## What is a webhook?
 
