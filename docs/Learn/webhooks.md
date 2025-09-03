@@ -1,5 +1,5 @@
 ---
-title: Webhooks
+title: Webhook
 excerpt: >-
   A webhook is a way for CloudContactAI to notify your application in real time
   when specific events occur.
