@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-CloudContact sends webhook notifications to your configured endpoint when specific events occur in your account. All events follow a consistent structure with an `eventType` and `data` object containing event information.
+CloudContactAI sends webhook notifications to your configured endpoint when specific events occur in your account. All events follow a consistent structure with an `eventType` and `data` object containing event information.
 
 ## Webhook Configuration
 
@@ -15,7 +15,7 @@ Configure your webhook URL in the CloudContact dashboard under **Client Settings
 
 ### message.sent
 
-**Description:** Triggered when a message is successfully sent from CloudContact to a recipient.
+**Description:** Triggered when a message is successfully sent from CloudContact to a contact.
 
 **When it's sent:**
 
@@ -47,12 +47,12 @@ Configure your webhook URL in the CloudContact dashboard under **Client Settings
 
 ### message.incoming
 
-**Description:** Triggered when a recipient replies to one of your messages or sends a message to your CloudContact phone number.
+**Description:** Triggered when a recipient replies to one of your messages or sends a message to your CloudContactAI phone number.
 
 **When it's sent:**
 
 * Message received from external phone number
-* Processed through CloudContact's incoming message system
+* Processed through CloudContactAI's incoming message system
 * Contact is not blocked from sending messages
 
 **JSON Example:**
@@ -84,7 +84,7 @@ Configure your webhook URL in the CloudContact dashboard under **Client Settings
 **When it's sent:**
 
 * Contact matches exclusion criteria (duplicate phone, invalid format, etc.)
-* Occurs during campaign processing before messages are sent
+* The exclusion process occurs prior to the processing of the campaign before messages are sent.
 * Helps track why certain contacts didn't receive messages
 
 **JSON Example:**
@@ -117,7 +117,7 @@ Configure your webhook URL in the CloudContact dashboard under **Client Settings
 
 ### message.error.carrier
 
-**Description:** Triggered when a message fails to be delivered due to carrier-level errors.
+**Description:** Triggered when a message fails to be delivered due to carrier specific errors.
 
 **When it's sent:**
 
@@ -157,7 +157,7 @@ Configure your webhook URL in the CloudContact dashboard under **Client Settings
 
 ### message.error.cloudcontact
 
-**Description:** Triggered when a message fails due to internal CloudContact system errors.
+**Description:** Triggered when a message fails due to internal CloudContactAI system errors.
 
 **When it's sent:**
 
