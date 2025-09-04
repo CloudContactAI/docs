@@ -35,6 +35,8 @@ Details on the event types can be found [here](https://developer.cloudcontactai.
 
 ## Testing Webhook Installation
 
+If you're testing the webhook installation, it's best to git clone the repository so you can get access to the examples/webhook-server project.
+
 ### Step 1: Install Ngrok
 
 ```bash
