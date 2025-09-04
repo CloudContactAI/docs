@@ -9,7 +9,7 @@ CloudContactAI sends webhook notifications to your configured endpoint when spec
 
 ## Webhook Configuration
 
-Configure your webhook URL in the CloudContact dashboard under **Client Settings > Webhooks**. All event types will be sent to the same endpoint using the HTTP method you specify (POST or PUT).
+Configure your webhook URL in the CloudContactAI dashboard under **Client Settings > Webhooks**. All event types will be sent to the same endpoint using the HTTP method you specify (POST or PUT).
 
 ## Event Types
 
@@ -19,7 +19,7 @@ Configure your webhook URL in the CloudContact dashboard under **Client Settings
 
 **When it's sent:**
 
-* Message has been delivered to the carrier
+* Message has been sent to the Contact.
 * Occurs for both individual messages and campaign messages
 * Includes pricing and segmentation information
 
