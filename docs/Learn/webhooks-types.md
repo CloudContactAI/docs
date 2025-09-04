@@ -15,7 +15,7 @@ Configure your webhook URL in the CloudContactAI dashboard under **Client Settin
 
 ### message.sent
 
-**Description:** Triggered when a message is successfully sent from CloudContact to a contact.
+**Description:** Triggered when a message is successfully sent from CloudContactAI to a contact.
 
 **When it's sent:**
 
@@ -186,7 +186,7 @@ Configure your webhook URL in the CloudContactAI dashboard under **Client Settin
 }
 ```
 
-**Common CloudContact Error Codes:**
+**Common CloudContactAI Error Codes:**
 
 * `CCAI-001`: Insufficient account balance
 * `CCAI-002`: Account suspended
