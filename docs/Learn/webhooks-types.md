@@ -193,4 +193,42 @@ Configure your webhook URL in the CloudContactAI dashboard under **Client Settin
 * `CCAI-003`: Message quota exceeded
 * `CCAI-004`: Invalid campaign configuration
 
+<br />
+
+<br />
+
+#### contact.unsubscribed
+
+**Description:** Triggered when an incoming message is received with some of this texts (_cancel, end, quit, stop, stopall, unsubscribe_) and the contact will be flagged as "do not text".
+
+#### When it's sent:
+
+* Message received from external phone number with text cancel, stop, etc.
+* Processed through CloudContactAI's incoming message system
+
+#### JSON Example:
+
+```
+{
+    "eventType": "contact.unsubscribed",
+    "data": {
+        "id": 0,
+        "MessageStatus": "DO_NOT_TEXT",
+        "To": "+0987654321",
+        "Message": "STOP",
+        "CustomData": "",
+        "ClientExternalId": "customer_abc123",
+        "CampaignId": 67890,
+        "CampaignTitle": "Lead Generation Campaign",
+        "UnsubscribedAt": "2025-09-25T11:08:14.368388Z",
+        "ContactData": {
+            "firstName": "Jon",
+            "lastName": "Doe",
+            "email": null,
+            "phone": "+0997654321"
+        }
+    }
+}
+```
+
 ***
