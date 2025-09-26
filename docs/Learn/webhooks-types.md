@@ -197,7 +197,7 @@ Configure your webhook URL in the CloudContactAI dashboard under **Client Settin
 
 <br />
 
-#### contact.unsubscribed
+### contact.unsubscribed
 
 **Description:** Triggered when an incoming message is received with some of this texts (_cancel, end, quit, stop, stopall, unsubscribe_) and the contact will be flagged as "do not text".
 
