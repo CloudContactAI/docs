@@ -204,7 +204,8 @@ Configure your webhook URL in the CloudContactAI dashboard under **Client Settin
 #### When it's sent:
 
 * Message received from external phone number with text cancel, stop, etc.
-* Processed through CloudContactAI's incoming message system
+* Contact is flagged as do not text manually
+* AI prompts checking the incoming message and decide to flag as do not text
 
 #### JSON Example:
 
