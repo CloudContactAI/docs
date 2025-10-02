@@ -1,7 +1,7 @@
 ---
 title: Setting Up ACH Bank Payments
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
