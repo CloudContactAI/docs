@@ -1,7 +1,7 @@
 ---
 title: Setting Up ACH Bank Payments
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
@@ -11,7 +11,7 @@ Follow these steps to securely connect your ACH bank account as a payment method
 
 The subject of the emails is “You have been invited to join CCAI.”  In the email, click on the Sign Up button.
 
-<Image align="center" border={false} src="https://files.readme.io/3f7ffa4c04a28e1d8d0457cf34ee9bd06c58008c4fb34a579fa6ff135b1ed116-unnamed.png" />
+<Image align="center" border={false} src="https://files.readme.io/cc0b93d3c9f3bac5e9ac4933f0efa119a67e2b5f8fea2a61ff98c60d68830e1f-3f7ffa4c04a28e1d8d0457cf34ee9bd06c58008c4fb34a579fa6ff135b1ed116-unnamed.png" />
 
 <br />
 
@@ -19,13 +19,13 @@ The subject of the emails is “You have been invited to join CCAI.”  In the e
 
 On the registration page, your email will be pre-populated, please enter your password, first name, and last name. Click on the Register button.
 
-<Image align="center" border={false} src="https://files.readme.io/80023a8636e7f914d27ff175101c0cbb5282f5329657b811263d1b925f1f758c-unnamed.png" />
+<Image align="center" border={false} src="https://files.readme.io/810951391c8a86adb30692f3487593d530085466c14fed1217c4e5e83e346aea-80023a8636e7f914d27ff175101c0cbb5282f5329657b811263d1b925f1f758c-unnamed.png" />
 
 You’ll be prompted for a verification code by CloudContactAI.  Navigate back to your email client.  You’ll find a verification email.  Copy the code and paste it into the verification prompt.
 
 <Image align="center" border={false} src="https://files.readme.io/c51d333c289a08b6345ef5a1f7d3c9e046ce19f75fd32922f5dfb86949b3a2ac-unnamed.png" />
 
-<Image align="center" border={false} src="https://files.readme.io/5029e280d135e0b07c57b44ebd19d00cecafa97227b2790bcbc340f29ec202bb-unnamed_1.png" />
+<Image align="center" border={false} src="https://files.readme.io/bb39aa2c2c45ef0deff19030ecbec8bb8bfdf4cb39a15bcd231a4e6a33eeb5b0-80023a8636e7f914d27ff175101c0cbb5282f5329657b811263d1b925f1f758c-unnamed.png" />
 
 <br />
 
@@ -45,13 +45,13 @@ Navigate to billing. Click on the Payment Tab. You’ll see your existing credit
 
 <Image align="center" border={false} src="https://files.readme.io/5eddc4571a7766b0fc30b69c7cd7e8b36e3347d0368a8bc9dded4e67eb0efb42-unnamed.png" />
 
-<Image align="center" border={false} src="https://files.readme.io/77f48101d1225407be77d681b9d48ab06736731dd586fd947778ce15feec6959-unnamed.png" />
+<Image align="center" border={false} src="https://files.readme.io/b5555c90a9447f30a1452ff857cfb23eff6ccb0885b1c44cfdde74ac59ab2f95-77f48101d1225407be77d681b9d48ab06736731dd586fd947778ce15feec6959-unnamed.png" />
 
-<Image align="center" border={false} src="https://files.readme.io/f396049b0bb631783815c4a93f21ddea4399918b837df47cfcbf45128aa4e695-unnamed_1.png" />
+<Image align="center" border={false} src="https://files.readme.io/43239c9190d3fbdcc44b64fa3630688cd6b0f8dea7e0f882deef2cf7e1b0c736-f396049b0bb631783815c4a93f21ddea4399918b837df47cfcbf45128aa4e695-unnamed.png" />
 
 Fill out the required details and click "Set Up Bank Account".  You will be directed to a bank account configuration screen.  Find your preferred bank and click "Set up bank account" below.
 
-<Image align="center" border={false} src="https://files.readme.io/2883ec525588570a1f9eed4e7db86b717ae93eaefdb58c622fe9bc484a254427-unnamed_1.png" />
+<Image align="center" border={false} src="https://files.readme.io/a4d568d3a166cca4638dc5a5dec76b3535516405d1b5e096aca25d38054e7252-2883ec525588570a1f9eed4e7db86b717ae93eaefdb58c622fe9bc484a254427-unnamed.png" />
 
 Click “Agree and continue”.  A subsequent dialog may popup, click “Continue”.  Login with your bank credentials.  If you own multiple accounts at this bank, specify which account you want to use for financing.  Then click "Connect account".
 
@@ -59,7 +59,7 @@ Click “Agree and continue”.  A subsequent dialog may popup, click “Continu
 
 <Image align="center" border={false} src="https://files.readme.io/540e888117ff0c55e31dab51cb3e891b8deaf4c95426012952b4d65aaa1eb4f5-unnamed.png" />
 
-<Image align="center" border={false} src="https://files.readme.io/411a97489e3d70cc2235f6d76243f277bc7c6361404131b10fc5aed3642ac58f-unnamed.png" />
+<Image align="center" border={false} src="https://files.readme.io/782e745fe0d3117a769711768a497d34b4d3595113b05f8b8a170d4b538205c8-411a97489e3d70cc2235f6d76243f277bc7c6361404131b10fc5aed3642ac58f-unnamed.png" />
 
 If the account connected successfully, the following prompt should look like the following.
 
@@ -67,7 +67,7 @@ If the account connected successfully, the following prompt should look like the
 
 Now click "Back to CloudContactAI" to finalize the connection.  Click on "Set up bank account"
 
-<Image align="center" border={false} src="https://files.readme.io/246510ba80e71e8bf777c7137f266c51aaf0f55d690c4c89fef2ce2ec281201e-unnamed.png" />
+<Image align="center" border={false} src="https://files.readme.io/6c1c7bdff2d08dac8fc727339860c389e237bf252457b41e8dc01c2f11de5c37-246510ba80e71e8bf777c7137f266c51aaf0f55d690c4c89fef2ce2ec281201e-unnamed.png" />
 
 Back on CloudContactAI, you'll see one last popup to verify the payment went through.  Upon clicking "Continue", you will be redirected back to the Dashboard.
 
@@ -81,6 +81,6 @@ Back on CloudContactAI, you'll see one last popup to verify the payment went thr
 
 For safe measure, navigate back to billing.  You should see the bank account as your main payment method.
 
-<Image align="center" border={false} src="https://files.readme.io/f6de156201de399c10e0921b102172851418d237d202a6ae94f95d31ef271631-unnamed_3.png" />
+<Image align="center" border={false} src="https://files.readme.io/1ae5dea9e937925ba6a8c7a88d1fbde05597d0f9b6b2ae4215472560609ef0c7-f6de156201de399c10e0921b102172851418d237d202a6ae94f95d31ef271631-unnamed.png" />
 
 Voila! You’ve made it. We’ve successfully set up your CCAI account to process payments with ACH!
