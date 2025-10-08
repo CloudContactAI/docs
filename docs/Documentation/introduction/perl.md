@@ -632,13 +632,11 @@ sub process_webhook_event_legacy {
 cpanm --installdeps
 ```
 
-3. Run examples: 
+3. Run examples:
 
 ```
 \perl examples/sms_example.pl
 ```
-
-
 
 ### Testing
 
@@ -696,7 +694,6 @@ export PERL_LWP_SSL_CA_FILE=/etc/ssl/certs/ca-certificates.crt
 
 The CCAI client may show harmless "Content-Length header value was wrong, fixed" warnings from LWP::UserAgent. These warnings don't affect functionality but can be suppressed:
 
-
 ### Method 1: Environment Variable (Recommended)
 
 ```
@@ -715,8 +712,6 @@ my $ccai = CCAI->new({
 # Suppress warnings after creating the client
 $ccai->suppress_lwp_warnings();
 ```
-
-
 
 ### Method 3: In Your Script
 
@@ -753,16 +748,10 @@ All methods return a hash reference with the following structure:
 
 Messages support template variables that are automatically replaced:
 
-* ```
-  ${firstName}
-  ```
-  Replaced with recipient's first name
-* ```
-  ${lastName}
-  ```
-  Replaced with recipient's last name
-
 Example:
+
+* `${firstName}` Fill in with the contact's first name
+* `${lastName}` Fill in with the contact's last name
 
 ```
 my $message = "Hello \${firstName} \${lastName}, welcome!";
