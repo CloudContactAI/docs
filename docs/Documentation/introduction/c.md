@@ -508,6 +508,31 @@ Example: https://81dbae920588.ngrok-free.app
 
 ### Step 7: Send a test SMS to trigger the webhook
 
+```
+cd /Users/../CCAI.NET/examples
+dotnet run
+```
+
+### Step 8: The Web server should receive the notification
+
+Press Ctrl+C to stop the server
+
+
+
+```
+🔔 Received webhook event at root path! ⏰ Time: 2025-09-03 00:51:19 UTC 📋 Headers: Accept: application/json, application/*+json Host: 13c29ec4a161.ngrok-free.app User-Agent: Java/14-ea Accept-Encoding: gzip Content-Type: application/json Content-Length: 304 X-Forwarded-For: 159.65.99.19 X-Forwarded-Host: 13c29ec4a161.ngrok-free.app X-Forwarded-Proto: https 📄 Raw Body: {"eventType":"message.sent","data":{"id":142065,"MessageStatus":"SENT","To":"+14155551212","Message":"Hello John Doe, this is a test message!","CustomData":"","ClientExternalId":"a43c42c6-b0c1-45c5-b2fb-290ee7e6f113","CampaignId":141293,"CampaignTitle":"Default Campaign","Segments":1,"TotalPrice":0.03}}
+```
+
+```
+🎯 Parsed CloudContact Event: Event Type: message.sent Message Status: SENT To: +14155551212 Message: Hello John Doe, this is a test message! ✅ Message delivered successfully! 💰 Cost: $0.0300 📊 Segments: 1 📢 Campaign: Default Campaign (ID: 141293) 🆔 External ID: a43c42c6-b0c1-45c5-b2fb-290ee7e6f113application/json;+charset=utf-8 137.6141ms
+```
+
+### Step 9: From your phone, respond to the message
+
+On your mobile phone, respond to the message that was sent to you by CCAI
+
+### Step 10: Web Server should receive the response notification
+
 <br />
 
 ## &#x20;Try it yourself
