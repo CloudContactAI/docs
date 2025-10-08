@@ -203,7 +203,7 @@ Console.WriteLine($"Email campaign scheduled with ID: {scheduledResponse.Id}");
 
 ### CloudContact Webhook Events (New Format)
 
-CloudContact now sends webhook notifications with a consistent structure for all event types:
+CloudContact now sends webhook notifications with a consistent structure for all event types:
 
 ```csharp
 using CCAI.NET;
@@ -448,8 +448,7 @@ var emailResponse = ccai.Email.SendSingle(
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/CloudContactAI/CCAI.NET/blob/main/LICENSE) file for details.
 
-
-
+## 10. Testing Webhook Installation
 
 ## &#x20;Try it yourself
 
