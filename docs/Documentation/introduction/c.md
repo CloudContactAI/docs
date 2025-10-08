@@ -355,7 +355,7 @@ public void ProcessWebhookEvent(string json, string signature, string secret)
 }
 ```
 
-### Step-by-Step MMS Workflow
+## 6. Step-by-Step MMS Workflow
 
 ```csharp
 // Step 1: Get a signed URL for uploading
@@ -388,7 +388,7 @@ if (uploadSuccess)
 }
 ```
 
-### With Progress Tracking
+## 7. With Progress Tracking
 
 ```csharp
 // Create options with progress tracking
@@ -408,7 +408,7 @@ var response = await ccai.SMS.SendAsync(
 );
 ```
 
-### Synchronous API
+## 8. Synchronous API
 
 ```csharp
 // Send a single SMS synchronously
@@ -444,7 +444,12 @@ var emailResponse = ccai.Email.SendSingle(
 );
 ```
 
-<br />
+### License
+
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/CloudContactAI/CCAI.NET/blob/main/LICENSE) file for details.
+
+
+
 
 ## &#x20;Try it yourself
 
