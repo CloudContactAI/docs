@@ -616,6 +616,161 @@ sub process_webhook_event_legacy {
 * **t/ -** Test files
 * **cpanfile -** Dependency specification
 
+## 8. Development
+
+### Prerequisites
+
+* Perl 5.16.0 or higher
+* cpanm or cpan for installing dependencies
+
+### Setup
+
+1. Clone the repository
+2. Install dependencies:
+
+```
+cpanm --installdeps
+```
+
+3. Run examples: 
+
+```
+\perl examples/sms_example.pl
+```
+
+
+
+### Testing
+
+Run tests with prove:
+
+```
+# Run all tests
+prove -l t/
+
+# Run tests with verbose output
+prove -lv t/
+
+# Run specific test file
+prove -lv t/01-basic.t
+```
+
+<br />
+
+## 9. Features
+
+* Object-oriented Perl interface
+* Support for sending SMS to multiple recipients
+* Support for sending MMS with images
+* Support for sending email campaigns
+* Support for managing webhooks
+* Upload images to S3 with signed URLs
+* Support for template variables (firstName, lastName)
+* Progress tracking via callbacks
+* Comprehensive error handling
+* Unit tests
+* Modern Perl practices
+* Automatic SSL certificate configuration
+
+<br />
+
+## 10. SSL Certificate Handling
+
+The CCAI client automatically configures SSL certificates using the Mozilla::CA module. If you encounter SSL certificate errors:
+
+* Automatic (Recommended): The client handles this automatically when Mozilla::CA is installed
+* Manual: Set the environment variable:
+
+```
+* export PERL_LWP_SSL_CA_FILE=$(perl -MMozilla::CA -e 'print Mozilla::CA::SSL_ca_file()')
+* <br />
+```
+
+* System CA: On some systems, you might need:
+
+```
+export PERL_LWP_SSL_CA_FILE=/etc/ssl/certs/ca-certificates.crt
+```
+
+## 11. Warning Suppression
+
+The CCAI client may show harmless "Content-Length header value was wrong, fixed" warnings from LWP::UserAgent. These warnings don't affect functionality but can be suppressed:
+
+
+### Method 1: Environment Variable (Recommended)
+
+```
+# in your .env file:
+CCAI_SUPPRESS_WARNINGS=1
+```
+
+### Method 2: Programmatically
+
+```
+my $ccai = CCAI->new({
+    client_id => $client_id,
+    api_key   => $api_key
+});
+
+# Suppress warnings after creating the client
+$ccai->suppress_lwp_warnings();
+```
+
+
+
+### Method 3: In Your Script
+
+```
+# At the beginning of your script
+BEGIN {
+    $SIG{__WARN__} = sub {
+        my $warning = shift;
+        return if $warning =~ /Content-Length header value was wrong, fixed/;
+        warn $warning;
+    };
+}
+```
+
+## 12. Error Handling
+
+All methods return a hash reference with the following structure:
+
+```
+# Success response
+{
+    success => 1,
+    data    => { ... }  # API response data
+}
+
+# Error response
+{
+    success => 0,
+    error   => "Error message"
+}
+```
+
+## 13. Template Variables
+
+Messages support template variables that are automatically replaced:
+
+* ```
+  ${firstName}
+  ```
+  Replaced with recipient's first name
+* ```
+  ${lastName}
+  ```
+  Replaced with recipient's last name
+
+Example:
+
+```
+my $message = "Hello \${firstName} \${lastName}, welcome!";
+# For John Doe, becomes: "Hello John Doe, welcome!"
+```
+
+<br />
+
 ## &#x20;Try it yourself
 
 See the full source code [here](https://github.com/CloudContactAI/ccai-perl).
