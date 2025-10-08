@@ -748,10 +748,10 @@ All methods return a hash reference with the following structure:
 
 Messages support template variables that are automatically replaced:
 
-Example:
-
 * `${firstName}` Fill in with the contact's first name
-* `${lastName}` Fill in with the contact's last name
+* `${lastName}` Fill in with the contact's last nam
+
+Example:
 
 ```
 my $message = "Hello \${firstName} \${lastName}, welcome!";
