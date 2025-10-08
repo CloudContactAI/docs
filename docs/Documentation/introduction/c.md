@@ -464,6 +464,8 @@ brew install ngrok
 ngrok version
 ```
 
+### Step 3: Start the standalone webhook server
+
 <br />
 
 ## &#x20;Try it yourself
