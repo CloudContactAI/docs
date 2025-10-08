@@ -90,6 +90,158 @@ var campaignResponse = await ccai.SMS.SendAsync(
 Console.WriteLine($"Campaign sent with ID: {campaignResponse.CampaignId}");
 ```
 
-## 3. Try it yourself
+## 3. Email Usage
+
+```csharp
+using CCAI.NET;
+using CCAI.NET.Email;
+using DotNetEnv;
+
+// Load environment variables
+Env.Load();
+
+// Initialize the client
+var config = new CCAIConfig
+{
+    ClientId = Environment.GetEnvironmentVariable("CCAI_CLIENT_ID") ?? throw new InvalidOperationException("CCAI_CLIENT_ID not found"),
+    ApiKey = Environment.GetEnvironmentVariable("CCAI_API_KEY") ?? throw new InvalidOperationException("CCAI_API_KEY not found")
+};
+
+using var ccai = new CCAIClient(config);
+
+// Send a single email
+var response = await ccai.Email.SendSingleAsync(
+    firstName: "John",
+    lastName: "Doe",
+    email: "john@example.com",
+    subject: "Welcome to Our Service",
+    message: "<p>Hello ${FirstName},</p><p>Thank you for signing up!</p>",
+    senderEmail: "noreply@yourcompany.com",
+    replyEmail: "support@yourcompany.com",
+    senderName: "Your Company",
+    title: "Welcome Email"
+);
+
+Console.WriteLine($"Email sent with ID: {response.Id}");
+
+// Send to multiple recipients
+var emailAccounts = new List<EmailAccount>
+{
+    new EmailAccount
+    {
+        FirstName = "John",
+        LastName = "Doe",
+        Email = "john@example.com"
+    },
+    new EmailAccount
+    {
+        FirstName = "Jane",
+        LastName = "Smith",
+        Email = "jane@example.com"
+    }
+};
+
+var campaign = new EmailCampaign
+{
+    Subject = "Monthly Newsletter",
+    Title = "July 2025 Newsletter",
+    Message = @"
+        <h1>Monthly Newsletter - July 2025</h1>
+        <p>Hello ${FirstName},</p>
+        <p>Here are our updates for this month...</p>
+    ",
+    SenderEmail = "newsletter@yourcompany.com",
+    ReplyEmail = "support@yourcompany.com",
+    SenderName = "Your Company Newsletter",
+    Accounts = emailAccounts,
+    CampaignType = "EMAIL",
+    AddToList = "noList",
+    ContactInput = "accounts",
+    FromType = "single",
+    Senders = new List<object>()
+};
+
+var campaignResponse = await ccai.Email.SendCampaignAsync(
+    campaign: campaign,
+    options: new EmailOptions
+    {
+        OnProgress = status => Console.WriteLine($"Progress: {status}")
+    }
+);
+
+Console.WriteLine($"Email campaign sent with ID: {campaignResponse.Id}");
+```
+
+## 4. Scheduling an Email
+
+```csharp
+// Schedule for tomorrow at 10:00 AM
+var tomorrow = DateTime.Now.AddDays(1).Date.AddHours(10);
+
+var scheduledCampaign = new EmailCampaign
+{
+    Subject = "Upcoming Event Reminder",
+    Title = "Event Reminder Campaign",
+    Message = @"
+        <h1>Reminder: Upcoming Event</h1>
+        <p>Hello ${FirstName},</p>
+        <p>This is a reminder about our upcoming event tomorrow.</p>
+    ",
+    SenderEmail = "events@yourcompany.com",
+    ReplyEmail = "events@yourcompany.com",
+    SenderName = "Your Company Events",
+    Accounts = emailAccounts,
+    ScheduledTimestamp = tomorrow.ToString("o"), // ISO 8601 format
+    ScheduledTimezone = "America/New_York"
+};
+
+var scheduledResponse = await ccai.Email.SendCampaignAsync(scheduledCampaign);
+Console.WriteLine($"Email campaign scheduled with ID: {scheduledResponse.Id}");
+```
+
+## 5. Webhook Management
+
+### CloudContact Webhook Events (New Format)
+
+CloudContact now sends webhook notifications with a consistent structure for all event types:
+
+```csharp
+using CCAI.NET;
+using CCAI.NET.Webhook;
+
+// Parse CloudContact webhook event
+var cloudContactEvent = ccai.Webhook.ParseCloudContactEvent(json);
+
+switch (cloudContactEvent.EventType)
+{
+    case "message.sent":
+        Console.WriteLine($"✅ Message delivered to {cloudContactEvent.Data.To}");
+        Console.WriteLine($"   Cost: ${cloudContactEvent.Data.TotalPrice}");
+        Console.WriteLine($"   Segments: {cloudContactEvent.Data.Segments}");
+        break;
+        
+    case "message.incoming":
+        Console.WriteLine($"📨 Reply from {cloudContactEvent.Data.From}: {cloudContactEvent.Data.Message}");
+        break;
+        
+    case "message.excluded":
+        Console.WriteLine($"⚠️ Message excluded: {cloudContactEvent.Data.ExcludedReason}");
+        break;
+        
+    case "message.error.carrier":
+        Console.WriteLine($"❌ Carrier error {cloudContactEvent.Data.ErrorCode}: {cloudContactEvent.Data.ErrorMessage}");
+        break;
+        
+    case "message.error.cloudcontact":
+        Console.WriteLine($"🚨 System error {cloudContactEvent.Data.ErrorCode}: {cloudContactEvent.Data.ErrorMessage}");
+        break;
+}
+```
+
+<br />
+
+<br />
+
+## &#x20;Try it yourself
 
 See the full source code [here](https://github.com/CloudContactAI/CCAI.NET).
