@@ -475,6 +475,20 @@ dotnet run
 
 This will start a webhook server on [http://localhost:3000](http://localhost:3000)
 
+### Step 4: In another terminal, start Ngrok
+
+Open another terminal window and run:
+
+```
+ngrok http 3000
+This will create a public tunnel to your local webhook server.
+```
+
+If you have not signed up for ngrok, you will need to:
+
+ERROR: Sign up for an account: [https://dashboard.ngrok.com/signup](https://dashboard.ngrok.com/signup)
+ERROR: Install your authtoken: [https://dashboard.ngrok.com/get-started/your-authtoken](https://dashboard.ngrok.com/get-started/your-authtoken)
+
 ## &#x20;Try it yourself
 
 See the full source code [here](https://github.com/CloudContactAI/CCAI.NET).
