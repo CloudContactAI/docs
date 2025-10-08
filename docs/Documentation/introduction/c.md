@@ -489,6 +489,27 @@ If you have not signed up for ngrok, you will need to:
 ERROR: Sign up for an account: [https://dashboard.ngrok.com/signup](https://dashboard.ngrok.com/signup)
 ERROR: Install your authtoken: [https://dashboard.ngrok.com/get-started/your-authtoken](https://dashboard.ngrok.com/get-started/your-authtoken)
 
+### Step 5: Get your Ngrok URL
+
+```
+ngrok will display something like:
+
+Forwarding    https://abc123.ngrok.io -> http://localhost:3000
+Copy that https://abc123.ngrok.io URL - this is your public webhook URL.
+
+Example: https://81dbae920588.ngrok-free.app
+```
+
+### Step 6: Configure CCAI with your Ngrok URL
+
+1. Log in to your CCAI account
+2. Navigate to the Settings\Integration tab
+3. Specify your ngrok url + '/webhook'
+
+### Step 7: Send a test SMS to trigger the webhook
+
+<br />
+
 ## &#x20;Try it yourself
 
 See the full source code [here](https://github.com/CloudContactAI/CCAI.NET).
