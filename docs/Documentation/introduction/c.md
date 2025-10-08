@@ -533,6 +533,10 @@ On your mobile phone, respond to the message that was sent to you by CCAI
 
 ### Step 10: Web Server should receive the response notification
 
+```
+🎯 Parsed CloudContact Event: Event Type: message.sent Message Status: SENT To: +14155551212 Message: Hello John Doe, this is a test message! ✅ Message delivered successfully! 💰 Cost: $0.0300 📊 Segments: 1 📢 Campaign: Default Campaign (ID: 141293) 🆔 External ID: a43c42c6-b0c1-45c5-b2fb-290ee7e6f113application/json;+charset=utf-8 137.6141ms
+```
+
 <br />
 
 ## &#x20;Try it yourself
