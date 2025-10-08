@@ -419,8 +419,6 @@ See the full source code [here](https://github.com/CloudContactAI/ccai-node).
 
 ### Step 1: Install Ngrok
 
-
-
 ```
 brew install ngrok
 ```
@@ -478,14 +476,10 @@ Call this URL after an outbound message has been delivered: [https://81dbae92058
 
 ### Step 7: Send a test SMS to trigger webhook
 
-
-
 ```
 cd /Users/../CCAI.NET/examples
 dotnet run
 ```
-
-
 
 ### Step 8: The Web server should receive the delivery notification
 
@@ -559,3 +553,7 @@ info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
 ```
 
 <br />
+
+## &#x20;Try it yourself
+
+See the full source code [here](https://github.com/CloudContactAI/ccai-node).
