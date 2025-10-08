@@ -466,7 +466,14 @@ ngrok version
 
 ### Step 3: Start the standalone webhook server
 
-<br />
+Open a new terminal window and run:
+
+```
+cd /Users/../CCAI.NET/examples/webhook-server
+dotnet run
+```
+
+This will start a webhook server on [http://localhost:3000](http://localhost:3000)
 
 ## &#x20;Try it yourself
 
