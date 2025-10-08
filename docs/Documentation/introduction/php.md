@@ -38,6 +38,8 @@ Get the CCAI PHP SDK
 composer require cloudcontactai/ccai-php
 ```
 
+## Configuration
+
 ## 2. Send SMS message
 
 ```node
