@@ -238,7 +238,211 @@ switch (cloudContactEvent.EventType)
 }
 ```
 
-<br />
+### Supported Event Types
+
+* **message.sent -** Message successfully delivered to recipient
+* **message.incoming -** Reply received from recipient
+* **message.excluded -** Message excluded during campaign (duplicates, invalid numbers, etc.)
+* **message.error.carrier -** Carrier-level delivery failure
+* **message.error.cloudcontact -** CloudContact system error
+
+### ASP.NET Core Webhook Endpoint
+
+```csharp
+[ApiController]
+[Route("api/[controller]")]
+public class WebhookController : ControllerBase
+{
+    [HttpPost("cloudcontact")]
+    public async Task<IActionResult> HandleCloudContactWebhook()
+    {
+        using var reader = new StreamReader(Request.Body, Encoding.UTF8);
+        var body = await reader.ReadToEndAsync();
+        
+        var webhookService = new WebhookService(null!);
+        var cloudContactEvent = webhookService.ParseCloudContactEvent(body);
+        
+        // Process the event
+        await ProcessWebhookEvent(cloudContactEvent);
+        
+        return Ok(new { status = "success" });
+    }
+}
+```
+
+### Legacy Webhook Format (Backward Compatibility)
+
+The library still supports the original webhook format:
+
+```csharp
+using CCAI.NET;
+using CCAI.NET.Webhook;
+using DotNetEnv;
+
+// Load environment variables
+Env.Load();
+
+// Initialize the client
+var config = new CCAIConfig
+{
+    ClientId = Environment.GetEnvironmentVariable("CCAI_CLIENT_ID") ?? throw new InvalidOperationException("CCAI_CLIENT_ID not found"),
+    ApiKey = Environment.GetEnvironmentVariable("CCAI_API_KEY") ?? throw new InvalidOperationException("CCAI_API_KEY not found")
+};
+
+using var ccai = new CCAIClient(config);
+
+// Register a webhook
+var webhookConfig = new WebhookConfig
+{
+    Url = "https://your-webhook-endpoint.com/webhook",
+    Events = new List<WebhookEventType>
+    {
+        WebhookEventType.MessageSent,
+        WebhookEventType.MessageIncoming,
+        WebhookEventType.MessageExcluded,
+        WebhookEventType.MessageErrorCarrier,
+        WebhookEventType.MessageErrorCloudContact
+    },
+    Secret = "your-webhook-secret"
+};
+
+var registration = await ccai.Webhook.RegisterAsync(webhookConfig);
+Console.WriteLine($"Webhook registered with ID: {registration.Id}");
+
+// List all webhooks
+var webhooks = await ccai.Webhook.ListAsync();
+foreach (var webhook in webhooks)
+{
+    Console.WriteLine($"Webhook ID: {webhook.Id}, URL: {webhook.Url}");
+}
+
+// Update a webhook
+var updatedConfig = new WebhookConfig
+{
+    Url = "https://your-updated-endpoint.com/webhook",
+    Events = new List<WebhookEventType> { WebhookEventType.MessageSent },
+    Secret = "your-updated-secret"
+};
+
+var updatedWebhook = await ccai.Webhook.UpdateAsync(registration.Id, updatedConfig);
+
+// Delete a webhook
+var deleteResponse = await ccai.Webhook.DeleteAsync(registration.Id);
+Console.WriteLine($"Webhook deleted: {deleteResponse.Success}");
+
+// Parse a webhook event (in your webhook handler)
+public void ProcessWebhookEvent(string json, string signature, string secret)
+{
+    // Verify the signature
+    if (ccai.Webhook.VerifySignature(signature, json, secret))
+    {
+        // Parse the event (supports both new and legacy formats)
+        var webhookEvent = ccai.Webhook.ParseEvent(json);
+        
+        if (webhookEvent is MessageSentEvent sentEvent)
+        {
+            Console.WriteLine($"Message sent to: {sentEvent.To}");
+        }
+        else if (webhookEvent is MessageIncomingEvent incomingEvent)
+        {
+            Console.WriteLine($"Message received from: {incomingEvent.From}");
+        }
+    }
+    else
+    {
+        Console.WriteLine("Invalid signature");
+    }
+}
+```
+
+### Step-by-Step MMS Workflow
+
+```csharp
+// Step 1: Get a signed URL for uploading
+var uploadResponse = await ccai.MMS.GetSignedUploadUrlAsync(
+    fileName: "image.jpg",
+    fileType: "image/jpeg"
+);
+
+var signedUrl = uploadResponse.SignedS3Url;
+var fileKey = uploadResponse.FileKey;
+
+// Step 2: Upload the image to the signed URL
+var uploadSuccess = await ccai.MMS.UploadImageToSignedUrlAsync(
+    signedUrl: signedUrl,
+    filePath: "path/to/your/image.jpg",
+    contentType: "image/jpeg"
+);
+
+if (uploadSuccess)
+{
+    // Step 3: Send the MMS with the uploaded image
+    var response = await ccai.MMS.SendAsync(
+        pictureFileKey: fileKey,
+        accounts: accounts,
+        message: "Hello ${FirstName}, check out this image!",
+        title: "MMS Campaign Example"
+    );
+    
+    Console.WriteLine($"MMS sent! Campaign ID: {response.CampaignId}");
+}
+```
+
+### With Progress Tracking
+
+```csharp
+// Create options with progress tracking
+var options = new SMSOptions
+{
+    Timeout = 60,
+    Retries = 3,
+    OnProgress = status => Console.WriteLine($"{DateTime.Now:yyyy-MM-dd HH:mm:ss} - {status}")
+};
+
+// Send SMS with progress tracking
+var response = await ccai.SMS.SendAsync(
+    accounts: accounts,
+    message: message,
+    title: title,
+    options: options
+);
+```
+
+### Synchronous API
+
+```csharp
+// Send a single SMS synchronously
+var response = ccai.SMS.SendSingle(
+    firstName: "John",
+    lastName: "Doe",
+    phone: "+15551234567",
+    message: "Hello ${FirstName}, this is a test message!",
+    title: "Test Campaign"
+);
+
+// Send a single MMS synchronously
+var mmsResponse = ccai.MMS.SendSingle(
+    pictureFileKey: "your-client-id/campaign/image.jpg",
+    firstName: "John",
+    lastName: "Doe",
+    phone: "+15551234567",
+    message: "Hello ${FirstName}, check out this image!",
+    title: "MMS Campaign"
+);
+
+// Send a single email synchronously
+var emailResponse = ccai.Email.SendSingle(
+    firstName: "John",
+    lastName: "Doe",
+    email: "john@example.com",
+    subject: "Welcome to Our Service",
+    message: "<p>Hello ${FirstName},</p><p>Thank you for signing up!</p>",
+    senderEmail: "noreply@yourcompany.com",
+    replyEmail: "support@yourcompany.com",
+    senderName: "Your Company",
+    title: "Welcome Email"
+);
+```
 
 <br />
 
