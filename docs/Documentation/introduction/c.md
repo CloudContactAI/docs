@@ -452,6 +452,14 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 
 If you're testing the webhook installation, it's best to git clone the repository so you can get access to the examples/webhook-server project [here](https://github.com/CloudContactAI/CCAI.NET/tree/main/examples/webhook-server).
 
+### Step 1: Install Ngrok
+
+```
+brew install ngrok
+```
+
+<br />
+
 ## &#x20;Try it yourself
 
 See the full source code [here](https://github.com/CloudContactAI/CCAI.NET).
