@@ -458,6 +458,12 @@ If you're testing the webhook installation, it's best to git clone the repositor
 brew install ngrok
 ```
 
+### Step 2: Verify Ngrok
+
+```
+ngrok version
+```
+
 <br />
 
 ## &#x20;Try it yourself
