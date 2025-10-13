@@ -5,3 +5,10 @@ hidden: false
 metadata:
   robots: index
 ---
+<br />
+
+| Jira Ticket | Description                       |
+| :---------- | :-------------------------------- |
+| CLOUD-2466  | Java SDK improvements             |
+| CLOUD-2442  | LPS ISSUE: Duplicate contact Bugs |
+| CLOUD-2469  | Move Logs to Cloudwatch           |
