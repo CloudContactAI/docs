@@ -10,6 +10,6 @@ metadata:
 | Jira Ticket | Description                                          |
 | :---------- | :--------------------------------------------------- |
 | CLOUD-2466  | Java SDK improvements                                |
-| CLOUD-2442  | Duplicate contact Bugs                               |
-| CLOUD-2469  | Move Logs to Cloudwatch                              |
+| CLOUD-2442  | Duplicate contact bugs                               |
+| CLOUD-2469  | Move logs to Cloudwatch                              |
 | CLOUD-2464  | Return TO and FROM numbers when contact replies STOP |
