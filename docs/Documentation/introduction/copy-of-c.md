@@ -2,7 +2,7 @@
 title: Java
 excerpt: Send SMS with Java
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   title: Send emails, SMS, and MMS with C# - CloudContactAI
   description: >-
