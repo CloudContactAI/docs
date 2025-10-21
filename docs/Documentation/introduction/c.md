@@ -448,7 +448,7 @@ var emailResponse = ccai.Email.SendSingle(
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/CloudContactAI/CCAI.NET/blob/main/LICENSE) file for details.
 
-## 10. Testing Webhook Installation
+## 9. Testing Webhook Installation
 
 If you're testing the webhook installation, it's best to git clone the repository so you can get access to the examples/webhook-server project [here](https://github.com/CloudContactAI/CCAI.NET/tree/main/examples/webhook-server).
 
@@ -516,8 +516,6 @@ dotnet run
 ### Step 8: The Web server should receive the notification
 
 Press Ctrl+C to stop the server
-
-
 
 ```
 🔔 Received webhook event at root path! ⏰ Time: 2025-09-03 00:51:19 UTC 📋 Headers: Accept: application/json, application/*+json Host: 13c29ec4a161.ngrok-free.app User-Agent: Java/14-ea Accept-Encoding: gzip Content-Type: application/json Content-Length: 304 X-Forwarded-For: 159.65.99.19 X-Forwarded-Host: 13c29ec4a161.ngrok-free.app X-Forwarded-Proto: https 📄 Raw Body: {"eventType":"message.sent","data":{"id":142065,"MessageStatus":"SENT","To":"+14155551212","Message":"Hello John Doe, this is a test message!","CustomData":"","ClientExternalId":"a43c42c6-b0c1-45c5-b2fb-290ee7e6f113","CampaignId":141293,"CampaignTitle":"Default Campaign","Segments":1,"TotalPrice":0.03}}
