@@ -4,10 +4,10 @@ excerpt: Send SMS with Java
 deprecated: false
 hidden: false
 metadata:
-  title: Send emails, SMS, and MMS with C# - CloudContactAI
+  title: Send emails, SMS, and MMS with Java - CloudContactAI
   description: >-
-    Learn how to send your first email, SMS, and MMS using the CloudContactAI C#
-    SDK
+    Learn how to send your first email, SMS, and MMS using the CloudContactAI
+    Java SDK
   image: >-
     https://files.readme.io/a5190d507936a4d6cf838dbf1d065aeacb7db8c29867dfcffb47e319cf32827d-Group_14.png
   keywords:
@@ -15,7 +15,7 @@ metadata:
     - mms
     - sms
     - api
-    - C#
+    - Java
   robots: index
 ---
 A Java client library for interacting with the CloudContactAI API using Spring Boot.
