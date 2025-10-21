@@ -1,6 +1,6 @@
 ---
-title: Copy of C#
-excerpt: Send SMS with C#
+title: Java
+excerpt: Send SMS with Java
 deprecated: false
 hidden: false
 metadata:
@@ -18,7 +18,7 @@ metadata:
     - C#
   robots: index
 ---
-Learn how to send your first SMS using the CCAI C# SDK
+A Java client library for interacting with the CloudContactAI API using Spring Boot.
 
 ## Prerequisites
 
