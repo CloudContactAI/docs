@@ -4,7 +4,7 @@ excerpt: >-
   In this tutorial, we'll show you how to acquire the Client ID and Current API
   Key from your paid CCAI account.
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   title: ''
   description: ''
