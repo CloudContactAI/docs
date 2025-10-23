@@ -18,7 +18,7 @@ metadata:
 ---
 # API QuickStart
 
-Learn how to get CloudContactAI setup in your project
+Learn how to get CloudContactAI setup in your project with our client SDKs.
 
 <Cards columns={2}>
   <Card title="C# Quickstart" href="https://developer.cloudcontactai.com/docs/c#/" icon="fa-duotone fa-cube" />
