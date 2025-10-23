@@ -5,7 +5,7 @@ excerpt: >-
   You can verify if the Messages were delivered by other Conversations
   Participants.
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   title: ''
   description: ''
