@@ -25,6 +25,9 @@ Learn how to get CloudContactAI setup in your project
 
   <Card title="Go Quickstart" href="https://developer.cloudcontactai.com/docs/go#/" icon="fa-duotone fa-rocket" />
 
+<Card title="Java Quickstart" href="https://developer.cloudcontactai.com/docs/java#/" icon="a-duotone fa-mug-hot" />
+
+
   <Card title="Node.js Quickstart" href="https://developer.cloudcontactai.com/docs/nodejs#/" icon="fa-duotone fa-code" />
 
   <Card title="Perl Quickstart" href="https://developer.cloudcontactai.com/docs/perl#/" icon="fa-solid fa-terminal" />
@@ -35,3 +38,5 @@ Learn how to get CloudContactAI setup in your project
 
   <Card title="Ruby Quickstart" href="https://developer.cloudcontactai.com/docs/ruby#/" icon="fa-duotone fa-gem" />
 </Cards>
+
+<br />
