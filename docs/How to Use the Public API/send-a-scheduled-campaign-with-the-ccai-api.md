@@ -4,7 +4,7 @@ excerpt: >-
   In this tutorial, we'll show you how to Schedule an SMS Message with the CCAI
   API and Postman. We recommend using Postman with the CCAI API
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   title: ''
   description: ''
