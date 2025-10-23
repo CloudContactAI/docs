@@ -4,7 +4,7 @@ excerpt: >-
   In certain situations, the end user may want to associate a new SMS message
   with an existing Campaign.
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   title: ''
   description: ''
