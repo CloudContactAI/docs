@@ -4,7 +4,7 @@ excerpt: >-
   In this tutorial, we'll show you how to send MMS programmatically using the
   public API easily and securely with CloudContactAI.
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   title: ''
   description: ''
