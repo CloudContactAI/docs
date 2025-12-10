@@ -7,9 +7,9 @@ metadata:
 ---
 | Jira Ticket | Description                                                             |
 | :---------- | :---------------------------------------------------------------------- |
-| Mobile      | Added push notifications.                                               |
+| Mobile App  | Push notifications bug fix.                                             |
 | CLOUD-2522  | Enabled campaign monthly charges and added campaign details to billing. |
 | CLOUD-2515  | SMS campaigns now show the phone number used to send them.              |
-| CLOUD-???   | URL shortener enabled per account.                                      |
+| CLOUD-2531  | URL shortener enabled per account.                                      |
 
 <br />
