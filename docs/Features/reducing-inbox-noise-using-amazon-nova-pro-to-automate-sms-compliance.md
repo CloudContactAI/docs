@@ -1,5 +1,5 @@
 ---
-title: '# Reducing Inbox Noise: Using Amazon Nova Pro to Automate SMS Compliance'
+title: 'Reducing Inbox Noise: Using Amazon Nova Pro to Automate SMS Compliance'
 deprecated: false
 hidden: false
 metadata:
