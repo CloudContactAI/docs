@@ -15,6 +15,8 @@ To solve this, we leveraged **Amazon Nova Pro** to build an intelligent, GenAI-p
 
 ***
 
+<Image align="center" border={false} src="https://files.readme.io/4ead0270e7f0625969b1717f6fa0016da2a0dd5f6ddd8ddfaa07da9a2f9ba72f-ai-prompt-do-not-contact-ccai.png" />
+
 ### The Architecture of a Smart Filter
 
 The goal was simple: pass every inbound SMS through an AI model to determine if the sender is a human or a machine, then take immediate action in the CRM.
