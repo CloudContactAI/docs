@@ -3,6 +3,14 @@ title: '# Reducing Inbox Noise: Using Amazon Nova Pro to Automate SMS Compliance
 deprecated: false
 hidden: false
 metadata:
+  description: >-
+    As a developer, there is nothing more frustrating than building a high-scale
+    messaging platform only to have the "human" inbox flooded with
+    machine-generated noise. When you’re managing thousands of outbound SMS
+    campaigns, the inbound responses often include automated "line not
+    monitored" alerts, emergency redirects, or system opt-in confirmations.
+  image: >-
+    https://files.readme.io/7d99852e870fb64eed1e933b075a52e2dbc1af7efbed0017865e2041c4f628d9-ai-prompt-do-not-contact-ccai.png
   robots: index
 ---
 <br />
