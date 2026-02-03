@@ -16,10 +16,6 @@ metadata:
     - developers
   robots: index
 ---
-<a href="https://app.cloudcontactai.com/register" style={{ cursor: 'pointer' }}>
-  <Image align="center" src="https://files.readme.io/af7f6d30a39c7235de40c94a87adcd277a1949a4137a878e0f6d809f62672ff4-get-started.png" />
-</a>
-
 # API QuickStart
 
 Learn how to get CloudContactAI setup in your project with our client SDKs.
