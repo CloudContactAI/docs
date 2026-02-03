@@ -16,6 +16,14 @@ metadata:
     - developers
   robots: index
 ---
+<a href="https://app.cloudcontactai.com/register">
+  <Image
+    align="center"
+    border={false}
+    src="https://files.readme.io/af7f6d30a39c7235de40c94a87adcd277a1949a4137a878e0f6d809f62672ff4-get-started.png"
+  />
+</a>
+
 # API QuickStart
 
 Learn how to get CloudContactAI setup in your project with our client SDKs.
@@ -25,8 +33,7 @@ Learn how to get CloudContactAI setup in your project with our client SDKs.
 
   <Card title="Go Quickstart" href="https://developer.cloudcontactai.com/docs/go#/" icon="fa-duotone fa-rocket" />
 
-<Card title="Java Quickstart" href="https://developer.cloudcontactai.com/docs/java#/" icon="a-duotone fa-mug-hot" />
-
+  <Card title="Java Quickstart" href="https://developer.cloudcontactai.com/docs/java#/" icon="a-duotone fa-mug-hot" />
 
   <Card title="Node.js Quickstart" href="https://developer.cloudcontactai.com/docs/nodejs#/" icon="fa-duotone fa-code" />
 
