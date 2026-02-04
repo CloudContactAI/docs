@@ -18,6 +18,29 @@ metadata:
     - api
   robots: index
 ---
+<div style={{ margin: "16px 0 -8px 0" }}>
+  <a
+    href="https://app.cloudcontactai.com/register"
+    style={{
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: "8px",
+      backgroundColor: "#2563eb",
+      color: "#ffffff",
+      padding: "12px 20px",
+      borderRadius: "12px",
+      fontSize: "15px",
+      fontWeight: 600,
+      lineHeight: 1,
+      textDecoration: "none",
+      whiteSpace: "nowrap",
+    }}
+  >
+    🔑 Get API Key
+  </a>
+</div>
+
 Learn how to send your first SMS or MMS using the CCAI Go SDK
 
 ## Prerequisites
@@ -308,15 +331,15 @@ response, err := client.SMS.Send(
       * **client.go -** Main CCAI client implementation
       * **ccai.go -** Type definitions and exports
 
-
     * **sms/ -** SMS-related functionality
       * **models.go -** Data models
       * **sms.go -** SMS service implementation
       * **mms.go -** MMS service implementation
+
     * **email/ -** Email-related functionality
       * **models.go -** Email data models
       * **email.go -** Email service implementation
-  *    **examples/ -** Example usage
+  * **examples/ -** Example usage
   * **email/ -** Email example
 * **.env -** Environment variables
 * **.env.example -** Environment variables template
