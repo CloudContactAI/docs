@@ -16,7 +16,7 @@ metadata:
     - developers
   robots: index
 ---
-<div style={{ margin: "28px 0" }}>
+<div style={{ margin: "16px 0 -8px 0" }}>
   <a
     href="https://app.cloudcontactai.com/register"
     style={{
@@ -25,7 +25,7 @@ metadata:
       gap: "8px",
       backgroundColor: "#2563eb",
       color: "#ffffff",
-      padding: "14px 22px",
+      padding: "12px 20px",
       borderRadius: "12px",
       fontSize: "15px",
       fontWeight: 600,
