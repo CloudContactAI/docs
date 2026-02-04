@@ -18,8 +18,6 @@ metadata:
     - C#
   robots: index
 ---
-<br />
-
 <div style={{ margin: "16px 0 -8px 0" }}>
   <a
     href="https://app.cloudcontactai.com/register"
@@ -42,8 +40,6 @@ metadata:
     🔑 Get API Key
   </a>
 </div>
-
-
 
 Learn how to send your first SMS using the CCAI C# SDK
 
