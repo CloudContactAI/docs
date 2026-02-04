@@ -16,6 +16,26 @@ metadata:
     - developers
   robots: index
 ---
+<div style={{ margin: "28px 0" }}>
+  <a
+    href="https://app.cloudcontactai.com/register"
+    style={{
+      display: "inline-flex",
+      alignItems: "center",
+      gap: "8px",
+      backgroundColor: "#2563eb",
+      color: "#ffffff",
+      padding: "14px 22px",
+      borderRadius: "12px",
+      fontSize: "15px",
+      fontWeight: 600,
+      textDecoration: "none",
+    }}
+  >
+    🔑 Get API Key
+  </a>
+</div>
+
 # API QuickStart
 
 Learn how to get CloudContactAI setup in your project with our client SDKs.
