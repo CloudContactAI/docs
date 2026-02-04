@@ -22,6 +22,7 @@ metadata:
     style={{
       display: "inline-flex",
       alignItems: "center",
+      justifyContent: "center",
       gap: "8px",
       backgroundColor: "#2563eb",
       color: "#ffffff",
@@ -29,12 +30,15 @@ metadata:
       borderRadius: "12px",
       fontSize: "15px",
       fontWeight: 600,
+      lineHeight: 1,
       textDecoration: "none",
+      whiteSpace: "nowrap",
     }}
   >
     🔑 Get API Key
   </a>
 </div>
+
 
 # API QuickStart
 
