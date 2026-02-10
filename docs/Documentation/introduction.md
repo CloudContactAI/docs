@@ -1,8 +1,8 @@
 ---
 title: Introduction
 excerpt: >-
-  CloudContactAI provides APIs for SMS, email, and AI - designed to integrate
-  quickly into your applications.
+  Build SMS, Email, and AI workflows in minutes  Unified APIs for messaging and
+  AI — simple SDKs, fast setup, production-ready.
 deprecated: false
 hidden: false
 metadata:
