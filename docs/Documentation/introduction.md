@@ -41,7 +41,7 @@ metadata:
   </a>
 </div>
 
-# API QuickStart
+# Install the SDK
 
 Learn how to get CloudContactAI setup in your project with our client SDKs.
 
