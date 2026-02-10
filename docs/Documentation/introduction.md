@@ -1,8 +1,8 @@
 ---
 title: Introduction
 excerpt: >-
-  Build SMS, Email, and AI workflows in minutes  Unified APIs for messaging and
-  AI — simple SDKs, fast setup, production-ready.
+  Build SMS, Email, and AI workflows in minutes.  Unified APIs for messaging and
+  AI: simple SDKs, fast setup, production-ready.
 deprecated: false
 hidden: false
 metadata:
@@ -47,14 +47,20 @@ Learn how to get CloudContactAI setup in your project with our client SDKs.
 
 <Cards columns={2}>
   <Card title="Node.js Quickstart" href="https://developer.cloudcontactai.com/docs/nodejs#/" icon="fa-duotone fa-code" />
-  <Card title="Python Quickstart" href="https://developer.cloudcontactai.com/docs/python#/" icon="fa-duotone fa-snake" />
-  <Card title="C# Quickstart" href="https://developer.cloudcontactai.com/docs/c#/" icon="fa-duotone fa-cube" />
-  <Card title="Java Quickstart" href="https://developer.cloudcontactai.com/docs/java#/" icon="a-duotone fa-mug-hot" />
-  <Card title="PHP Quickstart" href="https://developer.cloudcontactai.com/docs/php#/" icon="fa-duotone fa-file-code" />
-  <Card title="Ruby Quickstart" href="https://developer.cloudcontactai.com/docs/ruby#/" icon="fa-duotone fa-gem" />
-  <Card title="Go Quickstart" href="https://developer.cloudcontactai.com/docs/go#/" icon="fa-duotone fa-rocket" />
-  <Card title="Perl Quickstart" href="https://developer.cloudcontactai.com/docs/perl#/" icon="fa-solid fa-terminal" />
 
+  <Card title="Python Quickstart" href="https://developer.cloudcontactai.com/docs/python#/" icon="fa-duotone fa-snake" />
+
+  <Card title="C# Quickstart" href="https://developer.cloudcontactai.com/docs/c#/" icon="fa-duotone fa-cube" />
+
+  <Card title="Java Quickstart" href="https://developer.cloudcontactai.com/docs/java#/" icon="a-duotone fa-mug-hot" />
+
+  <Card title="PHP Quickstart" href="https://developer.cloudcontactai.com/docs/php#/" icon="fa-duotone fa-file-code" />
+
+  <Card title="Ruby Quickstart" href="https://developer.cloudcontactai.com/docs/ruby#/" icon="fa-duotone fa-gem" />
+
+  <Card title="Go Quickstart" href="https://developer.cloudcontactai.com/docs/go#/" icon="fa-duotone fa-rocket" />
+
+  <Card title="Perl Quickstart" href="https://developer.cloudcontactai.com/docs/perl#/" icon="fa-solid fa-terminal" />
 </Cards>
 
 <br />
