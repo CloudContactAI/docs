@@ -1,7 +1,7 @@
 ---
 title: (02-19-26) Release Notes
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
@@ -16,9 +16,9 @@ metadata:
 | CLOUD-2633  | Price per local phone no longer differs from price per toll-free phone.                                                                                                                        |
 | CLOUD-2293  | Fixed an issue involving not empty CustomData for message with eventType\":\"message.sent                                                                                                     |
 | CLOUD-2635  | Fixed problems with MMS campaigns uploading the same image multiple times.                                                                                                                     |
-| CLOUD-      |                                                                                                                                                                                                |
-|             |                                                                                                                                                                                                |
-|             |                                                                                                                                                                                                |
-|             |                                                                                                                                                                                                |
+| CLOUD-2638  | Fixed option to set a webhook URL.                                                                                                                                                             |
+| CLOUD-2611  | Improved visibility of the monthly subscription fee and how it impacts the users' budgets.                                                                                                     |
+| CLOUD-???   | Create campaign / import contacts / moar                                                                                                                                                       |
+| CLOUD-???   | ECC launch                                                                                                                                                                                     |
 
 <br />
