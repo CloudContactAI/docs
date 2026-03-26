@@ -5,8 +5,6 @@ hidden: false
 metadata:
   robots: index
 ---
-<br />
-
 ## API Reference
 
 ### Set Do-Not-Text Status
