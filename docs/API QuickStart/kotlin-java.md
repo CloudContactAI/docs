@@ -4,7 +4,7 @@ excerpt: A Kotlin/Java client library for interacting with the CloudContactAI AP
 deprecated: false
 hidden: false
 metadata:
-  title: Send emails, SMS, and MMS with Java - CloudContactAI
+  title: Send emails, SMS, and MMS with Kotlin/Java - CloudContactAI
   description: >-
     Learn how to send your first email, SMS, and MMS using the CloudContactAI
     Kotlin/Java SDK
