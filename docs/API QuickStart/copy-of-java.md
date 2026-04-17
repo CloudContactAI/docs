@@ -7,7 +7,7 @@ metadata:
   title: Send emails, SMS, and MMS with Java - CloudContactAI
   description: >-
     Learn how to send your first email, SMS, and MMS using the CloudContactAI
-    Java SDK
+    Kotlin/Java SDK
   image: >-
     https://files.readme.io/a5190d507936a4d6cf838dbf1d065aeacb7db8c29867dfcffb47e319cf32827d-Group_14.png
   keywords:
@@ -16,6 +16,7 @@ metadata:
     - sms
     - api
     - Java
+    - Kotlin
   robots: index
 ---
 <div style={{ margin: "16px 0 -8px 0" }}>
