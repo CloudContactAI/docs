@@ -458,6 +458,6 @@ mvn test
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/CloudContactAI/ccai-java/blob/main/LICENSE) file for details.
 
-## &#x20;Support
+## &#x20;Try it Yourself
 
-See the full source code [here](https://github.com/cloudcontactai/ccai-java).
+See the full source code [here](https://github.com/CloudContactAI/ccai-node).
