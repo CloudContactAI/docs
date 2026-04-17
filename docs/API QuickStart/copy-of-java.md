@@ -1,6 +1,6 @@
 ---
-title: Copy of Java
-excerpt: Send SMS with Java
+title: Kotlin/Java
+excerpt: A Kotlin/Java client library for interacting with the CloudContactAI API.
 deprecated: false
 hidden: false
 metadata:
@@ -63,7 +63,7 @@ Add the following dependency to your `pom.xml` :
 <dependency>
     <groupId>com.cloudcontactai</groupId>
     <artifactId>ccai-java</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.5</version>
 </dependency>
 ```
 
@@ -72,338 +72,392 @@ Add the following dependency to your `pom.xml` :
 Add the following to your `build.gradle`:
 
 ```
-implementation 'com.cloudcontactai:ccai-java:1.0.0'
+implementation 'com.cloudcontactai:ccai-java:1.0.5'
 ```
 
 ## 2. Configuration
 
-### Environmental Variables
+Set environment variables or pass configuration directly:
 
-Create a `.env` file in your project root or set environment variables:
-
-```java
-CCAI_CLIENT_ID=1231
-CCAI_API_KEY=your-api-key-here
-CCAI_BASE_URL=https://core.cloudcontactai.com/api
-CCAI_EMAIL_BASE_URL=https://email-campaigns.cloudcontactai.com
-CCAI_AUTH_BASE_URL=https://auth.cloudcontactai.com
-```
-
-### Application Properties
-
-Add to your `application.properties`:
-
-```java
-ccai.client-id=${CCAI_CLIENT_ID}
-ccai.api-key=${CCAI_API_KEY}
-ccai.base-url=${CCAI_BASE_URL:https://core.cloudcontactai.com/api}
-ccai.email-base-url=${CCAI_EMAIL_BASE_URL:https://email-campaigns.cloudcontactai.com}
-ccai.auth-base-url=${CCAI_AUTH_BASE_URL:https://auth.cloudcontactai.com}
-ccai.debug-mode=false
-ccai.timeout-ms=30000
-ccai.max-retries=3
+```kotlin
+export CCAI_CLIENT_ID=1231
+export CCAI_API_KEY=your-api-key-here
+export CCAI_USE_TEST_ENVIRONMENT=false
 ```
 
 ## 3. Usage
 
-### SMS Basic Usage
+### Springboot Integration
 
-```java
-import com.cloudcontactai.ccai.client.CCAIClient;
-import com.cloudcontactai.ccai.sms.SMSResponse;
-import com.cloudcontactai.ccai.exception.CCAIApiException;
+#### Configuration Bean
 
-// Initialize the client
-CCAIClient client = CCAIClient.builder()
-    .clientId("your-client-id")
-    .apiKey("your-api-key")
-    .debugMode(true)
-    .build();
-
-try {
-    // Send SMS to a single number
-    SMSResponse response = client.getSmsService().sendSMS(
-        "+1234567890", 
-        "Hello from CCAI Java!"
-    );
-    
-    System.out.println("SMS sent successfully: " + response.getCampaignId());
-    
-} catch (CCAIApiException e) {
-    System.err.println("Failed to send SMS: " + e.getMessage());
-}
-```
-
-### SMS Bulk Usage
-
-```java
-import java.util.Arrays;
-import java.util.List;
-
-List<String> phoneNumbers = Arrays.asList("+1234567890", "+0987654321");
-
-SMSResponse response = client.getSmsService().sendSMS(
-    phoneNumbers,
-    "Hello everyone from CCAI Java!"
-);
-
-System.out.println("Sent to " + response.getSentCount() + " numbers");
-System.out.println("Failed: " + response.getFailedCount() + " numbers");
-```
-
-### SMS Advanced Usage
-
-```java
-import com.cloudcontactai.ccai.sms.SMSRequest;
-import java.util.HashMap;
-import java.util.Map;
-
-SMSRequest request = new SMSRequest();
-request.setPhoneNumbers(Arrays.asList("+1234567890"));
-request.setMessage("Hello {{name}}, your order {{order_id}} is ready!");
-request.setCampaignId("welcome-campaign");
-
-// Add custom data
-Map<String, Object> customData = new HashMap<>();
-customData.put("user_id", "12345");
-customData.put("order_id", "ORD-789");
-request.setCustomData(customData);
-
-SMSResponse response = client.getSmsService().sendSMS(request);
-```
-
-### SMS Async Usage
-
-```java
-import java.util.concurrent.CompletableFuture;
-
-CompletableFuture<SMSResponse> future = client.getSmsService().sendSMSAsync(
-    "+1234567890",
-    "Async SMS message!"
-);
-
-future.thenAccept(response -> {
-    System.out.println("Async SMS sent: " + response.getCampaignId());
-}).exceptionally(throwable -> {
-    System.err.println("Async SMS failed: " + throwable.getMessage());
-    return null;
-});
-```
-
-### Email Basic Usage
-
-```java
-import com.cloudcontactai.ccai.email.EmailResponse;
-
-EmailResponse response = client.getEmailService().sendEmail(
-    "recipient@example.com",
-    "Hello from CCAI Java",
-    "<h1>Hello!</h1><p>This is a test email from CCAI Java.</p>"
-);
-
-System.out.println("Email sent: " + response.getMessageId());
-```
-
-### Email Advanced Usage
-
-```java
-import com.cloudcontactai.ccai.email.EmailRequest;
-
-EmailRequest request = new EmailRequest();
-request.setToEmails(Arrays.asList("user@example.com"));
-request.setSubject("Welcome to Our Service");
-request.setHtmlContent("<h1>Welcome {{name}}!</h1><p>Thanks for joining us.</p>");
-request.setTextContent("Welcome {{name}}! Thanks for joining us.");
-request.setFromEmail("noreply@yourcompany.com");
-request.setFromName("Your Company");
-request.setReplyTo("support@yourcompany.com");
-
-// Add variables for template substitution
-Map<String, String> variables = new HashMap<>();
-variables.put("name", "John Doe");
-request.setVariables(variables);
-
-EmailResponse response = client.getEmailService().sendEmail(request);
-```
-
-### Webhook Handling
-
-```java
-import com.cloudcontactai.ccai.webhook.WebhookEvent;
-import com.cloudcontactai.ccai.webhook.WebhookService;
-import org.springframework.web.bind.annotation.*;
-
-@RestController
-public class WebhookController {
-    
-    private final WebhookService webhookService;
-    
-    public WebhookController(CCAIClient client) {
-        this.webhookService = client.getWebhookService();
-    }
-    
-    @PostMapping("/webhook/ccai")
-    public ResponseEntity<String> handleWebhook(
-            @RequestBody String payload,
-            @RequestHeader(value = "X-CCAI-Signature", required = false) String signature) {
-        
-        try {
-            // Validate signature (optional but recommended)
-            String webhookSecret = System.getenv("CCAI_WEBHOOK_SECRET");
-            if (webhookSecret != null && !webhookService.validateWebhookSignature(payload, signature, webhookSecret)) {
-                return ResponseEntity.status(401).body("Invalid signature");
-            }
-            
-            // Parse and handle the event
-            WebhookEvent event = webhookService.parseWebhookEvent(payload);
-            webhookService.handleWebhookEvent(event);
-            
-            return ResponseEntity.ok("Webhook processed");
-            
-        } catch (Exception e) {
-            return ResponseEntity.status(500).body("Error: " + e.getMessage());
-        }
-    }
-}
-```
-
-## 5. Springboot Integration
-
-### Auto Configuration
-
-The library provides auto-configuration for Spring Boot applications. Simply add the dependency and configure the properties:
-
-```java
-@SpringBootApplication
-public class MyApplication {
-    
-    @Autowired
-    private CCAIClient ccaiClient;
-    
-    public static void main(String[] args) {
-        SpringApplication.run(MyApplication.class, args);
-    }
-    
-    @EventListener(ApplicationReadyEvent.class)
-    public void sendWelcomeSMS() throws CCAIApiException {
-        SMSResponse response = ccaiClient.getSmsService().sendSMS(
-            "+1234567890",
-            "Application started successfully!"
-        );
-        System.out.println("Welcome SMS sent: " + response.getCampaignId());
-    }
-}
-```
-
-### Custom Configuration
-
-```java
+```kotlin
 @Configuration
-public class CCAIConfiguration {
+class CCAIConfiguration {
     
     @Bean
-    @Primary
-    public CCAIClient customCCAIClient() {
-        return CCAIClient.builder()
-            .clientId(System.getenv("CCAI_CLIENT_ID"))
-            .apiKey(System.getenv("CCAI_API_KEY"))
-            .debugMode(true)
-            .timeoutMs(60000)
-            .maxRetries(5)
-            .build();
+    fun ccaiConfig(
+        @Value("\${ccai.client-id}") clientId: String,
+        @Value("\${ccai.api-key}") apiKey: String,
+        @Value("\${ccai.use-test-environment:false}") useTestEnvironment: Boolean
+    ): CCAIConfig {
+        return CCAIConfig(
+            clientId = clientId,
+            apiKey = apiKey,
+            useTestEnvironment = useTestEnvironment
+        )
+    }
+    
+    @Bean
+    fun ccaiClient(config: CCAIConfig): CCAIClient {
+        return CCAIClient(config)
     }
 }
 ```
 
-## 6. Error Handling
+#### Service Bean
 
-```java
-import com.cloudcontactai.ccai.exception.CCAIApiException;
-
-try {
-    SMSResponse response = client.getSmsService().sendSMS("+1234567890", "Test");
-} catch (CCAIApiException e) {
-    System.err.println("API Error: " + e.getMessage());
-    System.err.println("Status Code: " + e.getStatusCode());
-    System.err.println("Error Code: " + e.getErrorCode());
+```kotlin
+@Service
+class NotificationService(private val ccaiClient: CCAIClient) {
+    
+    fun sendWelcomeSMS(firstName: String, lastName: String, phone: String) {
+        val response = ccaiClient.sms.sendSingle(
+            firstName = firstName,
+            lastName = lastName,
+            phone = phone,
+            message = "Welcome ${firstName}! Thanks for joining our service.",
+            title = "Welcome SMS"
+        )
+        println("SMS sent with ID: ${response.id}")
+    }
+    
+    fun sendWelcomeEmail(firstName: String, lastName: String, email: String) {
+        val response = ccaiClient.email.sendSingle(
+            firstName = firstName,
+            lastName = lastName,
+            email = email,
+            subject = "Welcome ${firstName}!",
+            htmlContent = """
+                <html>
+                    <body>
+                        <h1>Welcome ${firstName} ${lastName}!</h1>
+                        <p>Thank you for joining our service.</p>
+                    </body>
+                </html>
+            """.trimIndent()
+        )
+        println("Email sent with ID: ${response.id}")
+    }
 }
 ```
 
-## 7. Testing
+#### Application Properties
 
-Run the tests with Maven:
-
-```text
-mvn test
+```kotlin
+ccai.client-id=${CCAI_CLIENT_ID}
+ccai.api-key=${CCAI_API_KEY}
+ccai.use-test-environment=false
 ```
 
-Run with coverage:
+### Koltin Usage
 
-```
-mvn test jacoco:report
+#### SMS Basic Usage
+
+```kotlin
+import com.cloudcontactai.sdk.CCAIClient
+import com.cloudcontactai.sdk.common.CCAIConfig
+import com.cloudcontactai.sdk.sms.Account
+
+// Initialize the client
+val config = CCAIConfig(
+    clientId = System.getenv("CCAI_CLIENT_ID") ?: throw IllegalArgumentException("CCAI_CLIENT_ID not found"),
+    apiKey = System.getenv("CCAI_API_KEY") ?: throw IllegalArgumentException("CCAI_API_KEY not found")
+)
+
+val ccai = CCAIClient(config)
+
+// Send a single SMS
+val response = ccai.sms.sendSingle(
+    firstName = "John",
+    lastName = "Doe",
+    phone = "+15551234567",
+    message = "Hello John, this is a test message!",
+    title = "Test Campaign"
+)
+
+println("Message sent with ID: ${response.id}")
+
+// Send to multiple recipients
+val accounts = listOf(
+    Account(
+        firstName = "John",
+        lastName = "Doe",
+        phone = "+15551234567"
+    ),
+    Account(
+        firstName = "Jane",
+        lastName = "Smith",
+        phone = "+15559876543"
+    )
+)
+
+val campaignResponse = ccai.sms.send(
+    accounts = accounts,
+    message = "Hello from our service!",
+    title = "Bulk Test Campaign"
+)
+
+println("Campaign sent with ID: ${campaignResponse.id}")
+
+ccai.close()
 ```
 
 <br />
 
-## 8. Examples
+#### Email Usage
 
-The `src/main/java/com/cloudcontactai/ccai/examples` directory contains complete examples:
+```kotlin
+import com.cloudcontactai.sdk.email.EmailAccount
 
-* `BasicSMSExample.java` - Basic SMS sending examples
-* `BasicEmailExample.java` - Basic email sending examples
-* `WebhookExample.java` - Complete webhook handling server
+// Send a single email
+val response = ccai.email.sendSingle(
+    firstName = "John",
+    lastName = "Doe",
+    email = "john.doe@example.com",
+    subject = "Welcome John!",
+    htmlContent = "<h1>Hello John Doe!</h1><p>Welcome to our service.</p>"
+)
 
-To run the examples:
+println("Email sent with ID: ${response.id}")
 
-```java
-# Set environment variables
-export CCAI_CLIENT_ID="your-client-id"
-export CCAI_API_KEY="your-api-key"
+// Send email campaign
+val emailAccounts = listOf(
+    EmailAccount(
+        firstName = "John",
+        lastName = "Doe",
+        email = "john.doe@example.com"
+    ),
+    EmailAccount(
+        firstName = "Jane",
+        lastName = "Smith",
+        email = "jane.smith@example.com"
+    )
+)
 
-# Run SMS example
-mvn exec:java -Dexec.mainClass="com.cloudcontactai.ccai.examples.BasicSMSExample"
+val campaignResponse = ccai.email.send(
+    accounts = emailAccounts,
+    subject = "Newsletter",
+    htmlContent = "<h1>Hello!</h1><p>Here's your newsletter.</p>"
+)
 
-# Run email example
-mvn exec:java -Dexec.mainClass="com.cloudcontactai.ccai.examples.BasicEmailExample"
-
-# Run webhook server
-mvn spring-boot:run -Dspring-boot.run.mainClass="com.cloudcontactai.ccai.examples.WebhookExample"
-
+println("Email campaign sent with ID: ${campaignResponse.id}")
 ```
 
-## 9. Building
+#### MMS Usage
 
-Build the project:
+<br />
 
+**Image Recommendations**
+
+For optimal MMS delivery and performance:
+
+**Dimensions:**
+
+* Recommended: 640px × 1138px (9:16 aspect ratio)
+* Alternative: 1080px × 1920px (9:16 aspect ratio)
+* Format: Portrait or square orientation preferred
+
+**File Size:**
+
+* Target: ~200 KB (optimal for speed and deliverability)
+* Maximum: 1 MB
+* Use image compression tools to reduce file size while maintaining quality
+
+**Supported Formats:**
+
+* JPEG (recommended)****
+* PNG
+* GIF
+
+**Best Practice:** Keep images under 500 KB with 640×1138px dimensions for optimal compatibility and performance.
+
+**Code Examples**
+
+```kotlin
+import com.cloudcontactai.sdk.mms.Account
+import java.io.File
+
+// Send MMS with automatic image upload (recommended)
+val mmsAccounts = listOf(
+    Account(
+        firstName = "John",
+        lastName = "Doe",
+        phone = "+15551234567"
+    )
+)
+
+val imageFile = File("path/to/image.jpg")
+val mmsResponse = ccai.mms.sendWithImage(
+    accounts = mmsAccounts,
+    message = "Check out this image!",
+    title = "MMS Campaign",
+    imageFile = imageFile
+)
+
+// Response ID may be in campaignId or id field
+val responseId = mmsResponse.campaignId ?: mmsResponse.id
+println("MMS sent with ID: ${responseId}")
 ```
-mvn clean compile
+
+#### Webhook Management
+
+```kotlin
+import com.cloudcontactai.sdk.webhook.WebhookRequest
+
+// Create a webhook (auto-generated secret)
+val webhook = ccai.webhook.create(WebhookRequest("https://your-app.com/webhooks/ccai"))
+println("Webhook created with ID: ${webhook.id}")
+println("URL: ${webhook.url}")
+println("Secret Key: ${webhook.secretKey}")
+
+// Create a webhook with custom secret
+val customWebhook = ccai.webhook.create(
+    WebhookRequest("https://your-app.com/webhooks/ccai", "my-custom-secret-32chars12345")
+)
+println("Webhook created with custom secret!")
+
+// Get the webhook
+val webhookDetails = ccai.webhook.get()
+webhookDetails?.let {
+    println("Current webhook URL: ${it.url}")
+    println("Method: ${it.method}")
+    println("Secret Key: ${it.secretKey}")
+}
+
+// Update webhook
+val updated = ccai.webhook.update(
+    WebhookRequest("https://your-app.com/webhooks/ccai-updated", "my-custom-secret-32chars12345")
+)
+println("Webhook updated to: ${updated.url}")
+
+// Validate CloudContactAI webhook signature (using eventHash)
+val payload = """
+{
+    "eventType": "sms.sent",
+    "data": {
+        "id": 12345,
+        "MessageStatus": "sent",
+        "To": "+15551234567",
+        "Message": "Hello World"
+    },
+    "eventHash": "abc123def456ghi789jkl012mno345pq"
+}
+"""
+val signature = request.getHeader("X-CCAI-Signature")
+val event = ccai.webhook.parseWebhookEvent(payload)
+
+val isValid = ccai.webhook.validateSignature(
+    signature,
+    webhook.secretKey!!,
+    config.clientId.toLong(),
+    event.eventHash
+)
+
+if (isValid) {
+    println("Event type: ${event.eventType}")
+    println("Event hash: ${event.eventHash}")
+    println("Data: ${event.data}")
+}
 ```
 
-Package the JAR:
+### Java Usage
 
-```
-mvn clean package
+```kotlin
+import com.cloudcontactai.sdk.CCAIClient;
+import com.cloudcontactai.sdk.common.CCAIConfig;
+import com.cloudcontactai.sdk.sms.SMSResponse;
+
+// Initialize the client
+CCAIConfig config = new CCAIConfig(
+    System.getenv("CCAI_CLIENT_ID"),
+    System.getenv("CCAI_API_KEY"),
+    false  // useTestEnvironment
+);
+
+CCAIClient ccai = new CCAIClient(config);
+
+// Send SMS
+SMSResponse response = ccai.getSms().sendSingle(
+    "John",
+    "Doe", 
+    "+15551234567",
+    "Hello John, this is a test message!",
+    "Test Campaign",
+    null  // optional sender phone
+);
+
+System.out.println("Message sent with ID: " + response.getId());
+
+ccai.close();
 ```
 
-Install to local repository:
+## 4. Configuration Options
 
+The `CCAIConfig` class supports the following options:
+
+* `clientId`: Your CCAI client ID (required)
+* `apiKey`: Your CCAI API key (required)
+* `useTestEnvironment`: Whether to use test environment URLs (default: false)
+* `debugMode`: Enable debug logging (default: false)
+* `maxRetries`: Maximum retry attempts for failed requests (default: 3)
+* `timeoutMs`: Request timeout in milliseconds (default: 30000)
+
+The SDK automatically configures the following URLs based on `useTestEnvironment`:
+
+* `baseUrl`: SMS/MMS API endpoint
+* `emailBaseUrl`: Email API endpoint
+* `authBaseUrl`: Authentication API endpoint
+* `filesBaseUrl`: File upload API endpoint (for MMS)
+
+## 5. Error Handling
+
+The SDK throws `CCAIException` for API errors:
+
+```kotlin
+try {
+    val response = ccai.sms.sendSingle(
+        firstName = "John",
+        lastName = "Doe",
+        phone = "invalid-phone",
+        message = "Test message",
+        title = "Test"
+    )
+} catch (e: CCAIException) {
+    println("API Error: ${e.message}")
+}
 ```
+
+## 6. Building from Source
+
+```kotlin
+git clone https://github.com/cloudcontactai/ccai-java-sdk.git
+cd ccai-java-sdk
 mvn clean install
 ```
 
-## 10. Contributing
+## 7. Testing
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests for your changes
-5. Ensure all tests pass
-6. Submit a pull request
+```kotlin
+mvn test
+```
 
-## 11. License
+<br />
+
+## 8. License
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/CloudContactAI/ccai-java/blob/main/LICENSE) file for details.
 
-## &#x20;Try it yourself
+## &#x20;Support
 
 See the full source code [here](https://github.com/cloudcontactai/ccai-java).
