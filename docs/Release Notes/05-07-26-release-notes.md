@@ -1,5 +1,5 @@
 ---
-title: (05-07-26) Release Notes
+title: (05-12-26) Release Notes
 deprecated: false
 hidden: false
 metadata:
@@ -9,7 +9,6 @@ metadata:
 
 | Jira Ticket | Description                                                  |
 | :---------- | :----------------------------------------------------------- |
-| CLOUD-2727  | AWS SES Unsubscribe feature.                                 |
 | CLOUD-2725  | Phone guard screen renders incorrectly.                      |
 | CLOUD-2736  | Bug: Update button in the Email Config table.                |
 | CLOUD-2703  | Bug: Update sender for CCAI auto emails                      |
