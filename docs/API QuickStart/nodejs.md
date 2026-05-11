@@ -1,7 +1,5 @@
 ---
-title: >-
-  Send SMS, MMS, and Email with the CCAI Node.js SDK. Manage A2P 10DLC
-  compliance, webhooks, and campaigns programmatically.
+title: Node.JS
 excerpt: >-
   Send SMS, MMS, and Email with the CCAI Node.js SDK. Manage A2P 10DLC
   compliance, webhooks, and campaigns programmatically.
