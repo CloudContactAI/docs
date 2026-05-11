@@ -1,6 +1,10 @@
 ---
-title: Node.js
-excerpt: Send SMS with Node.js
+title: >-
+  Send SMS, MMS, and Email with the CCAI Node.js SDK. Manage A2P 10DLC
+  compliance, webhooks, and campaigns programmatically.
+excerpt: >-
+  Send SMS, MMS, and Email with the CCAI Node.js SDK. Manage A2P 10DLC
+  compliance, webhooks, and campaigns programmatically.
 deprecated: false
 hidden: false
 metadata:
@@ -45,17 +49,16 @@ Learn how to send your first SMS using the CCAI Node.js SDK
 
 ## Prerequisites
 
-To get the most out of this guide, you'll need to:
-
-* Sign up for a CCAI Trial Account [here](https://app.cloudcontactai.com/register)
-* Get your Client ID from Account\Settings
-* Create\Copy an API Key from Account Settings
+* Sign up for a [CCAI Trial Account](https://app.cloudcontactai.com/register)
+* Get your **Client ID** from Account → Settings
+* Create/Copy an **API Key** from Account Settings
+* Node.js 16+ installed
 
 <Embed typeOfEmbed="youtube" url="https://www.youtube.com/watch?v=CXTrFkXnmXs" html="%3Ciframe%20class%3D%22embedly-embed%22%20src%3D%22%2F%2Fcdn.embedly.com%2Fwidgets%2Fmedia.html%3Fsrc%3Dhttps%253A%252F%252Fwww.youtube.com%252Fembed%252FCXTrFkXnmXs%253Ffeature%253Doembed%26display_name%3DYouTube%26url%3Dhttps%253A%252F%252Fwww.youtube.com%252Fwatch%253Fv%253DCXTrFkXnmXs%26image%3Dhttps%253A%252F%252Fi.ytimg.com%252Fvi%252FCXTrFkXnmXs%252Fhqdefault.jpg%26type%3Dtext%252Fhtml%26schema%3Dyoutube%22%20width%3D%22854%22%20height%3D%22480%22%20scrolling%3D%22no%22%20title%3D%22YouTube%20embed%22%20frameborder%3D%220%22%20allow%3D%22autoplay%3B%20fullscreen%3B%20encrypted-media%3B%20picture-in-picture%3B%22%20allowfullscreen%3D%22true%22%3E%3C%2Fiframe%3E" href="https://www.youtube.com/watch?v=CXTrFkXnmXs" providerUrl="https://www.youtube.com/" providerName="YouTube" />
 
-## 1. Install
+## 1. Install & Configuration
 
-Get the CCAI Node.js SDK
+Install the SDK
 
 ```text
 npm install ccai-node
@@ -475,15 +478,13 @@ This will create a public tunnel to your local webhook server.
 
 If you have not signed up for ngrok, you will need to:
 
-ERROR: Sign up for an account: [https://dashboard.ngrok.com/signup](https://dashboard.ngrok.com/signup)
-ERROR: Install your authtoken: [https://dashboard.ngrok.com/get-started/your-authtoken](https://dashboard.ngrok.com/get-started/your-authtoken)
+ERROR: Sign up for an account: [https://dashboard.ngrok.com/signup](https://dashboard.ngrok.com/signup) ERROR: Install your authtoken: [https://dashboard.ngrok.com/get-started/your-authtoken](https://dashboard.ngrok.com/get-started/your-authtoken)
 
 ### Step 5: Get your ngrok URL
 
 Ngrok will display something like:
 
-Forwarding    [https://abc123.ngrok.io](https://abc123.ngrok.io) -> [http://localhost:3000](http://localhost:3000)
-Copy that [https://abc123.ngrok.io](https://abc123.ngrok.io) URL - this is your public webhook URL.
+Forwarding    [https://abc123.ngrok.io](https://abc123.ngrok.io) -> [http://localhost:3000](http://localhost:3000) Copy that [https://abc123.ngrok.io](https://abc123.ngrok.io) URL - this is your public webhook URL.
 
 Example: [https://81dbae920588.ngrok-free.app](https://81dbae920588.ngrok-free.app)
 
@@ -494,8 +495,7 @@ Example: [https://81dbae920588.ngrok-free.app](https://81dbae920588.ngrok-free.a
 3. Specify your ngrok url + '/webhook'
 4. SMS Callbacks:
 
-Call this URL when an inbound message is received: [https://81dbae920588.ngrok-free.app/webhook](https://81dbae920588.ngrok-free.app/webhook)
-Call this URL after an outbound message has been delivered: [https://81dbae920588.ngrok-free.app/webhook](https://81dbae920588.ngrok-free.app/webhook)
+Call this URL when an inbound message is received: [https://81dbae920588.ngrok-free.app/webhook](https://81dbae920588.ngrok-free.app/webhook) Call this URL after an outbound message has been delivered: [https://81dbae920588.ngrok-free.app/webhook](https://81dbae920588.ngrok-free.app/webhook)
 
 ### Step 7: Send a test SMS to trigger webhook
 
