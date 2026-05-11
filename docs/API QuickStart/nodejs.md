@@ -68,7 +68,7 @@ npm install ccai-node
 
 Create a `.env` file in your project root:
 
-```env
+```node
 CCAI_CLIENT_ID=your-client-id
 CCAI_API_KEY=your-api-key
 ```
@@ -93,7 +93,7 @@ const ccai = new CCAI({
 
 > **Security Note:** Never hardcode credentials in source files. Always use environment variables or a secrets manager.
 
----
+***
 
 ## 2. Send SMS
 
@@ -145,7 +145,7 @@ ccai.sms.send(accounts, message, "Campaign Title", options)
   .catch(error => console.error('Error:', error));
 ```
 
----
+***
 
 ## 3. Send MMS
 
@@ -218,13 +218,13 @@ const response = await ccai.mms.sendSingle(
 
 ### Supported Media Types
 
-| Content Type | Extension |
-|---|---|
+| Content Type | Extension   |
+| ------------ | ----------- |
 | `image/jpeg` | .jpg, .jpeg |
-| `image/png` | .png |
-| `image/gif` | .gif |
+| `image/png`  | .png        |
+| `image/gif`  | .gif        |
 
----
+***
 
 ## 4. Send Email
 
@@ -308,7 +308,7 @@ const scheduledResponse = await ccai.email.sendCampaign(scheduledCampaign);
 console.log(`Email campaign scheduled with ID: ${scheduledResponse.id}`);
 ```
 
----
+***
 
 ## 5. Short Links
 
@@ -332,7 +332,7 @@ ccai.sms.send(
 );
 ```
 
----
+***
 
 ## 6. Voice
 
@@ -347,7 +347,7 @@ const response = await ccai.voice.send(
 console.log(`Voice campaign sent: ${response.campaignId}`);
 ```
 
----
+***
 
 ## 7. Conversations & Inbox
 
@@ -373,7 +373,7 @@ inbox.forEach(thread => {
 });
 ```
 
----
+***
 
 ## 8. A2P 10DLC Compliance
 
@@ -454,7 +454,7 @@ async function waitForApproval(brandId, intervalMs = 30000) {
 }
 ```
 
----
+***
 
 ## 9. Webhook Management
 
@@ -499,13 +499,13 @@ console.log(`Webhook deleted: ${deleteResponse.success}`);
 
 ### Webhook Event Types
 
-| Event | Description |
-|---|---|
-| `DELIVERY_RECEIPT` | Message delivery status update |
-| `INBOUND_MESSAGE` | Incoming message received |
-| `OPT_OUT` | Contact opted out of messaging |
-| `MESSAGE_SENT` | Outbound message sent successfully |
-| `MESSAGE_RECEIVED` | Inbound message received |
+| Event              | Description                        |
+| ------------------ | ---------------------------------- |
+| `DELIVERY_RECEIPT` | Message delivery status update     |
+| `INBOUND_MESSAGE`  | Incoming message received          |
+| `OPT_OUT`          | Contact opted out of messaging     |
+| `MESSAGE_SENT`     | Outbound message sent successfully |
+| `MESSAGE_RECEIVED` | Inbound message received           |
 
 ### Webhook Event Payloads
 
@@ -586,7 +586,7 @@ app.post('/webhook', (req, res) => {
 app.listen(3000, () => console.log('Webhook server running on port 3000'));
 ```
 
----
+***
 
 ## 10. Testing Webhooks with Ngrok
 
@@ -639,8 +639,8 @@ Copy the `https://xxxxx.ngrok-free.app` URL from the output.
 1. Log in to your CCAI account
 2. Navigate to **Settings → Integration**
 3. Set your webhook URLs:
-   - Inbound message callback: `https://xxxxx.ngrok-free.app/webhook`
-   - Outbound delivery callback: `https://xxxxx.ngrok-free.app/webhook`
+   * Inbound message callback: `https://xxxxx.ngrok-free.app/webhook`
+   * Outbound delivery callback: `https://xxxxx.ngrok-free.app/webhook`
 
 ### Step 6: Send a Test Message
 
@@ -664,7 +664,7 @@ await ccai.sms.sendSingle(
 
 Your webhook server should receive the delivery notification.
 
----
+***
 
 ## 11. Error Handling
 
@@ -686,18 +686,18 @@ try {
 
 ### Common Error Codes
 
-| Code | Description | Resolution |
-|---|---|---|
-| `40001` | Invalid API key | Verify your API key in Account Settings |
-| `40002` | Invalid request parameters | Check required fields and data formats |
-| `40003` | Rate limit exceeded | Implement exponential backoff |
-| `40004` | Insufficient credits | Add credits to your account |
-| `40101` | Authentication failed | Verify clientId and apiKey |
-| `40301` | Forbidden - insufficient permissions | Check account permissions |
-| `40401` | Resource not found | Verify the resource ID exists |
-| `42201` | Invalid phone number format | Use E.164 format (+1XXXXXXXXXX) |
-| `42202` | Recipient opted out | Remove contact from campaign |
-| `50001` | Internal server error | Retry with exponential backoff |
+| Code    | Description                          | Resolution                              |
+| ------- | ------------------------------------ | --------------------------------------- |
+| `40001` | Invalid API key                      | Verify your API key in Account Settings |
+| `40002` | Invalid request parameters           | Check required fields and data formats  |
+| `40003` | Rate limit exceeded                  | Implement exponential backoff           |
+| `40004` | Insufficient credits                 | Add credits to your account             |
+| `40101` | Authentication failed                | Verify clientId and apiKey              |
+| `40301` | Forbidden - insufficient permissions | Check account permissions               |
+| `40401` | Resource not found                   | Verify the resource ID exists           |
+| `42201` | Invalid phone number format          | Use E.164 format (+1XXXXXXXXXX)         |
+| `42202` | Recipient opted out                  | Remove contact from campaign            |
+| `50001` | Internal server error                | Retry with exponential backoff          |
 
 ### Retry with Exponential Backoff
 
@@ -723,74 +723,74 @@ const response = await sendWithRetry(() =>
 );
 ```
 
----
+***
 
 ## 12. Complete Module Reference
 
 ### SMS Module (`ccai.sms`)
 
-| Method | Description |
-|---|---|
-| `send(accounts, message, title, options?)` | Send SMS to multiple recipients |
-| `sendSingle(firstName, lastName, phone, message, title, options?)` | Send SMS to one recipient |
+| Method                                                             | Description                     |
+| ------------------------------------------------------------------ | ------------------------------- |
+| `send(accounts, message, title, options?)`                         | Send SMS to multiple recipients |
+| `sendSingle(firstName, lastName, phone, message, title, options?)` | Send SMS to one recipient       |
 
 ### MMS Module (`ccai.mms`)
 
-| Method | Description |
-|---|---|
-| `sendWithImage(imagePath, contentType, accounts, message, title, options?)` | Upload and send MMS in one step |
-| `send(pictureFileKey, accounts, message, title, options?)` | Send MMS with pre-uploaded image |
-| `sendSingle(pictureFileKey, firstName, lastName, phone, message, title)` | Send MMS to one recipient |
-| `getSignedUploadUrl(fileName, fileType)` | Get a signed S3 URL for image upload |
-| `uploadImageToSignedUrl(signedUrl, filePath, contentType)` | Upload image to signed URL |
+| Method                                                                      | Description                          |
+| --------------------------------------------------------------------------- | ------------------------------------ |
+| `sendWithImage(imagePath, contentType, accounts, message, title, options?)` | Upload and send MMS in one step      |
+| `send(pictureFileKey, accounts, message, title, options?)`                  | Send MMS with pre-uploaded image     |
+| `sendSingle(pictureFileKey, firstName, lastName, phone, message, title)`    | Send MMS to one recipient            |
+| `getSignedUploadUrl(fileName, fileType)`                                    | Get a signed S3 URL for image upload |
+| `uploadImageToSignedUrl(signedUrl, filePath, contentType)`                  | Upload image to signed URL           |
 
 ### Email Module (`ccai.email`)
 
-| Method | Description |
-|---|---|
-| `sendSingle(firstName, lastName, email, subject, message, senderEmail, replyEmail, senderName, title)` | Send email to one recipient |
-| `sendCampaign(campaign, options?)` | Send email campaign to multiple recipients |
+| Method                                                                                                 | Description                                |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------ |
+| `sendSingle(firstName, lastName, email, subject, message, senderEmail, replyEmail, senderName, title)` | Send email to one recipient                |
+| `sendCampaign(campaign, options?)`                                                                     | Send email campaign to multiple recipients |
 
 ### Voice Module (`ccai.voice`)
 
-| Method | Description |
-|---|---|
+| Method                                     | Description                               |
+| ------------------------------------------ | ----------------------------------------- |
 | `send(accounts, message, title, options?)` | Send voice message to multiple recipients |
 
 ### Short Link Module (`ccai.shortlink`)
 
-| Method | Description |
-|---|---|
+| Method               | Description                   |
+| -------------------- | ----------------------------- |
 | `create(url, title)` | Create a trackable short link |
 
 ### Inbox Module (`ccai.inbox`)
 
-| Method | Description |
-|---|---|
-| `list()` | List inbox threads |
+| Method                   | Description                           |
+| ------------------------ | ------------------------------------- |
+| `list()`                 | List inbox threads                    |
 | `getConversation(phone)` | Get conversation history for a number |
 
 ### Webhook Module (`ccai.webhook`)
 
-| Method | Description |
-|---|---|
-| `register(config)` | Register a new webhook endpoint |
-| `list()` | List all registered webhooks |
-| `update(id, config)` | Update an existing webhook |
-| `delete(id)` | Delete a webhook |
-| `verifySignature(signature, payload, secret)` | Verify webhook signature |
-| `parseEvent(json)` | Parse a webhook event payload |
+| Method                                        | Description                     |
+| --------------------------------------------- | ------------------------------- |
+| `register(config)`                            | Register a new webhook endpoint |
+| `list()`                                      | List all registered webhooks    |
+| `update(id, config)`                          | Update an existing webhook      |
+| `delete(id)`                                  | Delete a webhook                |
+| `verifySignature(signature, payload, secret)` | Verify webhook signature        |
+| `parseEvent(json)`                            | Parse a webhook event payload   |
 
 ### Compliance Module (`ccai.compliance`)
 
-| Method | Description |
-|---|---|
-| `registerBrand(brandData)` | Register a brand for A2P 10DLC |
-| `registerCampaign(campaignData)` | Register a messaging campaign |
-| `getBrandStatus(brandId)` | Check brand registration status |
-| `getCampaignStatus(campaignId)` | Check campaign registration status |
+| Method                           | Description                        |
+| -------------------------------- | ---------------------------------- |
+| `registerBrand(brandData)`       | Register a brand for A2P 10DLC     |
+| `registerCampaign(campaignData)` | Register a messaging campaign      |
+| `getBrandStatus(brandId)`        | Check brand registration status    |
+| `getCampaignStatus(campaignId)`  | Check campaign registration status |
 
----
+***
 
 ## 13. Options Object Reference
 
@@ -812,7 +812,7 @@ const response = await sendWithRetry(() =>
 }
 ```
 
----
+***
 
 ## License
 
@@ -820,6 +820,6 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 
 ## Resources
 
-- [GitHub Repository](https://github.com/CloudContactAI/ccai-node)
-- [API Reference](https://developer.cloudcontactai.com/reference)
-- [CCAI Dashboard](https://app.cloudcontactai.com)
+* [GitHub Repository](https://github.com/CloudContactAI/ccai-node)
+* [API Reference](https://developer.cloudcontactai.com/reference)
+* [CCAI Dashboard](https://app.cloudcontactai.com)
