@@ -31,6 +31,84 @@ To protect our customers in debt collection and marketing, we also search for an
 - Auto-adds flagged numbers to Do-Not-Call list
 - Protects you from serial litigators
 
+## What Each Lookup Detects
+
+<Table>
+  <thead>
+    <tr>
+      <th>
+        ### **Lookup Type**
+      </th>
+
+      <th>
+        ### **What It Checks**
+      </th>
+
+      <th>
+        ### **Risk Prevented**
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        **Reassigned Number**
+      </td>
+
+      <td>
+        Whether the phone number has changed owners
+      </td>
+
+      <td>
+        TCPA lawsuit ($500-$1,500 per message)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **Litigious Contact**
+      </td>
+
+      <td>
+        History of TCPA lawsuits since 2000
+      </td>
+
+      <td>
+        Targeted litigation from serial filers
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **Line Type**
+      </td>
+
+      <td>
+        Mobile vs. landline vs. VoIP
+      </td>
+
+      <td>
+        Wasted SMS credits on undeliverable numbers
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **Fraud Check**
+      </td>
+
+      <td>
+        Number authenticity and country of origin
+      </td>
+
+      <td>
+        Spoofed numbers, international fraud
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
 <br />
 
 <br />
