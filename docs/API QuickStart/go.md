@@ -323,7 +323,166 @@ response, err := client.SMS.Send(
 )
 ```
 
-## 7. Project Structure
+## 7. Brand Registration
+
+Register and manage brands for TCR verification.
+
+```go
+package main
+
+import (
+	"fmt"
+	"log"
+	"os"
+
+	"github.com/cloudcontactai/ccai-go/src/pkg/brands"
+	"github.com/cloudcontactai/ccai-go/src/pkg/ccai"
+	"github.com/joho/godotenv"
+)
+
+func strPtr(s string) *string { return &s }
+
+func main() {
+	_ = godotenv.Load()
+
+	client, err := ccai.NewClient(ccai.Config{
+		ClientID: os.Getenv("CCAI_CLIENT_ID"),
+		APIKey:   os.Getenv("CCAI_API_KEY"),
+	})
+	if err != nil {
+		log.Fatalf("Failed to create client: %v", err)
+	}
+
+	// Create a brand
+	brand, err := client.Brands.Create(brands.BrandRequest{
+		LegalCompanyName: strPtr("Collect.org Inc."),
+		Dba:              strPtr("Collect"),
+		EntityType:       strPtr("NON_PROFIT"),
+		TaxId:            strPtr("123456789"),
+		TaxIdCountry:     strPtr("US"),
+		Country:          strPtr("US"),
+		VerticalType:     strPtr("NON_PROFIT"),
+		WebsiteUrl:       strPtr("https://www.collect.org"),
+		Street:           strPtr("123 Main Street"),
+		City:             strPtr("San Francisco"),
+		State:            strPtr("CA"),
+		PostalCode:       strPtr("94105"),
+		ContactFirstName: strPtr("Jane"),
+		ContactLastName:  strPtr("Doe"),
+		ContactEmail:     strPtr("jane@collect.org"),
+		ContactPhone:     strPtr("+14155551234"),
+	})
+	if err != nil {
+		log.Fatalf("Failed to create brand: %v", err)
+	}
+	fmt.Printf("Brand created with ID: %d\n", brand.ID)
+
+	// Get a brand by ID
+	fetched, _ := client.Brands.Get(brand.ID)
+	fmt.Printf("Brand name: %s\n", fetched.LegalCompanyName)
+
+	// List all brands
+	brandList, _ := client.Brands.List()
+	fmt.Printf("Total brands: %d\n", len(brandList))
+
+	// Update a brand (partial update)
+	client.Brands.Update(brand.ID, brands.BrandRequest{
+		Street: strPtr("456 Oak Avenue"),
+		City:   strPtr("Los Angeles"),
+	})
+
+	// Delete a brand
+	client.Brands.Delete(brand.ID)
+}
+```
+
+**Entity Types:** `PRIVATE_PROFIT`, `PUBLIC_PROFIT`, `NON_PROFIT`, `GOVERNMENT`, `SOLE_PROPRIETOR`
+
+**Vertical Types:** `AUTOMOTIVE`, `AGRICULTURE`, `BANKING`, `COMMUNICATION`, `CONSTRUCTION`, `EDUCATION`, `ENERGY`, `ENTERTAINMENT`, `GOVERNMENT`, `HEALTHCARE`, `HOSPITALITY`, `INSURANCE`, `LEGAL`, `MANUFACTURING`, `NON_PROFIT`, `PROFESSIONAL`, `REAL_ESTATE`, `RETAIL`, `TECHNOLOGY`, `TRANSPORTATION`
+
+## 8. Campaign Registration
+
+Register and manage campaigns for TCR carrier vetting.
+
+```go
+package main
+
+import (
+	"fmt"
+	"log"
+	"os"
+
+	"github.com/cloudcontactai/ccai-go/src/pkg/campaigns"
+	"github.com/cloudcontactai/ccai-go/src/pkg/ccai"
+	"github.com/joho/godotenv"
+)
+
+func boolPtr(b bool) *bool { return &b }
+
+func main() {
+	_ = godotenv.Load()
+
+	client, err := ccai.NewClient(ccai.Config{
+		ClientID: os.Getenv("CCAI_CLIENT_ID"),
+		APIKey:   os.Getenv("CCAI_API_KEY"),
+	})
+	if err != nil {
+		log.Fatalf("Failed to create client: %v", err)
+	}
+
+	// Create a campaign
+	campaign, err := client.Campaigns.Create(campaigns.CampaignRequest{
+		BrandID:          1,
+		UseCase:          "MIXED",
+		SubUseCases:      []string{"CUSTOMER_CARE", "TWO_FACTOR_AUTHENTICATION", "ACCOUNT_NOTIFICATION"},
+		Description:      "Security codes and support messaging.",
+		MessageFlow:      "Users opt-in via signup form at https://example.com/signup",
+		HasEmbeddedLinks: boolPtr(true),
+		HasEmbeddedPhone: boolPtr(false),
+		IsAgeGated:       boolPtr(false),
+		IsDirectLending:  boolPtr(false),
+		OptInKeywords:    []string{"START"},
+		OptInMessage:     "Welcome! Reply STOP to cancel.",
+		OptInProofUrl:    "https://example.com/opt-in-proof.png",
+		HelpKeywords:     []string{"HELP"},
+		HelpMessage:      "For HELP email support@example.com.",
+		OptOutKeywords:   []string{"STOP"},
+		OptOutMessage:    "STOP received. You are unsubscribed.",
+		SampleMessages: []string{
+			"Your code is 554321. Reply STOP to cancel.",
+			"Your ticket has been updated. Reply HELP for info.",
+		},
+	})
+	if err != nil {
+		log.Fatalf("Failed to create campaign: %v", err)
+	}
+	fmt.Printf("Campaign created with ID: %d\n", campaign.ID)
+
+	// Get a campaign by ID
+	fetched, _ := client.Campaigns.Get(campaign.ID)
+	fmt.Printf("Campaign use case: %s\n", fetched.UseCase)
+
+	// List all campaigns
+	campaignList, _ := client.Campaigns.List()
+	fmt.Printf("Total campaigns: %d\n", len(campaignList))
+
+	// Update a campaign (partial update)
+	client.Campaigns.Update(campaign.ID, campaigns.CampaignRequest{
+		Description: "Updated description.",
+	})
+
+	// Delete a campaign
+	client.Campaigns.Delete(campaign.ID)
+}
+```
+
+**Use Cases:** `TWO_FACTOR_AUTHENTICATION`, `ACCOUNT_NOTIFICATION`, `CUSTOMER_CARE`, `DELIVERY_NOTIFICATION`, `FRAUD_ALERT`, `HIGHER_EDUCATION`, `LOW_VOLUME_MIXED`, `MARKETING`, `MIXED`, `POLLING_VOTING`, `PUBLIC_SERVICE_ANNOUNCEMENT`, `SECURITY_ALERT`
+
+> `MIXED` and `LOW_VOLUME_MIXED` campaigns require 2–3 `SubUseCases`.
+
+**Sub-Use Cases:** `TWO_FACTOR_AUTHENTICATION`, `ACCOUNT_NOTIFICATION`, `CUSTOMER_CARE`, `DELIVERY_NOTIFICATION`, `FRAUD_ALERT`, `MARKETING`, `POLLING_VOTING`
+
+## 9. Project Structure
 
 * **src/ -** Source code
   * **pkg/ -** Package code
@@ -344,7 +503,7 @@ response, err := client.SMS.Send(
 * **.env -** Environment variables
 * **.env.example -** Environment variables template
 
-## 7. Features
+## 10. Features
 
 * Send email messages to single or multiple recipients
 * Send SMS messages to single or multiple recipients

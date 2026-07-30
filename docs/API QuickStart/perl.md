@@ -627,7 +627,130 @@ sub process_webhook_event_legacy {
 }
 ```
 
-## 7. Project Structure
+## 7. Brand Registration
+
+Register and manage brands for TCR verification.
+
+```perl
+use lib '.';
+use CCAI;
+
+my $ccai = CCAI->new({
+    client_id => 'YOUR-CLIENT-ID',
+    api_key   => 'API-KEY-TOKEN'
+});
+
+# Create a brand
+my $brand = $ccai->brand->create({
+    legalCompanyName => 'Collect.org Inc.',
+    dba              => 'Collect',
+    entityType       => 'NON_PROFIT',
+    taxId            => '123456789',
+    taxIdCountry     => 'US',
+    country          => 'US',
+    verticalType     => 'NON_PROFIT',
+    websiteUrl       => 'https://www.collect.org',
+    street           => '123 Main Street',
+    city             => 'San Francisco',
+    state            => 'CA',
+    postalCode       => '94105',
+    contactFirstName => 'Jane',
+    contactLastName  => 'Doe',
+    contactEmail     => 'jane@collect.org',
+    contactPhone     => '+14155551234',
+});
+
+if ($brand->{success}) {
+    print "Brand created with ID: " . $brand->{data}{id} . "\n";
+}
+
+# Get a brand by ID
+my $fetched = $ccai->brand->get($brand->{data}{id});
+print "Brand name: " . $fetched->{data}{legalCompanyName} . "\n";
+
+# List all brands
+my $list = $ccai->brand->list();
+print "Total brands: " . scalar(@{$list->{data}}) . "\n";
+
+# Update a brand (partial update)
+$ccai->brand->update($brand->{data}{id}, {
+    street => '456 Oak Avenue',
+    city   => 'Los Angeles',
+});
+
+# Delete a brand
+$ccai->brand->delete($brand->{data}{id});
+```
+
+**Entity Types:** `PRIVATE_PROFIT`, `PUBLIC_PROFIT`, `NON_PROFIT`, `GOVERNMENT`, `SOLE_PROPRIETOR`
+
+**Vertical Types:** `AUTOMOTIVE`, `AGRICULTURE`, `BANKING`, `COMMUNICATION`, `CONSTRUCTION`, `EDUCATION`, `ENERGY`, `ENTERTAINMENT`, `GOVERNMENT`, `HEALTHCARE`, `HOSPITALITY`, `INSURANCE`, `LEGAL`, `MANUFACTURING`, `NON_PROFIT`, `PROFESSIONAL`, `REAL_ESTATE`, `RETAIL`, `TECHNOLOGY`, `TRANSPORTATION`
+
+## 8. Campaign Registration
+
+Register and manage campaigns for TCR carrier vetting.
+
+```perl
+use lib '.';
+use CCAI;
+use JSON;
+
+my $ccai = CCAI->new({
+    client_id => 'YOUR-CLIENT-ID',
+    api_key   => 'API-KEY-TOKEN'
+});
+
+# Create a campaign
+my $campaign = $ccai->campaign->create({
+    brandId          => 1,
+    useCase          => 'MIXED',
+    subUseCases      => ['CUSTOMER_CARE', 'TWO_FACTOR_AUTHENTICATION', 'ACCOUNT_NOTIFICATION'],
+    description      => 'Security codes and support messaging.',
+    messageFlow      => 'Users opt-in via signup form at https://example.com/signup',
+    hasEmbeddedLinks => JSON::true,
+    hasEmbeddedPhone => JSON::false,
+    isAgeGated       => JSON::false,
+    isDirectLending  => JSON::false,
+    optInKeywords    => ['START'],
+    optInMessage     => 'Welcome! Reply STOP to cancel.',
+    optInProofUrl    => 'https://example.com/opt-in-proof.png',
+    helpKeywords     => ['HELP'],
+    helpMessage      => 'For HELP email support@example.com.',
+    optOutKeywords   => ['STOP'],
+    optOutMessage    => 'STOP received. You are unsubscribed.',
+    sampleMessages   => [
+        'Your code is 554321. Reply STOP to cancel.',
+        'Your ticket has been updated. Reply HELP for info.',
+    ],
+});
+
+if ($campaign->{success}) {
+    print "Campaign created with ID: " . $campaign->{data}{id} . "\n";
+}
+
+# Get a campaign by ID
+my $fetched = $ccai->campaign->get($campaign->{data}{id});
+
+# List all campaigns
+my $list = $ccai->campaign->list();
+print "Total campaigns: " . scalar(@{$list->{data}}) . "\n";
+
+# Update a campaign (partial update)
+$ccai->campaign->update($campaign->{data}{id}, {
+    description => 'Updated description.',
+});
+
+# Delete a campaign
+$ccai->campaign->delete($campaign->{data}{id});
+```
+
+**Use Cases:** `TWO_FACTOR_AUTHENTICATION`, `ACCOUNT_NOTIFICATION`, `CUSTOMER_CARE`, `DELIVERY_NOTIFICATION`, `FRAUD_ALERT`, `HIGHER_EDUCATION`, `LOW_VOLUME_MIXED`, `MARKETING`, `MIXED`, `POLLING_VOTING`, `PUBLIC_SERVICE_ANNOUNCEMENT`, `SECURITY_ALERT`
+
+> `MIXED` and `LOW_VOLUME_MIXED` campaigns require 2–3 `subUseCases`.
+
+**Sub-Use Cases:** `TWO_FACTOR_AUTHENTICATION`, `ACCOUNT_NOTIFICATION`, `CUSTOMER_CARE`, `DELIVERY_NOTIFICATION`, `FRAUD_ALERT`, `MARKETING`, `POLLING_VOTING`
+
+## 9. Project Structure
 
 * **lib/ -** Library modules
   * **CCAI.pm -** Main CCAI client class
@@ -639,7 +762,7 @@ sub process_webhook_event_legacy {
 * **t/ -** Test files
 * **cpanfile -** Dependency specification
 
-## 8. Development
+## 10. Development
 
 ### Prerequisites
 
@@ -678,7 +801,7 @@ prove -lv t/01-basic.t
 
 <br />
 
-## 9. Features
+## 11. Features
 
 * Object-oriented Perl interface
 * Support for sending SMS to multiple recipients
@@ -695,7 +818,7 @@ prove -lv t/01-basic.t
 
 <br />
 
-## 10. SSL Certificate Handling
+## 12. SSL Certificate Handling
 
 The CCAI client automatically configures SSL certificates using the Mozilla::CA module. If you encounter SSL certificate errors:
 
@@ -713,7 +836,7 @@ The CCAI client automatically configures SSL certificates using the Mozilla::CA 
 export PERL_LWP_SSL_CA_FILE=/etc/ssl/certs/ca-certificates.crt
 ```
 
-## 11. Warning Suppression
+## 13. Warning Suppression
 
 The CCAI client may show harmless "Content-Length header value was wrong, fixed" warnings from LWP::UserAgent. These warnings don't affect functionality but can be suppressed:
 
@@ -749,7 +872,7 @@ BEGIN {
 }
 ```
 
-## 12. Error Handling
+## 14. Error Handling
 
 All methods return a hash reference with the following structure:
 
@@ -767,7 +890,7 @@ All methods return a hash reference with the following structure:
 }
 ```
 
-## 13. Template Variables
+## 15. Template Variables
 
 Messages support template variables that are automatically replaced:
 

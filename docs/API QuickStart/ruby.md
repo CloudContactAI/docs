@@ -332,7 +332,122 @@ ccai --type email --client-id YOUR-CLIENT-ID --api-key YOUR-API-KEY \
      --sender-name "Your Company" --title "Welcome Email"
 ```
 
-## 9. Project Structure
+## 9. Brand Registration
+
+Register and manage brands for TCR verification.
+
+```ruby
+require 'ccai'
+
+client = CCAI.new(
+  client_id: 'YOUR-CLIENT-ID',
+  api_key: 'YOUR-API-KEY'
+)
+
+# Create a brand
+brand = client.brands.create(
+  legalCompanyName: 'Collect.org Inc.',
+  dba: 'Collect',
+  entityType: 'NON_PROFIT',
+  taxId: '123456789',
+  taxIdCountry: 'US',
+  country: 'US',
+  verticalType: 'NON_PROFIT',
+  websiteUrl: 'https://www.collect.org',
+  street: '123 Main Street',
+  city: 'San Francisco',
+  state: 'CA',
+  postalCode: '94105',
+  contactFirstName: 'Jane',
+  contactLastName: 'Doe',
+  contactEmail: 'jane@collect.org',
+  contactPhone: '+14155551234'
+)
+puts "Brand created with ID: #{brand['id']}"
+
+# Get a brand by ID
+fetched = client.brands.get(brand['id'])
+puts "Brand name: #{fetched['legalCompanyName']}"
+
+# List all brands
+brands = client.brands.list
+puts "Total brands: #{brands.length}"
+
+# Update a brand (partial update)
+client.brands.update(brand['id'],
+  street: '456 Oak Avenue',
+  city: 'Los Angeles'
+)
+
+# Delete a brand
+client.brands.delete(brand['id'])
+```
+
+**Entity Types:** `PRIVATE_PROFIT`, `PUBLIC_PROFIT`, `NON_PROFIT`, `GOVERNMENT`, `SOLE_PROPRIETOR`
+
+**Vertical Types:** `AUTOMOTIVE`, `AGRICULTURE`, `BANKING`, `COMMUNICATION`, `CONSTRUCTION`, `EDUCATION`, `ENERGY`, `ENTERTAINMENT`, `GOVERNMENT`, `HEALTHCARE`, `HOSPITALITY`, `INSURANCE`, `LEGAL`, `MANUFACTURING`, `NON_PROFIT`, `PROFESSIONAL`, `REAL_ESTATE`, `RETAIL`, `TECHNOLOGY`, `TRANSPORTATION`
+
+## 10. Campaign Registration
+
+Register and manage campaigns for TCR carrier vetting.
+
+```ruby
+require 'ccai'
+
+client = CCAI.new(
+  client_id: 'YOUR-CLIENT-ID',
+  api_key: 'YOUR-API-KEY'
+)
+
+# Create a campaign
+campaign = client.campaigns.create(
+  brandId: 1,
+  useCase: 'MIXED',
+  subUseCases: ['CUSTOMER_CARE', 'TWO_FACTOR_AUTHENTICATION', 'ACCOUNT_NOTIFICATION'],
+  description: 'Security codes and support messaging.',
+  messageFlow: 'Users opt-in via signup form at https://example.com/signup',
+  hasEmbeddedLinks: true,
+  hasEmbeddedPhone: false,
+  isAgeGated: false,
+  isDirectLending: false,
+  optInKeywords: ['START'],
+  optInMessage: 'Welcome! Reply STOP to cancel.',
+  optInProofUrl: 'https://example.com/opt-in-proof.png',
+  helpKeywords: ['HELP'],
+  helpMessage: 'For HELP email support@example.com.',
+  optOutKeywords: ['STOP'],
+  optOutMessage: 'STOP received. You are unsubscribed.',
+  sampleMessages: [
+    'Your code is 554321. Reply STOP to cancel.',
+    'Your ticket has been updated. Reply HELP for info.'
+  ]
+)
+puts "Campaign created with ID: #{campaign['id']}"
+
+# Get a campaign by ID
+fetched = client.campaigns.get(campaign['id'])
+puts "Campaign use case: #{fetched['useCase']}"
+
+# List all campaigns
+campaigns = client.campaigns.list
+puts "Total campaigns: #{campaigns.length}"
+
+# Update a campaign (partial update)
+client.campaigns.update(campaign['id'],
+  description: 'Updated description.'
+)
+
+# Delete a campaign
+client.campaigns.delete(campaign['id'])
+```
+
+**Use Cases:** `TWO_FACTOR_AUTHENTICATION`, `ACCOUNT_NOTIFICATION`, `CUSTOMER_CARE`, `DELIVERY_NOTIFICATION`, `FRAUD_ALERT`, `HIGHER_EDUCATION`, `LOW_VOLUME_MIXED`, `MARKETING`, `MIXED`, `POLLING_VOTING`, `PUBLIC_SERVICE_ANNOUNCEMENT`, `SECURITY_ALERT`
+
+> `MIXED` and `LOW_VOLUME_MIXED` campaigns require 2–3 `subUseCases`.
+
+**Sub-Use Cases:** `TWO_FACTOR_AUTHENTICATION`, `ACCOUNT_NOTIFICATION`, `CUSTOMER_CARE`, `DELIVERY_NOTIFICATION`, `FRAUD_ALERT`, `MARKETING`, `POLLING_VOTING`
+
+## 11. Project Structure
 
 * **lib/ -** Library code
   * **ccai.rb -** Main entry point
@@ -356,7 +471,7 @@ ccai --type email --client-id YOUR-CLIENT-ID --api-key YOUR-API-KEY \
   * **progress_tracking_example.rb -** Progress tracking example
 * **test/ -** Test files
 
-## 10. Features
+## 12. Features
 
 * Send SMS messages to single or multiple recipients
 * Send MMS messages with images
@@ -369,7 +484,7 @@ ccai --type email --client-id YOUR-CLIENT-ID --api-key YOUR-API-KEY \
 * Full test coverage
 * Command-line interface for SMS, MMS, and Email
 
-## 11. Development
+## 13. Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
