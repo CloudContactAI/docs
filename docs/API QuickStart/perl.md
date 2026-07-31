@@ -627,7 +627,54 @@ sub process_webhook_event_legacy {
 }
 ```
 
-## 7. Brand Registration
+## 7. Contact Validator
+
+Validate email addresses and phone numbers.
+
+> Bulk endpoints accept up to 50 contacts per request and are processed server-side in chunks.
+
+```perl
+use lib '.';
+use CCAI;
+
+my $ccai = CCAI->new({
+    client_id => 'YOUR-CLIENT-ID',
+    api_key   => 'API-KEY-TOKEN'
+});
+
+# Validate a single email
+my $email_result = $ccai->contact_validator->validate_email('user@example.com');
+if ($email_result->{success}) {
+    print "Status: " . $email_result->{data}{status} . "\n"; # "valid" | "invalid" | "risky"
+}
+
+# Validate multiple emails (up to 50)
+my $bulk_emails = $ccai->contact_validator->validate_emails([
+    'user@example.com',
+    'bad@invalid.xyz'
+]);
+if ($bulk_emails->{success}) {
+    print "Total: " . $bulk_emails->{data}{summary}{total} . "\n";
+    print "Valid: " . $bulk_emails->{data}{summary}{valid} . "\n";
+}
+
+# Validate a single phone number
+my $phone_result = $ccai->contact_validator->validate_phone('+15551234567', { country_code => 'US' });
+if ($phone_result->{success}) {
+    print "Status: " . $phone_result->{data}{status} . "\n"; # "valid" | "invalid" | "landline"
+}
+
+# Validate multiple phone numbers (up to 50)
+my $bulk_phones = $ccai->contact_validator->validate_phones([
+    { phone => '+15551234567' },
+    { phone => '+15559876543', countryCode => 'US' }
+]);
+if ($bulk_phones->{success}) {
+    print "Landline: " . $bulk_phones->{data}{summary}{landline} . "\n";
+}
+```
+
+## 8. Brand Registration
 
 Register and manage brands for TCR verification.
 

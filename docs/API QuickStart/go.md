@@ -323,7 +323,73 @@ response, err := client.SMS.Send(
 )
 ```
 
-## 7. Brand Registration
+## 7. Contact Validator
+
+Validate email addresses and phone numbers.
+
+> Bulk endpoints accept up to 50 contacts per request and are processed server-side in chunks.
+
+```go
+package main
+
+import (
+	"fmt"
+	"log"
+	"os"
+
+	"github.com/cloudcontactai/ccai-go/src/pkg/ccai"
+	"github.com/cloudcontactai/ccai-go/src/pkg/contactvalidator"
+	"github.com/joho/godotenv"
+)
+
+func main() {
+	_ = godotenv.Load()
+
+	client, err := ccai.NewClient(ccai.Config{
+		ClientID: os.Getenv("CCAI_CLIENT_ID"),
+		APIKey:   os.Getenv("CCAI_API_KEY"),
+	})
+	if err != nil {
+		log.Fatalf("Failed to create client: %v", err)
+	}
+
+	// Validate a single email
+	emailResult, err := client.ContactValidator.ValidateEmail("user@example.com")
+	if err != nil {
+		log.Fatalf("Failed to validate email: %v", err)
+	}
+	fmt.Printf("Email status: %s\n", emailResult.Status) // "valid" | "invalid" | "risky"
+
+	// Validate multiple emails (up to 50)
+	bulkEmails, err := client.ContactValidator.ValidateEmails([]string{
+		"user@example.com",
+		"bad@invalid.xyz",
+	})
+	if err != nil {
+		log.Fatalf("Failed to validate emails: %v", err)
+	}
+	fmt.Printf("Email summary: %+v\n", bulkEmails.Summary)
+
+	// Validate a single phone number
+	phoneResult, err := client.ContactValidator.ValidatePhone("+15551234567", "US")
+	if err != nil {
+		log.Fatalf("Failed to validate phone: %v", err)
+	}
+	fmt.Printf("Phone status: %s\n", phoneResult.Status) // "valid" | "invalid" | "landline"
+
+	// Validate multiple phone numbers (up to 50)
+	bulkPhones, err := client.ContactValidator.ValidatePhones([]contactvalidator.PhoneInput{
+		{Phone: "+15551234567"},
+		{Phone: "+15559876543", CountryCode: "US"},
+	})
+	if err != nil {
+		log.Fatalf("Failed to validate phones: %v", err)
+	}
+	fmt.Printf("Phone summary: %+v\n", bulkPhones.Summary)
+}
+```
+
+## 8. Brand Registration
 
 Register and manage brands for TCR verification.
 
@@ -400,7 +466,7 @@ func main() {
 
 **Vertical Types:** `AUTOMOTIVE`, `AGRICULTURE`, `BANKING`, `COMMUNICATION`, `CONSTRUCTION`, `EDUCATION`, `ENERGY`, `ENTERTAINMENT`, `GOVERNMENT`, `HEALTHCARE`, `HOSPITALITY`, `INSURANCE`, `LEGAL`, `MANUFACTURING`, `NON_PROFIT`, `PROFESSIONAL`, `REAL_ESTATE`, `RETAIL`, `TECHNOLOGY`, `TRANSPORTATION`
 
-## 8. Campaign Registration
+## 9. Campaign Registration
 
 Register and manage campaigns for TCR carrier vetting.
 

@@ -302,7 +302,49 @@ php email_campaign_examples.php
 php webhook_example.php
 ```
 
-## 6. Brand Registration
+## 6. Contact Validator
+
+Validate email addresses and phone numbers.
+
+> Bulk endpoints accept up to 50 contacts per request and are processed server-side in chunks.
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+use CloudContactAI\CCAI\CCAI;
+
+$ccai = new CCAI([
+    'clientId' => 'YOUR-CLIENT-ID',
+    'apiKey' => 'YOUR-API-KEY'
+]);
+
+// Validate a single email
+$emailResult = $ccai->contactValidator->validateEmail('user@example.com');
+echo "Status: " . $emailResult['status'] . "\n"; // "valid" | "invalid" | "risky"
+
+// Validate multiple emails (up to 50)
+$bulkEmails = $ccai->contactValidator->validateEmails([
+    'user@example.com',
+    'bad@invalid.xyz'
+]);
+echo "Total: " . $bulkEmails['summary']['total'] . "\n"; // 2
+echo "Valid: " . $bulkEmails['summary']['valid'] . "\n"; // 1
+
+// Validate a single phone number
+$phoneResult = $ccai->contactValidator->validatePhone('+15551234567', 'US');
+echo "Status: " . $phoneResult['status'] . "\n"; // "valid" | "invalid" | "landline"
+
+// Validate multiple phone numbers (up to 50)
+$bulkPhones = $ccai->contactValidator->validatePhones([
+    ['phone' => '+15551234567'],
+    ['phone' => '+15559876543', 'countryCode' => 'US']
+]);
+echo "Landline: " . $bulkPhones['summary']['landline'] . "\n"; // 1
+```
+
+## 7. Brand Registration
 
 Register and manage brands for TCR verification.
 
@@ -361,7 +403,7 @@ $ccai->brands->delete($brand['id']);
 
 **Vertical Types:** `AUTOMOTIVE`, `AGRICULTURE`, `BANKING`, `COMMUNICATION`, `CONSTRUCTION`, `EDUCATION`, `ENERGY`, `ENTERTAINMENT`, `GOVERNMENT`, `HEALTHCARE`, `HOSPITALITY`, `INSURANCE`, `LEGAL`, `MANUFACTURING`, `NON_PROFIT`, `PROFESSIONAL`, `REAL_ESTATE`, `RETAIL`, `TECHNOLOGY`, `TRANSPORTATION`
 
-## 7. Campaign Registration
+## 8. Campaign Registration
 
 Register and manage campaigns for TCR carrier vetting.
 

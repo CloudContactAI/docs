@@ -332,7 +332,42 @@ ccai --type email --client-id YOUR-CLIENT-ID --api-key YOUR-API-KEY \
      --sender-name "Your Company" --title "Welcome Email"
 ```
 
-## 9. Brand Registration
+## 9. Contact Validator
+
+Validate email addresses and phone numbers.
+
+> Bulk endpoints accept up to 50 contacts per request and are processed server-side in chunks.
+
+```ruby
+require 'ccai'
+
+client = CCAI.new(
+  client_id: 'YOUR-CLIENT-ID',
+  api_key: 'YOUR-API-KEY'
+)
+
+# Validate a single email
+email_result = client.contact_validator.validate_email('user@example.com')
+puts "Status: #{email_result['status']}" # "valid" | "invalid" | "risky"
+
+# Validate multiple emails (up to 50)
+bulk_emails = client.contact_validator.validate_emails(['user@example.com', 'bad@invalid.xyz'])
+puts "Total: #{bulk_emails['summary']['total']}" # 2
+puts "Valid: #{bulk_emails['summary']['valid']}"  # 1
+
+# Validate a single phone number
+phone_result = client.contact_validator.validate_phone('+15551234567', country_code: 'US')
+puts "Status: #{phone_result['status']}" # "valid" | "invalid" | "landline"
+
+# Validate multiple phone numbers (up to 50)
+bulk_phones = client.contact_validator.validate_phones([
+  { phone: '+15551234567' },
+  { phone: '+15559876543', countryCode: 'US' }
+])
+puts "Landline: #{bulk_phones['summary']['landline']}" # 1
+```
+
+## 10. Brand Registration
 
 Register and manage brands for TCR verification.
 

@@ -471,7 +471,51 @@ var emailResponse = ccai.Email.SendSingle(
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/CloudContactAI/CCAI.NET/blob/main/LICENSE) file for details.
 
-## 9. Testing Webhook Installation
+## 9. Contact Validator
+
+Validate email addresses and phone numbers.
+
+> Bulk endpoints accept up to 50 contacts per request and are processed server-side in chunks.
+
+```csharp
+using CCAI.NET;
+using CCAI.NET.ContactValidator;
+
+var config = new CCAIConfig
+{
+    ClientId = "YOUR-CLIENT-ID",
+    ApiKey = "YOUR-API-KEY"
+};
+
+using var ccai = new CCAIClient(config);
+
+// Validate a single email
+var emailResult = await ccai.ContactValidator.ValidateEmailAsync("user@example.com");
+Console.WriteLine($"Status: {emailResult.Status}"); // "valid" | "invalid" | "risky"
+
+// Validate multiple emails (up to 50)
+var bulkEmails = await ccai.ContactValidator.ValidateEmailsAsync(new[]
+{
+    "user@example.com",
+    "bad@invalid.xyz"
+});
+Console.WriteLine($"Total: {bulkEmails.Summary.Total}");  // 2
+Console.WriteLine($"Valid: {bulkEmails.Summary.Valid}");   // 1
+
+// Validate a single phone number
+var phoneResult = await ccai.ContactValidator.ValidatePhoneAsync("+15551234567", "US");
+Console.WriteLine($"Status: {phoneResult.Status}"); // "valid" | "invalid" | "landline"
+
+// Validate multiple phone numbers (up to 50)
+var bulkPhones = await ccai.ContactValidator.ValidatePhonesAsync(new[]
+{
+    new PhoneInput { Phone = "+15551234567" },
+    new PhoneInput { Phone = "+15559876543", CountryCode = "US" }
+});
+Console.WriteLine($"Landline: {bulkPhones.Summary.Landline}"); // 1
+```
+
+## 10. Testing Webhook Installation
 
 If you're testing the webhook installation, it's best to git clone the repository so you can get access to the examples/webhook-server project [here](https://github.com/CloudContactAI/CCAI.NET/tree/main/examples/webhook-server).
 

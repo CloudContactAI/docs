@@ -282,7 +282,45 @@ def handle_webhook():
     return jsonify(result)
 ```
 
-## 6. Features
+## 6. Contact Validator
+
+Validate email addresses and phone numbers.
+
+> Bulk endpoints accept up to 50 contacts per request and are processed server-side in chunks.
+
+```python
+from ccai_python import CCAI
+
+ccai = CCAI(
+    client_id="YOUR-CLIENT-ID",
+    api_key="YOUR-API-KEY"
+)
+
+# Validate a single email
+email_result = ccai.contact_validator.validate_email("user@example.com")
+print(f"Status: {email_result['status']}")  # "valid" | "invalid" | "risky"
+
+# Validate multiple emails (up to 50)
+bulk_emails = ccai.contact_validator.validate_emails([
+    "user@example.com",
+    "bad@invalid.xyz"
+])
+print(f"Total: {bulk_emails['summary']['total']}")  # 2
+print(f"Valid: {bulk_emails['summary']['valid']}")   # 1
+
+# Validate a single phone number
+phone_result = ccai.contact_validator.validate_phone("+15551234567", "US")
+print(f"Status: {phone_result['status']}")  # "valid" | "invalid" | "landline"
+
+# Validate multiple phone numbers (up to 50)
+bulk_phones = ccai.contact_validator.validate_phones([
+    {"phone": "+15551234567"},
+    {"phone": "+15559876543", "countryCode": "US"}
+])
+print(f"Landline: {bulk_phones['summary']['landline']}")  # 1
+```
+
+## 7. Features
 
 * Send SMS messages to single or multiple recipients
 * Send MMS messages with images
