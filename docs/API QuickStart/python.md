@@ -282,7 +282,122 @@ def handle_webhook():
     return jsonify(result)
 ```
 
-## 6. Contact Validator
+## 6. Brand Registration
+
+Register and manage brands for TCR verification.
+
+```python
+from ccai_python import CCAI
+
+ccai = CCAI(
+    client_id="YOUR-CLIENT-ID",
+    api_key="YOUR-API-KEY"
+)
+
+# Create a brand
+brand = ccai.brands.create({
+    "legalCompanyName": "Collect.org Inc.",
+    "dba": "Collect",
+    "entityType": "NON_PROFIT",
+    "taxId": "123456789",
+    "taxIdCountry": "US",
+    "country": "US",
+    "verticalType": "NON_PROFIT",
+    "websiteUrl": "https://www.collect.org",
+    "street": "123 Main Street",
+    "city": "San Francisco",
+    "state": "CA",
+    "postalCode": "94105",
+    "contactFirstName": "Jane",
+    "contactLastName": "Doe",
+    "contactEmail": "jane@collect.org",
+    "contactPhone": "+14155551234",
+})
+print(f"Brand created with ID: {brand['id']}")
+
+# Get a brand by ID
+fetched = ccai.brands.get(brand["id"])
+print(f"Brand name: {fetched['legalCompanyName']}")
+
+# List all brands
+brands = ccai.brands.list()
+print(f"Found {len(brands)} brand(s)")
+
+# Update a brand (partial update)
+ccai.brands.update(brand["id"], {
+    "street": "456 Oak Avenue",
+    "city": "Los Angeles",
+})
+
+# Delete a brand
+ccai.brands.delete(brand["id"])
+```
+
+**Entity Types:** `PRIVATE_PROFIT`, `PUBLIC_PROFIT`, `NON_PROFIT`, `GOVERNMENT`, `SOLE_PROPRIETOR`
+
+**Vertical Types:** `AUTOMOTIVE`, `AGRICULTURE`, `BANKING`, `COMMUNICATION`, `CONSTRUCTION`, `EDUCATION`, `ENERGY`, `ENTERTAINMENT`, `GOVERNMENT`, `HEALTHCARE`, `HOSPITALITY`, `INSURANCE`, `LEGAL`, `MANUFACTURING`, `NON_PROFIT`, `PROFESSIONAL`, `REAL_ESTATE`, `RETAIL`, `TECHNOLOGY`, `TRANSPORTATION`
+
+## 7. Campaign Registration
+
+Register and manage campaigns for TCR carrier vetting.
+
+```python
+from ccai_python import CCAI
+
+ccai = CCAI(
+    client_id="YOUR-CLIENT-ID",
+    api_key="YOUR-API-KEY"
+)
+
+# Create a campaign
+campaign = ccai.campaigns.create({
+    "brandId": 1,
+    "useCase": "MIXED",
+    "subUseCases": ["CUSTOMER_CARE", "TWO_FACTOR_AUTHENTICATION", "ACCOUNT_NOTIFICATION"],
+    "description": "Security codes and support messaging.",
+    "messageFlow": "Users opt-in via signup form at https://example.com/signup",
+    "hasEmbeddedLinks": True,
+    "hasEmbeddedPhone": False,
+    "isAgeGated": False,
+    "isDirectLending": False,
+    "optInKeywords": ["START"],
+    "optInMessage": "Welcome! Reply STOP to cancel.",
+    "optInProofUrl": "https://example.com/opt-in-proof.png",
+    "helpKeywords": ["HELP"],
+    "helpMessage": "For HELP email support@example.com.",
+    "optOutKeywords": ["STOP"],
+    "optOutMessage": "STOP received. You are unsubscribed.",
+    "sampleMessages": [
+        "Your code is 554321. Reply STOP to cancel.",
+        "Your ticket has been updated. Reply HELP for info."
+    ]
+})
+print(f"Campaign created with ID: {campaign['id']}")
+
+# Get a campaign by ID
+fetched = ccai.campaigns.get(campaign["id"])
+print(f"Campaign use case: {fetched['useCase']}")
+
+# List all campaigns
+campaigns = ccai.campaigns.list()
+print(f"Found {len(campaigns)} campaign(s)")
+
+# Update a campaign (partial update)
+ccai.campaigns.update(campaign["id"], {
+    "description": "Updated description."
+})
+
+# Delete a campaign
+ccai.campaigns.delete(campaign["id"])
+```
+
+**Use Cases:** `TWO_FACTOR_AUTHENTICATION`, `ACCOUNT_NOTIFICATION`, `CUSTOMER_CARE`, `DELIVERY_NOTIFICATION`, `FRAUD_ALERT`, `HIGHER_EDUCATION`, `LOW_VOLUME_MIXED`, `MARKETING`, `MIXED`, `POLLING_VOTING`, `PUBLIC_SERVICE_ANNOUNCEMENT`, `SECURITY_ALERT`
+
+> `MIXED` and `LOW_VOLUME_MIXED` campaigns require 2–3 `subUseCases`.
+
+**Sub-Use Cases:** `TWO_FACTOR_AUTHENTICATION`, `ACCOUNT_NOTIFICATION`, `CUSTOMER_CARE`, `DELIVERY_NOTIFICATION`, `FRAUD_ALERT`, `MARKETING`, `POLLING_VOTING`
+
+## 8. Contact Validator
 
 Validate email addresses and phone numbers.
 
@@ -320,7 +435,7 @@ bulk_phones = ccai.contact_validator.validate_phones([
 print(f"Landline: {bulk_phones['summary']['landline']}")  # 1
 ```
 
-## 7. Features
+## 9. Features
 
 * Send SMS messages to single or multiple recipients
 * Send MMS messages with images
