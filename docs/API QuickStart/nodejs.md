@@ -454,7 +454,48 @@ async function waitForApproval(brandId, intervalMs = 30000) {
 
 ***
 
-## 9. Webhook Management
+## 9. Contact Validator
+
+Validate email addresses and phone numbers.
+
+> Bulk endpoints accept up to 50 contacts per request and are processed server-side in chunks.
+
+```javascript
+import { CCAI } from 'ccai-node';
+import 'dotenv/config';
+
+const ccai = new CCAI({
+  clientId: process.env.CCAI_CLIENT_ID,
+  apiKey: process.env.CCAI_API_KEY
+});
+
+// Validate a single email
+const emailResult = await ccai.contactValidator.validateEmail('user@example.com');
+console.log(emailResult.status); // "valid" | "invalid" | "risky"
+
+// Validate multiple emails (up to 50)
+const bulkEmails = await ccai.contactValidator.validateEmails([
+  'user@example.com',
+  'bad@invalid.xyz'
+]);
+console.log(`Total: ${bulkEmails.summary.total}`); // 2
+console.log(`Valid: ${bulkEmails.summary.valid}`);  // 1
+
+// Validate a single phone number
+const phoneResult = await ccai.contactValidator.validatePhone('+15551234567', 'US');
+console.log(phoneResult.status); // "valid" | "invalid" | "landline"
+
+// Validate multiple phone numbers (up to 50)
+const bulkPhones = await ccai.contactValidator.validatePhones([
+  { phone: '+15551234567' },
+  { phone: '+15559876543', countryCode: 'US' }
+]);
+console.log(`Landline: ${bulkPhones.summary.landline}`); // 1
+```
+
+***
+
+## 10. Webhook Management
 
 ### Register a Webhook
 
@@ -586,7 +627,7 @@ app.listen(3000, () => console.log('Webhook server running on port 3000'));
 
 ***
 
-## 10. Testing Webhooks with Ngrok
+## 11. Testing Webhooks with Ngrok
 
 ### Step 1: Install Ngrok
 
@@ -664,7 +705,7 @@ Your webhook server should receive the delivery notification.
 
 ***
 
-## 11. Error Handling
+## 12. Error Handling
 
 ### Error Structure
 
@@ -723,7 +764,7 @@ const response = await sendWithRetry(() =>
 
 ***
 
-## 12. Complete Module Reference
+## 13. Complete Module Reference
 
 ### SMS Module (`ccai.sms`)
 
@@ -790,7 +831,7 @@ const response = await sendWithRetry(() =>
 
 ***
 
-## 13. Options Object Reference
+## 14. Options Object Reference
 
 ### SMSOptions / MMSOptions
 
