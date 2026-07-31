@@ -471,7 +471,131 @@ var emailResponse = ccai.Email.SendSingle(
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/CloudContactAI/CCAI.NET/blob/main/LICENSE) file for details.
 
-## 9. Contact Validator
+## 9. Brand Registration
+
+Register and manage brands for TCR verification.
+
+```csharp
+using CCAI.NET;
+using CCAI.NET.Brands;
+
+var ccai = new CCAIClient(new CCAIConfig
+{
+    ClientId = "YOUR-CLIENT-ID",
+    ApiKey = "YOUR-API-KEY"
+});
+
+// Create a brand
+var brand = await ccai.Brands.CreateAsync(new BrandRequest
+{
+    LegalCompanyName = "Collect.org Inc.",
+    Dba = "Collect",
+    EntityType = "NON_PROFIT",
+    TaxId = "123456789",
+    TaxIdCountry = "US",
+    Country = "US",
+    VerticalType = "NON_PROFIT",
+    WebsiteUrl = "https://www.collect.org",
+    Street = "123 Main Street",
+    City = "San Francisco",
+    State = "CA",
+    PostalCode = "94105",
+    ContactFirstName = "Jane",
+    ContactLastName = "Doe",
+    ContactEmail = "jane@collect.org",
+    ContactPhone = "+14155551234"
+});
+Console.WriteLine($"Brand created with ID: {brand.Id}");
+
+// Get a brand by ID
+var fetched = await ccai.Brands.GetAsync(brand.Id);
+Console.WriteLine($"Brand name: {fetched.LegalCompanyName}");
+
+// List all brands
+var brands = await ccai.Brands.ListAsync();
+Console.WriteLine($"Total brands: {brands.Length}");
+
+// Update a brand (partial update)
+await ccai.Brands.UpdateAsync(brand.Id, new BrandRequest
+{
+    Street = "456 Oak Avenue",
+    City = "Los Angeles"
+});
+
+// Delete a brand
+await ccai.Brands.DeleteAsync(brand.Id);
+```
+
+**Entity Types:** `PRIVATE_PROFIT`, `PUBLIC_PROFIT`, `NON_PROFIT`, `GOVERNMENT`, `SOLE_PROPRIETOR`
+
+**Vertical Types:** `AUTOMOTIVE`, `AGRICULTURE`, `BANKING`, `COMMUNICATION`, `CONSTRUCTION`, `EDUCATION`, `ENERGY`, `ENTERTAINMENT`, `GOVERNMENT`, `HEALTHCARE`, `HOSPITALITY`, `INSURANCE`, `LEGAL`, `MANUFACTURING`, `NON_PROFIT`, `PROFESSIONAL`, `REAL_ESTATE`, `RETAIL`, `TECHNOLOGY`, `TRANSPORTATION`
+
+## 10. Campaign Registration
+
+Register and manage campaigns for TCR carrier vetting.
+
+```csharp
+using CCAI.NET;
+using CCAI.NET.Campaigns;
+
+var ccai = new CCAIClient(new CCAIConfig
+{
+    ClientId = "YOUR-CLIENT-ID",
+    ApiKey = "YOUR-API-KEY"
+});
+
+// Create a campaign
+var campaign = await ccai.Campaigns.CreateAsync(new CampaignRequest
+{
+    BrandId = 1,
+    UseCase = "MIXED",
+    SubUseCases = new List<string> { "CUSTOMER_CARE", "TWO_FACTOR_AUTHENTICATION", "ACCOUNT_NOTIFICATION" },
+    Description = "Security codes and support messaging.",
+    MessageFlow = "Users opt-in via signup form at https://example.com/signup",
+    HasEmbeddedLinks = true,
+    HasEmbeddedPhone = false,
+    IsAgeGated = false,
+    IsDirectLending = false,
+    OptInKeywords = new List<string> { "START" },
+    OptInMessage = "Welcome! Reply STOP to cancel.",
+    OptInProofUrl = "https://example.com/opt-in-proof.png",
+    HelpKeywords = new List<string> { "HELP" },
+    HelpMessage = "For HELP email support@example.com.",
+    OptOutKeywords = new List<string> { "STOP" },
+    OptOutMessage = "STOP received. You are unsubscribed.",
+    SampleMessages = new List<string>
+    {
+        "Your code is 554321. Reply STOP to cancel.",
+        "Your ticket has been updated. Reply HELP for info."
+    }
+});
+Console.WriteLine($"Campaign created with ID: {campaign.Id}");
+
+// Get a campaign by ID
+var fetched = await ccai.Campaigns.GetAsync(campaign.Id);
+Console.WriteLine($"Campaign use case: {fetched.UseCase}");
+
+// List all campaigns
+var campaigns = await ccai.Campaigns.ListAsync();
+Console.WriteLine($"Total campaigns: {campaigns.Length}");
+
+// Update a campaign (partial update)
+await ccai.Campaigns.UpdateAsync(campaign.Id, new CampaignRequest
+{
+    Description = "Updated description."
+});
+
+// Delete a campaign
+await ccai.Campaigns.DeleteAsync(campaign.Id);
+```
+
+**Use Cases:** `TWO_FACTOR_AUTHENTICATION`, `ACCOUNT_NOTIFICATION`, `CUSTOMER_CARE`, `DELIVERY_NOTIFICATION`, `FRAUD_ALERT`, `HIGHER_EDUCATION`, `LOW_VOLUME_MIXED`, `MARKETING`, `MIXED`, `POLLING_VOTING`, `PUBLIC_SERVICE_ANNOUNCEMENT`, `SECURITY_ALERT`
+
+> `MIXED` and `LOW_VOLUME_MIXED` campaigns require 2–3 `SubUseCases`.
+
+**Sub-Use Cases:** `TWO_FACTOR_AUTHENTICATION`, `ACCOUNT_NOTIFICATION`, `CUSTOMER_CARE`, `DELIVERY_NOTIFICATION`, `FRAUD_ALERT`, `MARKETING`, `POLLING_VOTING`
+
+## 11. Contact Validator
 
 Validate email addresses and phone numbers.
 
@@ -515,7 +639,7 @@ var bulkPhones = await ccai.ContactValidator.ValidatePhonesAsync(new[]
 Console.WriteLine($"Landline: {bulkPhones.Summary.Landline}"); // 1
 ```
 
-## 10. Testing Webhook Installation
+## 12. Testing Webhook Installation
 
 If you're testing the webhook installation, it's best to git clone the repository so you can get access to the examples/webhook-server project [here](https://github.com/CloudContactAI/CCAI.NET/tree/main/examples/webhook-server).
 
