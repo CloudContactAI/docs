@@ -1,7 +1,7 @@
 ---
 title: One-Time Password SMS Verification
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
