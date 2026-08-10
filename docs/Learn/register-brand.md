@@ -1,5 +1,5 @@
 ---
-title: Register Brand
+title: Register A2P 10DLC Brand
 excerpt: >-
   Register your brand for A2P 10DLC compliance with CloudContactAI to enable trusted business messaging.
 deprecated: false

@@ -1,5 +1,5 @@
 ---
-title: Register Campaign
+title: Register A2P 10DLC Campaign
 excerpt: >-
   Register your messaging campaign for A2P 10DLC compliance after brand approval with CloudContactAI.
 deprecated: false
