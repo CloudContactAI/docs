@@ -50,7 +50,7 @@ curl -X GET https://core.cloudcontactai.com/api/v1/client/YOUR_CLIENT_ID/integra
 
 ```javascript
 const ccai = new CCAI({ apiKey: 'YOUR_API_KEY', clientId: 'YOUR_CLIENT_ID' });
-const webhooks = await ccai.webhooks.list();
+const webhooks = await ccai.webhook.list();
 console.log(webhooks);
 ```
 
@@ -200,7 +200,7 @@ curl -X POST https://core.cloudcontactai.com/api/v1/client/YOUR_CLIENT_ID/integr
 ```javascript
 const ccai = new CCAI({ apiKey: 'YOUR_API_KEY', clientId: 'YOUR_CLIENT_ID' });
 
-const webhook = await ccai.webhooks.register({
+const webhook = await ccai.webhook.register({
   url: 'https://your-app.com/webhook',
   integrationType: 'ALL'
 });
@@ -310,7 +310,7 @@ curl -X POST https://core.cloudcontactai.com/api/v1/client/YOUR_CLIENT_ID/integr
 ```javascript
 const ccai = new CCAI({ apiKey: 'YOUR_API_KEY', clientId: 'YOUR_CLIENT_ID' });
 
-const updated = await ccai.webhooks.update('12345', {
+const updated = await ccai.webhook.update('12345', {
   url: 'https://your-app.com/webhook-v2',
   integrationType: 'ALL'
 });
@@ -391,7 +391,7 @@ curl -X DELETE https://core.cloudcontactai.com/api/v1/client/YOUR_CLIENT_ID/inte
 ```javascript
 const ccai = new CCAI({ apiKey: 'YOUR_API_KEY', clientId: 'YOUR_CLIENT_ID' });
 
-const result = await ccai.webhooks.delete('12345');
+const result = await ccai.webhook.delete('12345');
 console.log(result); // { success: true, message: '...' }
 ```
 
@@ -451,10 +451,10 @@ The result is Base64-encoded.
 **Verification example (Node.js with SDK):**
 
 ```javascript
-const isValid = ccai.webhooks.verifySignature(
-  req.headers['x-ccai-signature'],  // Signature from header
-  clientId,                          // Your client ID
-  payload.eventHash,                 // eventHash from the payload
+const isValid = ccai.webhook.verifySignature(
+  req.headers['x-ccai-signature'],  // Signature from header (Base64)
+  'YOUR_CLIENT_ID',                  // Your client ID
+  payload.eventHash,                 // eventHash from the webhook payload
   'your-secret-key'                  // Secret key from registration
 );
 
@@ -477,6 +477,8 @@ def verify_webhook_signature(signature, client_id, event_hash, secret_key):
     ).decode()
     return hmac.compare_digest(signature, computed)
 ```
+
+> **Note:** The "Get Single Webhook" endpoint is available via the REST API but is not yet implemented in the Node.js SDK. Use `ccai.webhook.list()` and filter by ID, or call the endpoint directly with fetch.
 
 ---
 
