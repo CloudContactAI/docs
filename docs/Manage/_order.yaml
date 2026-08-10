@@ -6,7 +6,6 @@
 - users-overview-details
 - provision-user
 - delete-user
-- configure-aws-ses
 - register-email-domain
 - multi-domain-email
 - email-deliverability
