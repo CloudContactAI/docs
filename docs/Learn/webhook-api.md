@@ -16,7 +16,7 @@ metadata:
 
 The CloudContactAI Webhook Management API allows you to programmatically manage webhook subscriptions for your account. Instead of configuring webhooks manually through the dashboard, you can use these endpoints to dynamically register, update, list, and delete webhooks from your application.
 
-**Base URL:** `https://core.cloudcontactai.com`
+**Base URL:** `https://core.cloudcontactai.com/api`
 
 ## Authentication
 
@@ -30,26 +30,36 @@ Authorization: Bearer YOUR_API_KEY
 
 ### List Webhooks
 
-Retrieve all registered webhooks for your account.
+Retrieve all registered webhooks for a client.
 
 **Request:**
 
 ```
-GET /api/webhooks
+GET /v1/client/{clientId}/integration
 ```
 
 **Example (cURL):**
 
 ```bash
-curl -X GET https://core.cloudcontactai.com/api/webhooks \
+curl -X GET https://core.cloudcontactai.com/api/v1/client/YOUR_CLIENT_ID/integration \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json"
 ```
 
-**Example (Node.js):**
+**Example (Node.js with SDK):**
 
 ```javascript
-const response = await fetch('https://core.cloudcontactai.com/api/webhooks', {
+const ccai = new CCAI({ apiKey: 'YOUR_API_KEY', clientId: 'YOUR_CLIENT_ID' });
+const webhooks = await ccai.webhooks.list();
+console.log(webhooks);
+```
+
+**Example (Node.js with fetch):**
+
+```javascript
+const clientId = 'YOUR_CLIENT_ID';
+
+const response = await fetch(`https://core.cloudcontactai.com/api/v1/client/${clientId}/integration`, {
   method: 'GET',
   headers: {
     'Authorization': 'Bearer YOUR_API_KEY',
@@ -66,8 +76,10 @@ console.log(webhooks);
 ```python
 import requests
 
+client_id = 'YOUR_CLIENT_ID'
+
 response = requests.get(
-    'https://core.cloudcontactai.com/api/webhooks',
+    f'https://core.cloudcontactai.com/api/v1/client/{client_id}/integration',
     headers={
         'Authorization': 'Bearer YOUR_API_KEY',
         'Content-Type': 'application/json'
@@ -78,53 +90,51 @@ webhooks = response.json()
 print(webhooks)
 ```
 
+**Response:**
+
+```json
+[
+  {
+    "id": "12345",
+    "url": "https://your-app.com/webhook",
+    "method": "POST",
+    "integrationType": "ALL"
+  }
+]
+```
+
 ---
 
-### Register Webhook
+### Get Single Webhook
 
-Create a new webhook subscription.
+Retrieve a specific webhook by its ID.
 
 **Request:**
 
 ```
-POST /api/webhooks
+GET /v1/client/{clientId}/integration/{webhookId}
 ```
-
-**Request Body:**
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `url` | string | Yes | The HTTPS endpoint URL where events will be sent |
-| `events` | array | Yes | List of event types to subscribe to |
-| `method` | string | No | HTTP method for delivery (POST or PUT). Defaults to POST |
 
 **Example (cURL):**
 
 ```bash
-curl -X POST https://core.cloudcontactai.com/api/webhooks \
+curl -X GET https://core.cloudcontactai.com/api/v1/client/YOUR_CLIENT_ID/integration/12345 \
   -H "Authorization: Bearer YOUR_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "url": "https://your-app.com/webhook",
-    "events": ["message.sent", "message.incoming", "contact.unsubscribed"],
-    "method": "POST"
-  }'
+  -H "Content-Type: application/json"
 ```
 
-**Example (Node.js):**
+**Example (Node.js with fetch):**
 
 ```javascript
-const response = await fetch('https://core.cloudcontactai.com/api/webhooks', {
-  method: 'POST',
+const clientId = 'YOUR_CLIENT_ID';
+const webhookId = '12345';
+
+const response = await fetch(`https://core.cloudcontactai.com/api/v1/client/${clientId}/integration/${webhookId}`, {
+  method: 'GET',
   headers: {
     'Authorization': 'Bearer YOUR_API_KEY',
     'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    url: 'https://your-app.com/webhook',
-    events: ['message.sent', 'message.incoming', 'contact.unsubscribed'],
-    method: 'POST'
-  })
+  }
 });
 
 const webhook = await response.json();
@@ -136,16 +146,14 @@ console.log(webhook);
 ```python
 import requests
 
-response = requests.post(
-    'https://core.cloudcontactai.com/api/webhooks',
+client_id = 'YOUR_CLIENT_ID'
+webhook_id = '12345'
+
+response = requests.get(
+    f'https://core.cloudcontactai.com/api/v1/client/{client_id}/integration/{webhook_id}',
     headers={
         'Authorization': 'Bearer YOUR_API_KEY',
         'Content-Type': 'application/json'
-    },
-    json={
-        'url': 'https://your-app.com/webhook',
-        'events': ['message.sent', 'message.incoming', 'contact.unsubscribed'],
-        'method': 'POST'
     }
 )
 
@@ -153,74 +161,74 @@ webhook = response.json()
 print(webhook)
 ```
 
-**Available Event Types:**
-
-- `message.sent`
-- `message.incoming`
-- `message.excluded`
-- `message.error.carrier`
-- `message.error.cloudcontact`
-- `contact.unsubscribed`
-
-For details on each event type, see the [Webhook Event Types](https://developer.cloudcontactai.com/docs/webhooks-types) page.
-
 ---
 
-### Update Webhook
+### Register Webhook
 
-Update an existing webhook subscription by its ID.
+Create a new webhook subscription. The request body is an array, allowing you to register multiple webhooks in a single call.
 
 **Request:**
 
 ```
-PUT /api/webhooks/{id}
+POST /v1/client/{clientId}/integration
 ```
 
-**Path Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `id` | string | The unique identifier of the webhook to update |
-
-**Request Body:**
+**Request Body (array):**
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `url` | string | No | Updated HTTPS endpoint URL |
-| `events` | array | No | Updated list of event types |
-| `method` | string | No | Updated HTTP method (POST or PUT) |
+| `url` | string | Yes | The HTTPS endpoint URL where events will be sent |
+| `method` | string | No | HTTP method for delivery (POST or PUT). Defaults to POST |
+| `integrationType` | string | No | Type of events to receive. Defaults to ALL |
+| `secretKey` | string | No | Secret key for signature verification. Auto-generated if not provided |
 
 **Example (cURL):**
 
 ```bash
-curl -X PUT https://core.cloudcontactai.com/api/webhooks/12345 \
+curl -X POST https://core.cloudcontactai.com/api/v1/client/YOUR_CLIENT_ID/integration \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
-  -d '{
-    "url": "https://your-app.com/webhook-v2",
-    "events": ["message.sent", "message.incoming", "message.error.carrier", "contact.unsubscribed"]
-  }'
+  -d '[{
+    "url": "https://your-app.com/webhook",
+    "method": "POST",
+    "integrationType": "ALL"
+  }]'
 ```
 
-**Example (Node.js):**
+**Example (Node.js with SDK):**
 
 ```javascript
-const webhookId = '12345';
+const ccai = new CCAI({ apiKey: 'YOUR_API_KEY', clientId: 'YOUR_CLIENT_ID' });
 
-const response = await fetch(`https://core.cloudcontactai.com/api/webhooks/${webhookId}`, {
-  method: 'PUT',
+const webhook = await ccai.webhooks.register({
+  url: 'https://your-app.com/webhook',
+  integrationType: 'ALL'
+});
+
+console.log(`Webhook ID: ${webhook.id}`);
+console.log(`Secret Key: ${webhook.secretKey}`);
+```
+
+**Example (Node.js with fetch):**
+
+```javascript
+const clientId = 'YOUR_CLIENT_ID';
+
+const response = await fetch(`https://core.cloudcontactai.com/api/v1/client/${clientId}/integration`, {
+  method: 'POST',
   headers: {
     'Authorization': 'Bearer YOUR_API_KEY',
     'Content-Type': 'application/json'
   },
-  body: JSON.stringify({
-    url: 'https://your-app.com/webhook-v2',
-    events: ['message.sent', 'message.incoming', 'message.error.carrier', 'contact.unsubscribed']
-  })
+  body: JSON.stringify([{
+    url: 'https://your-app.com/webhook',
+    method: 'POST',
+    integrationType: 'ALL'
+  }])
 });
 
-const updatedWebhook = await response.json();
-console.log(updatedWebhook);
+const result = await response.json();
+console.log(result);
 ```
 
 **Example (Python):**
@@ -228,22 +236,134 @@ console.log(updatedWebhook);
 ```python
 import requests
 
-webhook_id = '12345'
+client_id = 'YOUR_CLIENT_ID'
 
-response = requests.put(
-    f'https://core.cloudcontactai.com/api/webhooks/{webhook_id}',
+response = requests.post(
+    f'https://core.cloudcontactai.com/api/v1/client/{client_id}/integration',
     headers={
         'Authorization': 'Bearer YOUR_API_KEY',
         'Content-Type': 'application/json'
     },
-    json={
-        'url': 'https://your-app.com/webhook-v2',
-        'events': ['message.sent', 'message.incoming', 'message.error.carrier', 'contact.unsubscribed']
-    }
+    json=[{
+        'url': 'https://your-app.com/webhook',
+        'method': 'POST',
+        'integrationType': 'ALL'
+    }]
 )
 
-updated_webhook = response.json()
-print(updated_webhook)
+result = response.json()
+print(result)
+```
+
+**Response:**
+
+```json
+[
+  {
+    "id": "12345",
+    "url": "https://your-app.com/webhook",
+    "method": "POST",
+    "integrationType": "ALL",
+    "secretKey": "generated-secret-key-here"
+  }
+]
+```
+
+---
+
+### Update Webhook
+
+Update an existing webhook. Uses the same `POST` endpoint as registration, but includes the webhook `id` in the payload to indicate an update.
+
+**Request:**
+
+```
+POST /v1/client/{clientId}/integration
+```
+
+**Request Body (array):**
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `id` | integer | Yes | The ID of the webhook to update |
+| `url` | string | Yes | Updated HTTPS endpoint URL |
+| `method` | string | No | HTTP method (POST or PUT). Defaults to POST |
+| `integrationType` | string | No | Type of events to receive. Defaults to ALL |
+| `secretKey` | string | No | Updated secret key (only if you want to change it) |
+
+**Example (cURL):**
+
+```bash
+curl -X POST https://core.cloudcontactai.com/api/v1/client/YOUR_CLIENT_ID/integration \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '[{
+    "id": 12345,
+    "url": "https://your-app.com/webhook-v2",
+    "method": "POST",
+    "integrationType": "ALL"
+  }]'
+```
+
+**Example (Node.js with SDK):**
+
+```javascript
+const ccai = new CCAI({ apiKey: 'YOUR_API_KEY', clientId: 'YOUR_CLIENT_ID' });
+
+const updated = await ccai.webhooks.update('12345', {
+  url: 'https://your-app.com/webhook-v2',
+  integrationType: 'ALL'
+});
+
+console.log(updated);
+```
+
+**Example (Node.js with fetch):**
+
+```javascript
+const clientId = 'YOUR_CLIENT_ID';
+
+const response = await fetch(`https://core.cloudcontactai.com/api/v1/client/${clientId}/integration`, {
+  method: 'POST',
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify([{
+    id: 12345,
+    url: 'https://your-app.com/webhook-v2',
+    method: 'POST',
+    integrationType: 'ALL'
+  }])
+});
+
+const result = await response.json();
+console.log(result);
+```
+
+**Example (Python):**
+
+```python
+import requests
+
+client_id = 'YOUR_CLIENT_ID'
+
+response = requests.post(
+    f'https://core.cloudcontactai.com/api/v1/client/{client_id}/integration',
+    headers={
+        'Authorization': 'Bearer YOUR_API_KEY',
+        'Content-Type': 'application/json'
+    },
+    json=[{
+        'id': 12345,
+        'url': 'https://your-app.com/webhook-v2',
+        'method': 'POST',
+        'integrationType': 'ALL'
+    }]
+)
+
+result = response.json()
+print(result)
 ```
 
 ---
@@ -255,29 +375,33 @@ Remove a webhook subscription by its ID.
 **Request:**
 
 ```
-DELETE /api/webhooks/{id}
+DELETE /v1/client/{clientId}/integration/{webhookId}
 ```
-
-**Path Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `id` | string | The unique identifier of the webhook to delete |
 
 **Example (cURL):**
 
 ```bash
-curl -X DELETE https://core.cloudcontactai.com/api/webhooks/12345 \
+curl -X DELETE https://core.cloudcontactai.com/api/v1/client/YOUR_CLIENT_ID/integration/12345 \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json"
 ```
 
-**Example (Node.js):**
+**Example (Node.js with SDK):**
 
 ```javascript
+const ccai = new CCAI({ apiKey: 'YOUR_API_KEY', clientId: 'YOUR_CLIENT_ID' });
+
+const result = await ccai.webhooks.delete('12345');
+console.log(result); // { success: true, message: '...' }
+```
+
+**Example (Node.js with fetch):**
+
+```javascript
+const clientId = 'YOUR_CLIENT_ID';
 const webhookId = '12345';
 
-const response = await fetch(`https://core.cloudcontactai.com/api/webhooks/${webhookId}`, {
+const response = await fetch(`https://core.cloudcontactai.com/api/v1/client/${clientId}/integration/${webhookId}`, {
   method: 'DELETE',
   headers: {
     'Authorization': 'Bearer YOUR_API_KEY',
@@ -295,10 +419,11 @@ if (response.ok) {
 ```python
 import requests
 
+client_id = 'YOUR_CLIENT_ID'
 webhook_id = '12345'
 
 response = requests.delete(
-    f'https://core.cloudcontactai.com/api/webhooks/{webhook_id}',
+    f'https://core.cloudcontactai.com/api/v1/client/{client_id}/integration/{webhook_id}',
     headers={
         'Authorization': 'Bearer YOUR_API_KEY',
         'Content-Type': 'application/json'
@@ -311,12 +436,64 @@ if response.status_code == 200:
 
 ---
 
+## Webhook Signature Verification
+
+When you register a webhook, CloudContactAI returns a `secretKey` (or you can provide your own). This key is used to sign each webhook delivery so you can verify it came from CloudContactAI.
+
+The signature is sent in the `X-CCAI-Signature` header and is computed as:
+
+```
+HMAC-SHA256(secretKey, "{clientId}:{eventHash}")
+```
+
+The result is Base64-encoded.
+
+**Verification example (Node.js with SDK):**
+
+```javascript
+const isValid = ccai.webhooks.verifySignature(
+  req.headers['x-ccai-signature'],  // Signature from header
+  clientId,                          // Your client ID
+  payload.eventHash,                 // eventHash from the payload
+  'your-secret-key'                  // Secret key from registration
+);
+
+if (!isValid) {
+  return res.status(401).send('Invalid signature');
+}
+```
+
+**Verification example (Python):**
+
+```python
+import hmac
+import hashlib
+import base64
+
+def verify_webhook_signature(signature, client_id, event_hash, secret_key):
+    data = f"{client_id}:{event_hash}"
+    computed = base64.b64encode(
+        hmac.new(secret_key.encode(), data.encode(), hashlib.sha256).digest()
+    ).decode()
+    return hmac.compare_digest(signature, computed)
+```
+
+---
+
+## Integration Types
+
+| Value | Description |
+|-------|-------------|
+| `ALL` | Receive all event types |
+
+---
+
 ## Use Cases
 
 **Dynamic environment setup:** Automatically register webhooks when deploying a new environment, and clean them up when tearing it down.
 
 **Multi-tenant applications:** Programmatically create separate webhook subscriptions for each tenant in your application.
 
-**Event filtering:** Update your webhook subscription to add or remove event types as your application's needs evolve.
-
 **Webhook rotation:** Update the destination URL when migrating services or rotating endpoints for security purposes.
+
+**Automated testing:** Register a temporary webhook endpoint during integration tests and delete it after the test run completes.
