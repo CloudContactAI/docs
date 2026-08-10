@@ -20,7 +20,7 @@ metadata:
 
 ## Overview
 
-CloudContactAI supports sending both transactional emails (order confirmations, password resets, notifications) and marketing emails (newsletters, promotions, drip campaigns). All emails are sent through Amazon SES via your verified domain, ensuring high deliverability.
+CloudContactAI supports sending both transactional emails (order confirmations, password resets, notifications) and marketing emails (newsletters, promotions, drip campaigns). Emails are sent through your choice of email provider, with built-in support for **Amazon SES** and **Twilio SendGrid**, ensuring high deliverability.
 
 ## Prerequisites
 
