@@ -1,5 +1,5 @@
 ---
-title: Phone Numbers
+title: Acquire a Phone Number
 excerpt: 'How to acquire, manage, and configure phone numbers for your CCAI account.'
 deprecated: false
 hidden: false
