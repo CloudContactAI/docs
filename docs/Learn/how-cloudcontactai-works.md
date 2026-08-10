@@ -2,7 +2,7 @@
 title: How CloudContactAI Works
 excerpt: 'Overview of the CloudContactAI workflow, from trial setup to subscription options.'
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   title: ''
   description: 'Learn how CloudContactAI works, from trial setup to sending SMS campaigns. Understand the basic workflow and subscription options.'
