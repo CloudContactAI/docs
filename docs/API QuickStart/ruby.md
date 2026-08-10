@@ -401,7 +401,7 @@ client.brands.delete(brand['id'])
 
 **Vertical Types:** `AUTOMOTIVE`, `AGRICULTURE`, `BANKING`, `COMMUNICATION`, `CONSTRUCTION`, `EDUCATION`, `ENERGY`, `ENTERTAINMENT`, `GOVERNMENT`, `HEALTHCARE`, `HOSPITALITY`, `INSURANCE`, `LEGAL`, `MANUFACTURING`, `NON_PROFIT`, `PROFESSIONAL`, `REAL_ESTATE`, `RETAIL`, `TECHNOLOGY`, `TRANSPORTATION`
 
-## 10. Campaign Registration
+## 11. Campaign Registration
 
 Register and manage campaigns for TCR carrier vetting.
 
@@ -461,7 +461,7 @@ client.campaigns.delete(campaign['id'])
 
 **Sub-Use Cases:** `TWO_FACTOR_AUTHENTICATION`, `ACCOUNT_NOTIFICATION`, `CUSTOMER_CARE`, `DELIVERY_NOTIFICATION`, `FRAUD_ALERT`, `MARKETING`, `POLLING_VOTING`
 
-## 11. Project Structure
+## 12. Project Structure
 
 * **lib/ -** Library code
   * **ccai.rb -** Main entry point
@@ -485,7 +485,7 @@ client.campaigns.delete(campaign['id'])
   * **progress_tracking_example.rb -** Progress tracking example
 * **test/ -** Test files
 
-## 12. Features
+## 13. Features
 
 * Send SMS messages to single or multiple recipients
 * Send MMS messages with images
@@ -498,7 +498,7 @@ client.campaigns.delete(campaign['id'])
 * Full test coverage
 * Command-line interface for SMS, MMS, and Email
 
-## 13. Development
+## 14. Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 

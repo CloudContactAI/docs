@@ -712,7 +712,7 @@ $ccai->brand->delete($brand->{data}{id});
 
 **Vertical Types:** `AUTOMOTIVE`, `AGRICULTURE`, `BANKING`, `COMMUNICATION`, `CONSTRUCTION`, `EDUCATION`, `ENERGY`, `ENTERTAINMENT`, `GOVERNMENT`, `HEALTHCARE`, `HOSPITALITY`, `INSURANCE`, `LEGAL`, `MANUFACTURING`, `NON_PROFIT`, `PROFESSIONAL`, `REAL_ESTATE`, `RETAIL`, `TECHNOLOGY`, `TRANSPORTATION`
 
-## 8. Campaign Registration
+## 9. Campaign Registration
 
 Register and manage campaigns for TCR carrier vetting.
 
@@ -776,7 +776,7 @@ $ccai->campaign->delete($campaign->{data}{id});
 
 **Sub-Use Cases:** `TWO_FACTOR_AUTHENTICATION`, `ACCOUNT_NOTIFICATION`, `CUSTOMER_CARE`, `DELIVERY_NOTIFICATION`, `FRAUD_ALERT`, `MARKETING`, `POLLING_VOTING`
 
-## 9. Project Structure
+## 10. Project Structure
 
 * **lib/ -** Library modules
   * **CCAI.pm -** Main CCAI client class
@@ -788,7 +788,7 @@ $ccai->campaign->delete($campaign->{data}{id});
 * **t/ -** Test files
 * **cpanfile -** Dependency specification
 
-## 10. Development
+## 11. Development
 
 ### Prerequisites
 
@@ -827,7 +827,7 @@ prove -lv t/01-basic.t
 
 <br />
 
-## 11. Features
+## 12. Features
 
 * Object-oriented Perl interface
 * Support for sending SMS to multiple recipients
@@ -844,7 +844,7 @@ prove -lv t/01-basic.t
 
 <br />
 
-## 12. SSL Certificate Handling
+## 13. SSL Certificate Handling
 
 The CCAI client automatically configures SSL certificates using the Mozilla::CA module. If you encounter SSL certificate errors:
 
@@ -862,7 +862,7 @@ The CCAI client automatically configures SSL certificates using the Mozilla::CA 
 export PERL_LWP_SSL_CA_FILE=/etc/ssl/certs/ca-certificates.crt
 ```
 
-## 13. Warning Suppression
+## 14. Warning Suppression
 
 The CCAI client may show harmless "Content-Length header value was wrong, fixed" warnings from LWP::UserAgent. These warnings don't affect functionality but can be suppressed:
 
@@ -898,7 +898,7 @@ BEGIN {
 }
 ```
 
-## 14. Error Handling
+## 15. Error Handling
 
 All methods return a hash reference with the following structure:
 
@@ -916,7 +916,7 @@ All methods return a hash reference with the following structure:
 }
 ```
 
-## 15. Template Variables
+## 16. Template Variables
 
 Messages support template variables that are automatically replaced:
 

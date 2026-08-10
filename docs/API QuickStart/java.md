@@ -205,6 +205,47 @@ request.setVariables(variables);
 EmailResponse response = client.getEmailService().sendEmail(request);
 ```
 
+### MMS Usage
+
+```java
+import com.cloudcontactai.ccai.mms.MMSResponse;
+import java.io.File;
+
+// Send MMS with automatic image upload (recommended)
+File imageFile = new File("path/to/image.jpg");
+
+MMSResponse mmsResponse = client.getMmsService().sendWithImage(
+    imageFile,
+    "image/jpeg",
+    "+15551234567",
+    "Hello! Check out this image.",
+    "MMS Campaign"
+);
+
+System.out.println("MMS sent with ID: " + mmsResponse.getCampaignId());
+
+// Send MMS to multiple recipients
+List<String> mmsNumbers = Arrays.asList("+15551234567", "+15559876543");
+
+MMSResponse bulkMmsResponse = client.getMmsService().sendWithImage(
+    imageFile,
+    "image/jpeg",
+    mmsNumbers,
+    "Check out this image!",
+    "Bulk MMS Campaign"
+);
+
+System.out.println("Bulk MMS sent: " + bulkMmsResponse.getCampaignId());
+```
+
+**Supported Media Types:**
+
+| Content Type | Extension |
+|---|---|
+| `image/jpeg` | .jpg, .jpeg |
+| `image/png` | .png |
+| `image/gif` | .gif |
+
 ### Webhook Handling
 
 ```java
@@ -389,76 +430,71 @@ Validate email addresses and phone numbers.
 
 > Bulk endpoints accept up to 50 contacts per request and are processed server-side in chunks.
 
-```kotlin
-import com.cloudcontactai.sdk.contactvalidator.PhoneInput
+```java
+import com.cloudcontactai.ccai.contactvalidator.ValidationResult;
+import com.cloudcontactai.ccai.contactvalidator.BulkValidationResult;
+import java.util.Arrays;
 
 // Validate a single email
-val emailResult = ccai.contactValidator.validateEmail("user@example.com")
-println(emailResult.status) // "valid" | "invalid" | "risky"
+ValidationResult emailResult = client.getContactValidator().validateEmail("user@example.com");
+System.out.println("Status: " + emailResult.getStatus()); // "valid" | "invalid" | "risky"
 
 // Validate multiple emails (up to 50)
-val bulkEmails = ccai.contactValidator.validateEmails(listOf(
-    "user@example.com",
-    "bad@invalid.xyz"
-))
-println(bulkEmails.summary) // ValidationSummary(total=2, valid=1, invalid=1, risky=0, landline=0)
+BulkValidationResult bulkEmails = client.getContactValidator().validateEmails(
+    Arrays.asList("user@example.com", "bad@invalid.xyz")
+);
+System.out.println("Total: " + bulkEmails.getSummary().getTotal());
+System.out.println("Valid: " + bulkEmails.getSummary().getValid());
 
 // Validate a single phone number
-val phoneResult = ccai.contactValidator.validatePhone("+15551234567", countryCode = "US")
-println(phoneResult.status) // "valid" | "invalid" | "landline"
+ValidationResult phoneResult = client.getContactValidator().validatePhone("+15551234567", "US");
+System.out.println("Status: " + phoneResult.getStatus()); // "valid" | "invalid" | "landline"
 
 // Validate multiple phone numbers (up to 50)
-val bulkPhones = ccai.contactValidator.validatePhones(listOf(
-    PhoneInput(phone = "+15551234567"),
-    PhoneInput(phone = "+15559876543", countryCode = "US")
-))
-println(bulkPhones.summary) // ValidationSummary(total=2, valid=1, invalid=0, risky=0, landline=1)
+BulkValidationResult bulkPhones = client.getContactValidator().validatePhones(Arrays.asList(
+    new PhoneInput("+15551234567", null),
+    new PhoneInput("+15559876543", "US")
+));
+System.out.println("Landline: " + bulkPhones.getSummary().getLandline());
 ```
 
 ## 13. Brand Registration
 
 Register and manage brands for TCR verification.
 
-```kotlin
-import com.cloudcontactai.sdk.brands.BrandRequest
+```java
+import com.cloudcontactai.ccai.brands.BrandRequest;
+import com.cloudcontactai.ccai.brands.BrandResponse;
 
 // Create a brand
-val brand = ccai.brands.create(BrandRequest(
-    legalCompanyName = "Collect.org Inc.",
-    dba = "Collect",
-    entityType = "NON_PROFIT",
-    taxId = "123456789",
-    taxIdCountry = "US",
-    country = "US",
-    verticalType = "NON_PROFIT",
-    websiteUrl = "https://www.collect.org",
-    street = "123 Main Street",
-    city = "San Francisco",
-    state = "CA",
-    postalCode = "94105",
-    contactFirstName = "Jane",
-    contactLastName = "Doe",
-    contactEmail = "jane@collect.org",
-    contactPhone = "+14155551234"
-))
-println("Brand created with ID: ${brand.id}")
+BrandRequest brandRequest = BrandRequest.builder()
+    .legalCompanyName("Your Company LLC")
+    .entityType("PRIVATE_PROFIT")
+    .taxId("123456789")
+    .taxIdCountry("US")
+    .country("US")
+    .verticalType("TECHNOLOGY")
+    .websiteUrl("https://www.yourcompany.com")
+    .street("123 Main St")
+    .city("San Francisco")
+    .state("CA")
+    .postalCode("94105")
+    .contactFirstName("Jane")
+    .contactLastName("Smith")
+    .contactEmail("compliance@yourcompany.com")
+    .contactPhone("+14155551234")
+    .build();
 
-// Get a brand by ID
-val fetched = ccai.brands.get(brand.id)
-println("Brand name: ${fetched.legalCompanyName}")
+BrandResponse brand = client.getBrandsService().create(brandRequest);
+System.out.println("Brand created with ID: " + brand.getId());
 
 // List all brands
-val brands = ccai.brands.list()
-println("Total brands: ${brands.size}")
+List<BrandResponse> brands = client.getBrandsService().list();
+System.out.println("Total brands: " + brands.size());
 
-// Update a brand (partial update)
-ccai.brands.update(brand.id, BrandRequest(
-    street = "456 Oak Avenue",
-    city = "Los Angeles"
-))
-
-// Delete a brand
-ccai.brands.delete(brand.id)
+// Get a brand by ID
+BrandResponse fetched = client.getBrandsService().get(brand.getId());
+System.out.println("Brand name: " + fetched.getLegalCompanyName());
 ```
 
 **Entity Types:** `PRIVATE_PROFIT`, `PUBLIC_PROFIT`, `NON_PROFIT`, `GOVERNMENT`, `SOLE_PROPRIETOR`
@@ -469,49 +505,39 @@ ccai.brands.delete(brand.id)
 
 Register and manage campaigns for TCR carrier vetting.
 
-```kotlin
-import com.cloudcontactai.sdk.campaigns.CampaignRequest
+```java
+import com.cloudcontactai.ccai.campaigns.CampaignRequest;
+import com.cloudcontactai.ccai.campaigns.CampaignResponse;
 
 // Create a campaign
-val campaign = ccai.campaigns.create(CampaignRequest(
-    brandId = 1,
-    useCase = "MIXED",
-    subUseCases = listOf("CUSTOMER_CARE", "TWO_FACTOR_AUTHENTICATION", "ACCOUNT_NOTIFICATION"),
-    description = "Security codes and support messaging.",
-    messageFlow = "Users opt-in via signup form at https://example.com/signup",
-    hasEmbeddedLinks = true,
-    hasEmbeddedPhone = false,
-    isAgeGated = false,
-    isDirectLending = false,
-    optInKeywords = listOf("START"),
-    optInMessage = "Welcome! Reply STOP to cancel.",
-    optInProofUrl = "https://example.com/opt-in-proof.png",
-    helpKeywords = listOf("HELP"),
-    helpMessage = "For HELP email support@example.com.",
-    optOutKeywords = listOf("STOP"),
-    optOutMessage = "STOP received. You are unsubscribed.",
-    sampleMessages = listOf(
-        "Your code is 554321. Reply STOP to cancel.",
-        "Your ticket has been updated. Reply HELP for info."
-    )
-))
-println("Campaign created with ID: ${campaign.id}")
+CampaignRequest campaignRequest = CampaignRequest.builder()
+    .brandId(brand.getId())
+    .useCase("MARKETING")
+    .description("Promotional messages for opted-in customers")
+    .messageFlow("Users opt-in via web form and receive promotional SMS")
+    .hasEmbeddedLinks(true)
+    .hasEmbeddedPhone(false)
+    .isAgeGated(false)
+    .isDirectLending(false)
+    .optInKeywords(Arrays.asList("START", "YES"))
+    .optInMessage("Welcome! Reply STOP to cancel.")
+    .optInProofUrl("https://www.yourcompany.com/sms-opt-in")
+    .helpKeywords(Arrays.asList("HELP"))
+    .helpMessage("Reply HELP for assistance. Contact support@yourcompany.com.")
+    .optOutKeywords(Arrays.asList("STOP", "CANCEL"))
+    .optOutMessage("STOP received. You are unsubscribed.")
+    .sampleMessages(Arrays.asList(
+        "Hi Jane, check out our deals at https://example.com. Reply STOP to opt out.",
+        "Your order has shipped! Reply HELP for help."
+    ))
+    .build();
 
-// Get a campaign by ID
-val fetched = ccai.campaigns.get(campaign.id)
-println("Campaign use case: ${fetched.useCase}")
+CampaignResponse campaign = client.getCampaignsService().create(campaignRequest);
+System.out.println("Campaign created with ID: " + campaign.getId());
 
 // List all campaigns
-val campaigns = ccai.campaigns.list()
-println("Total campaigns: ${campaigns.size}")
-
-// Update a campaign (partial update)
-ccai.campaigns.update(campaign.id, CampaignRequest(
-    description = "Updated description."
-))
-
-// Delete a campaign
-ccai.campaigns.delete(campaign.id)
+List<CampaignResponse> campaigns = client.getCampaignsService().list();
+System.out.println("Total campaigns: " + campaigns.size());
 ```
 
 **Use Cases:** `TWO_FACTOR_AUTHENTICATION`, `ACCOUNT_NOTIFICATION`, `CUSTOMER_CARE`, `DELIVERY_NOTIFICATION`, `FRAUD_ALERT`, `HIGHER_EDUCATION`, `LOW_VOLUME_MIXED`, `MARKETING`, `MIXED`, `POLLING_VOTING`, `PUBLIC_SERVICE_ANNOUNCEMENT`, `SECURITY_ALERT`

@@ -168,7 +168,7 @@ func main() {
 }
 ```
 
-## 4. Send MMS message
+## 4. Send MMS with Environment Variables
 
 ```go
 package main
@@ -302,7 +302,126 @@ response, err := client.SMS.Send(
 )
 ```
 
-## 7. Contact Validator
+## 7. Send Email
+
+```go
+package main
+
+import (
+	"fmt"
+	"log"
+	"os"
+
+	"github.com/cloudcontactai/ccai-go/pkg/ccai"
+	"github.com/cloudcontactai/ccai-go/pkg/email"
+	"github.com/joho/godotenv"
+)
+
+func main() {
+	_ = godotenv.Load()
+
+	client, err := ccai.NewClient(ccai.Config{
+		ClientID: os.Getenv("CCAI_CLIENT_ID"),
+		APIKey:   os.Getenv("CCAI_API_KEY"),
+	})
+	if err != nil {
+		log.Fatalf("Failed to create client: %v", err)
+	}
+
+	// Send a single email
+	response, err := client.Email.SendSingle(
+		"John",
+		"Doe",
+		"john@example.com",
+		"Welcome to Our Service",
+		"<p>Hello John,</p><p>Thank you for signing up!</p>",
+		"noreply@yourcompany.com",
+		"reply@yourcompany.com",
+		"Your Company",
+		"Welcome Email",
+	)
+	if err != nil {
+		log.Fatalf("Failed to send email: %v", err)
+	}
+
+	fmt.Printf("Email sent with ID: %s\n", response.ID)
+
+	// Send email campaign
+	emailAccounts := []email.Account{
+		{FirstName: "John", LastName: "Doe", Email: "john@example.com"},
+		{FirstName: "Jane", LastName: "Smith", Email: "jane@example.com"},
+	}
+
+	campaignResponse, err := client.Email.Send(
+		emailAccounts,
+		"Monthly Newsletter",
+		"<h1>Newsletter</h1><p>Hello ${firstName}, here are our updates...</p>",
+		"newsletter@yourcompany.com",
+		"reply@yourcompany.com",
+		"Your Company Newsletter",
+		"July Newsletter",
+		nil,
+	)
+	if err != nil {
+		log.Fatalf("Failed to send email campaign: %v", err)
+	}
+
+	fmt.Printf("Email campaign sent with ID: %s\n", campaignResponse.CampaignID)
+}
+```
+
+## 8. Webhooks
+
+```go
+package main
+
+import (
+	"fmt"
+	"log"
+	"os"
+
+	"github.com/cloudcontactai/ccai-go/pkg/ccai"
+	"github.com/joho/godotenv"
+)
+
+func main() {
+	_ = godotenv.Load()
+
+	client, err := ccai.NewClient(ccai.Config{
+		ClientID: os.Getenv("CCAI_CLIENT_ID"),
+		APIKey:   os.Getenv("CCAI_API_KEY"),
+	})
+	if err != nil {
+		log.Fatalf("Failed to create client: %v", err)
+	}
+
+	// Register a webhook
+	webhook, err := client.Webhook.Register("https://your-app.com/webhook", "POST", "ALL")
+	if err != nil {
+		log.Fatalf("Failed to register webhook: %v", err)
+	}
+	fmt.Printf("Webhook registered with ID: %s\n", webhook.ID)
+	fmt.Printf("Secret Key: %s\n", webhook.SecretKey)
+
+	// List webhooks
+	webhooks, err := client.Webhook.List()
+	if err != nil {
+		log.Fatalf("Failed to list webhooks: %v", err)
+	}
+	for _, wh := range webhooks {
+		fmt.Printf("Webhook ID: %s, URL: %s\n", wh.ID, wh.URL)
+	}
+
+	// Delete a webhook
+	err = client.Webhook.Delete(webhook.ID)
+	if err != nil {
+		log.Fatalf("Failed to delete webhook: %v", err)
+	}
+	fmt.Println("Webhook deleted successfully")
+}
+```
+
+## 9. Contact Validator
 
 Validate email addresses and phone numbers.
 
@@ -368,7 +487,7 @@ func main() {
 }
 ```
 
-## 8. Brand Registration
+## 10. Brand Registration
 
 Register and manage brands for TCR verification.
 
@@ -445,7 +564,7 @@ func main() {
 
 **Vertical Types:** `AUTOMOTIVE`, `AGRICULTURE`, `BANKING`, `COMMUNICATION`, `CONSTRUCTION`, `EDUCATION`, `ENERGY`, `ENTERTAINMENT`, `GOVERNMENT`, `HEALTHCARE`, `HOSPITALITY`, `INSURANCE`, `LEGAL`, `MANUFACTURING`, `NON_PROFIT`, `PROFESSIONAL`, `REAL_ESTATE`, `RETAIL`, `TECHNOLOGY`, `TRANSPORTATION`
 
-## 9. Campaign Registration
+## 11. Campaign Registration
 
 Register and manage campaigns for TCR carrier vetting.
 
@@ -523,32 +642,32 @@ func main() {
 
 **Use Cases:** `TWO_FACTOR_AUTHENTICATION`, `ACCOUNT_NOTIFICATION`, `CUSTOMER_CARE`, `DELIVERY_NOTIFICATION`, `FRAUD_ALERT`, `HIGHER_EDUCATION`, `LOW_VOLUME_MIXED`, `MARKETING`, `MIXED`, `POLLING_VOTING`, `PUBLIC_SERVICE_ANNOUNCEMENT`, `SECURITY_ALERT`
 
-> `MIXED` and `LOW_VOLUME_MIXED` campaigns require 2–3 `SubUseCases`.
+> `MIXED` and `LOW_VOLUME_MIXED` campaigns require 2-3 `SubUseCases`.
 
 **Sub-Use Cases:** `TWO_FACTOR_AUTHENTICATION`, `ACCOUNT_NOTIFICATION`, `CUSTOMER_CARE`, `DELIVERY_NOTIFICATION`, `FRAUD_ALERT`, `MARKETING`, `POLLING_VOTING`
 
-## 9. Project Structure
+## 12. Project Structure
 
-* **src/ -** Source code
-  * **pkg/ -** Package code
-    * **ccai/ -** Main CCAI client package
-      * **client.go -** Main CCAI client implementation
-      * **ccai.go -** Type definitions and exports
+* **src/** - Source code
+  * **pkg/** - Package code
+    * **ccai/** - Main CCAI client package
+      * **client.go** - Main CCAI client implementation
+      * **ccai.go** - Type definitions and exports
 
-    * **sms/ -** SMS-related functionality
-      * **models.go -** Data models
-      * **sms.go -** SMS service implementation
-      * **mms.go -** MMS service implementation
+    * **sms/** - SMS-related functionality
+      * **models.go** - Data models
+      * **sms.go** - SMS service implementation
+      * **mms.go** - MMS service implementation
 
-    * **email/ -** Email-related functionality
-      * **models.go -** Email data models
-      * **email.go -** Email service implementation
-  * **examples/ -** Example usage
-  * **email/ -** Email example
-* **.env -** Environment variables
-* **.env.example -** Environment variables template
+    * **email/** - Email-related functionality
+      * **models.go** - Email data models
+      * **email.go** - Email service implementation
+  * **examples/** - Example usage
+  * **email/** - Email example
+* **.env** - Environment variables
+* **.env.example** - Environment variables template
 
-## 10. Features
+## 13. Features
 
 * Send email messages to single or multiple recipients
 * Send SMS messages to single or multiple recipients
