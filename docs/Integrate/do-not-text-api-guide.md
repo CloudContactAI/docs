@@ -1,5 +1,5 @@
 ---
-title: CloudContactAI Contact API - Do Not Text Integration Guide
+title: Do Not Text Integration Guide
 deprecated: false
 hidden: false
 metadata:
