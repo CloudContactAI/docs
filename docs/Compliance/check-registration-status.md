@@ -1,12 +1,12 @@
 ---
 title: Check Registration Status
 excerpt: >-
-  Monitor the approval status of your A2P 10DLC brand and campaign registrations with CloudContactAI.
+  Monitor the status of your A2P 10DLC brand and campaign registrations with CloudContactAI.
 deprecated: false
 hidden: false
 metadata:
   title: Check A2P 10DLC Registration Status | CloudContactAI Compliance API
-  description: Poll and monitor the approval status of your brand and campaign registrations for A2P 10DLC compliance using the CloudContactAI SDK.
+  description: Monitor the status of your brand and campaign registrations for A2P 10DLC compliance using the CloudContactAI SDK.
   keywords:
     - A2P 10DLC
     - registration status
@@ -17,33 +17,37 @@ metadata:
   robots: index
 ---
 
-> Monitor your brand and campaign registration status to know when your A2P 10DLC submissions are approved.
+> Monitor your brand and campaign registration status to track your A2P 10DLC submissions.
 
 ## Overview
 
-After submitting brand and campaign registrations, you can programmatically check their approval status. This is useful for automating your onboarding flow or building dashboards that track compliance readiness.
+After submitting brand and campaign registrations, you can programmatically retrieve their details and check their status. This is useful for automating your onboarding flow or building dashboards that track compliance readiness.
+
+**Base URL:** `https://compliance.cloudcontactai.com/api`
 
 ## Check Brand Status
 
-Retrieve the current status of a brand registration.
+Retrieve the details of a specific brand registration.
 
 **Endpoint:**
 
 ```
-GET https://core.cloudcontactai.com/api/compliance/brands/{brandId}/status
+GET /v1/brands/{id}
 ```
 
 **JavaScript (SDK):**
 
 ```javascript
-const brandStatus = await ccai.compliance.getBrandStatus(brand.brandId);
-console.log(`Brand Status: ${brandStatus.status}`); // PENDING, APPROVED, REJECTED
+const brand = await ccai.brands.get(123);
+console.log(`Brand: ${brand.legalCompanyName}`);
+console.log(`Created: ${brand.createdAt}`);
+console.log(`Updated: ${brand.updatedAt}`);
 ```
 
 **cURL:**
 
 ```bash
-curl -X GET https://core.cloudcontactai.com/api/compliance/brands/BRAND_abc123/status \
+curl -X GET https://compliance.cloudcontactai.com/api/v1/brands/123 \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json"
 ```
@@ -52,34 +56,82 @@ curl -X GET https://core.cloudcontactai.com/api/compliance/brands/BRAND_abc123/s
 
 ```json
 {
-  "brandId": "BRAND_abc123",
-  "status": "APPROVED",
-  "updatedAt": "2026-08-12T10:00:00Z",
-  "reason": null
+  "id": 123,
+  "accountId": 456,
+  "legalCompanyName": "Your Company LLC",
+  "entityType": "PRIVATE_PROFIT",
+  "taxId": "123456789",
+  "taxIdCountry": "US",
+  "country": "US",
+  "verticalType": "TECHNOLOGY",
+  "websiteUrl": "https://www.yourcompany.com",
+  "websiteMatchScore": null,
+  "street": "123 Main St",
+  "city": "San Francisco",
+  "state": "CA",
+  "postalCode": "94105",
+  "contactFirstName": "Jane",
+  "contactLastName": "Smith",
+  "contactEmail": "compliance@yourcompany.com",
+  "contactPhone": "+14155551234",
+  "createdAt": "2026-08-10T15:00:00Z",
+  "updatedAt": "2026-08-12T10:00:00Z"
 }
 ```
+
+## List All Brands
+
+Retrieve all brand registrations for your account.
+
+**Endpoint:**
+
+```
+GET /v1/brands
+```
+
+**JavaScript (SDK):**
+
+```javascript
+const brands = await ccai.brands.list();
+brands.forEach(brand => {
+  console.log(`${brand.id}: ${brand.legalCompanyName}`);
+});
+```
+
+**cURL:**
+
+```bash
+curl -X GET https://compliance.cloudcontactai.com/api/v1/brands \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json"
+```
+
+---
 
 ## Check Campaign Status
 
-Retrieve the current status of a campaign registration.
+Retrieve the details of a specific campaign registration.
 
 **Endpoint:**
 
 ```
-GET https://core.cloudcontactai.com/api/compliance/campaigns/{campaignId}/status
+GET /v1/campaigns/{id}
 ```
 
 **JavaScript (SDK):**
 
 ```javascript
-const campaignStatus = await ccai.compliance.getCampaignStatus(campaign.campaignId);
-console.log(`Campaign Status: ${campaignStatus.status}`); // PENDING, APPROVED, REJECTED
+const campaign = await ccai.campaigns.get(789);
+console.log(`Campaign: ${campaign.useCase}`);
+console.log(`Brand ID: ${campaign.brandId}`);
+console.log(`Monthly Fee: $${campaign.monthlyFee}`);
+console.log(`Created: ${campaign.createdAt}`);
 ```
 
 **cURL:**
 
 ```bash
-curl -X GET https://core.cloudcontactai.com/api/compliance/campaigns/CAMP_xyz789/status \
+curl -X GET https://compliance.cloudcontactai.com/api/v1/campaigns/789 \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json"
 ```
@@ -88,47 +140,83 @@ curl -X GET https://core.cloudcontactai.com/api/compliance/campaigns/CAMP_xyz789
 
 ```json
 {
-  "campaignId": "CAMP_xyz789",
-  "status": "PENDING",
-  "updatedAt": "2026-08-10T15:30:00Z",
-  "reason": null
+  "id": 789,
+  "accountId": 456,
+  "brandId": 123,
+  "useCase": "MARKETING",
+  "description": "Promotional messages for opted-in customers",
+  "messageFlow": "Customers opt-in via web form and receive promotional SMS",
+  "hasEmbeddedLinks": true,
+  "hasEmbeddedPhone": false,
+  "isAgeGated": false,
+  "isDirectLending": false,
+  "optInKeywords": ["START", "YES"],
+  "optInMessage": "You are now subscribed. Reply STOP to unsubscribe.",
+  "optInProofUrl": "https://www.yourcompany.com/sms-opt-in",
+  "helpKeywords": ["HELP", "INFO"],
+  "helpMessage": "Reply HELP for assistance. Contact support@yourcompany.com.",
+  "optOutKeywords": ["STOP", "CANCEL", "UNSUBSCRIBE"],
+  "optOutMessage": "You have been unsubscribed. Reply START to re-subscribe.",
+  "sampleMessages": [
+    "Hi Jane, check out our latest deals at https://example.com. Reply STOP to opt out.",
+    "Your order #12345 has shipped! Reply HELP for help."
+  ],
+  "monthlyFee": 10.00,
+  "createdAt": "2026-08-10T15:30:00Z",
+  "updatedAt": "2026-08-10T15:30:00Z"
 }
 ```
 
-## Status Values
+## List All Campaigns
 
-| Status | Description |
-|--------|-------------|
-| `PENDING` | Registration submitted and awaiting carrier review |
-| `APPROVED` | Registration approved, ready for use |
-| `REJECTED` | Registration rejected (check the `reason` field for details) |
+Retrieve all campaign registrations for your account.
 
-## Polling for Approval
+**Endpoint:**
 
-If you need to wait for approval before proceeding, you can poll the status endpoint at regular intervals.
+```
+GET /v1/campaigns
+```
 
 **JavaScript (SDK):**
 
 ```javascript
-async function waitForApproval(brandId, intervalMs = 30000) {
-  let status = 'PENDING';
-  while (status === 'PENDING') {
-    const result = await ccai.compliance.getBrandStatus(brandId);
-    status = result.status;
-    if (status === 'PENDING') {
-      console.log('Still pending, checking again in 30s...');
-      await new Promise(resolve => setTimeout(resolve, intervalMs));
-    }
-  }
-  return status;
-}
+const campaigns = await ccai.campaigns.list();
+campaigns.forEach(campaign => {
+  console.log(`${campaign.id}: ${campaign.useCase} (Brand: ${campaign.brandId})`);
+});
+```
 
-// Usage
-const finalStatus = await waitForApproval(brand.brandId);
-if (finalStatus === 'APPROVED') {
-  console.log('Brand approved! Proceeding to campaign registration...');
-} else {
-  console.log('Brand rejected. Check the reason and resubmit.');
+**cURL:**
+
+```bash
+curl -X GET https://compliance.cloudcontactai.com/api/v1/campaigns \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json"
+```
+
+---
+
+## Polling for Status Changes
+
+If you need to monitor registrations for status changes, you can poll the endpoints at regular intervals.
+
+**JavaScript:**
+
+```javascript
+async function pollBrandStatus(brandId, intervalMs = 30000) {
+  let previousUpdatedAt = null;
+
+  while (true) {
+    const brand = await ccai.brands.get(brandId);
+
+    if (brand.updatedAt !== previousUpdatedAt) {
+      console.log(`Brand ${brand.id} updated at: ${brand.updatedAt}`);
+      previousUpdatedAt = brand.updatedAt;
+    }
+
+    console.log('Checking again in 30s...');
+    await new Promise(resolve => setTimeout(resolve, intervalMs));
+  }
 }
 ```
 
@@ -138,57 +226,30 @@ if (finalStatus === 'APPROVED') {
 import time
 import requests
 
-def wait_for_brand_approval(brand_id, api_key, interval=30):
-    status = 'PENDING'
-    while status == 'PENDING':
+def poll_brand(brand_id, api_key, interval=30):
+    previous_updated = None
+
+    while True:
         response = requests.get(
-            f'https://core.cloudcontactai.com/api/compliance/brands/{brand_id}/status',
+            f'https://compliance.cloudcontactai.com/api/v1/brands/{brand_id}',
             headers={
                 'Authorization': f'Bearer {api_key}',
                 'Content-Type': 'application/json'
             }
         )
-        result = response.json()
-        status = result['status']
-        if status == 'PENDING':
-            print('Still pending, checking again in 30s...')
-            time.sleep(interval)
-    return status
+        brand = response.json()
 
-# Usage
-final_status = wait_for_brand_approval('BRAND_abc123', 'YOUR_API_KEY')
-if final_status == 'APPROVED':
-    print('Brand approved! Proceeding to campaign registration...')
-else:
-    print('Brand rejected. Check the reason and resubmit.')
+        if brand['updatedAt'] != previous_updated:
+            print(f"Brand {brand['id']} updated at: {brand['updatedAt']}")
+            previous_updated = brand['updatedAt']
+
+        print('Checking again in 30s...')
+        time.sleep(interval)
 ```
-
-## Handling Rejections
-
-If a registration is rejected, the response includes a `reason` field explaining why.
-
-```json
-{
-  "brandId": "BRAND_abc123",
-  "status": "REJECTED",
-  "updatedAt": "2026-08-12T10:00:00Z",
-  "reason": "Tax ID does not match the provided legal name"
-}
-```
-
-**Common rejection reasons:**
-
-- Tax ID does not match the provided legal name
-- Website domain does not match registered business
-- Insufficient business information provided
-- Sample messages do not include required opt-out language
-- Message flow description lacks clear opt-in consent mechanism
-
-After addressing the rejection reason, you can submit a new registration.
 
 ## Recommended Polling Intervals
 
-- **Brand registration:** Poll every 30 to 60 seconds during testing, every 1 to 4 hours in production
-- **Campaign registration:** Poll every 30 to 60 seconds during testing, every 1 to 4 hours in production
+- **During testing:** Every 30 to 60 seconds
+- **In production:** Every 1 to 4 hours
 
 Carrier review timelines vary. Brand reviews typically take 1 to 7 business days, and campaign reviews take 1 to 5 business days.

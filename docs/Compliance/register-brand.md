@@ -32,59 +32,58 @@ Registering your brand establishes your business identity with carriers, which i
 
 ## Register Your Brand
 
-Use the CloudContactAI SDK to submit your brand registration programmatically.
+**Base URL:** `https://compliance.cloudcontactai.com/api`
 
 **Endpoint:**
 
 ```
-POST https://core.cloudcontactai.com/api/compliance/brands
+POST /v1/brands
 ```
 
 **JavaScript (SDK):**
 
 ```javascript
-const brand = await ccai.compliance.registerBrand({
-  legalName: "Your Company LLC",
-  taxId: "12-3456789",
-  taxIdCountry: "US",
-  website: "https://www.yourcompany.com",
-  vertical: "TECHNOLOGY",
+const brand = await ccai.brands.create({
+  legalCompanyName: "Your Company LLC",
   entityType: "PRIVATE_PROFIT",
-  address: {
-    street: "123 Main St",
-    city: "San Francisco",
-    state: "CA",
-    postalCode: "94105",
-    country: "US"
-  },
+  taxId: "123456789",
+  taxIdCountry: "US",
+  country: "US",
+  verticalType: "TECHNOLOGY",
+  websiteUrl: "https://www.yourcompany.com",
+  street: "123 Main St",
+  city: "San Francisco",
+  state: "CA",
+  postalCode: "94105",
+  contactFirstName: "Jane",
+  contactLastName: "Smith",
   contactEmail: "compliance@yourcompany.com",
   contactPhone: "+14155551234"
 });
 
-console.log(`Brand ID: ${brand.brandId}`);
-console.log(`Brand Status: ${brand.status}`);
+console.log(`Brand ID: ${brand.id}`);
 ```
 
 **cURL:**
 
 ```bash
-curl -X POST https://core.cloudcontactai.com/api/compliance/brands \
+curl -X POST https://compliance.cloudcontactai.com/api/v1/brands \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "legalName": "Your Company LLC",
-    "taxId": "12-3456789",
-    "taxIdCountry": "US",
-    "website": "https://www.yourcompany.com",
-    "vertical": "TECHNOLOGY",
+    "legalCompanyName": "Your Company LLC",
     "entityType": "PRIVATE_PROFIT",
-    "address": {
-      "street": "123 Main St",
-      "city": "San Francisco",
-      "state": "CA",
-      "postalCode": "94105",
-      "country": "US"
-    },
+    "taxId": "123456789",
+    "taxIdCountry": "US",
+    "country": "US",
+    "verticalType": "TECHNOLOGY",
+    "websiteUrl": "https://www.yourcompany.com",
+    "street": "123 Main St",
+    "city": "San Francisco",
+    "state": "CA",
+    "postalCode": "94105",
+    "contactFirstName": "Jane",
+    "contactLastName": "Smith",
     "contactEmail": "compliance@yourcompany.com",
     "contactPhone": "+14155551234"
   }'
@@ -94,30 +93,24 @@ curl -X POST https://core.cloudcontactai.com/api/compliance/brands \
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `legalName` | string | Yes | The registered legal name of your business |
-| `taxId` | string | Yes | Your business tax ID (EIN for US companies) |
-| `taxIdCountry` | string | Yes | Country where the tax ID is registered (ISO 3166-1 alpha-2) |
-| `website` | string | Yes | Your company website URL |
-| `vertical` | string | Yes | Business vertical (see options below) |
+| `legalCompanyName` | string | Yes | The registered legal name of your business |
 | `entityType` | string | Yes | Business entity type (see options below) |
-| `address` | object | Yes | Registered business address |
+| `taxId` | string | Yes | Your business tax ID (9 digits for US/CA) |
+| `taxIdCountry` | string | Yes | Country where the tax ID is registered (US, CA, GB, AU) |
+| `country` | string | Yes | Country of business operations |
+| `verticalType` | string | Yes | Business vertical (see options below) |
+| `websiteUrl` | string | Yes | Your company website URL (must start with http:// or https://) |
+| `street` | string | Yes | Registered business street address |
+| `city` | string | Yes | City |
+| `state` | string | Yes | State or province |
+| `postalCode` | string | Yes | Postal/ZIP code |
+| `contactFirstName` | string | Yes | Compliance contact first name |
+| `contactLastName` | string | Yes | Compliance contact last name |
 | `contactEmail` | string | Yes | Compliance contact email |
-| `contactPhone` | string | Yes | Compliance contact phone number in E.164 format |
-
-### Supported Verticals
-
-- `TECHNOLOGY`
-- `HEALTHCARE`
-- `FINANCE`
-- `RETAIL`
-- `REAL_ESTATE`
-- `EDUCATION`
-- `INSURANCE`
-- `ENTERTAINMENT`
-- `TRANSPORTATION`
-- `NON_PROFIT`
-- `GOVERNMENT`
-- `OTHER`
+| `contactPhone` | string | Yes | Compliance contact phone number |
+| `dba` | string | No | "Doing Business As" name if different from legal name |
+| `stockSymbol` | string | Conditional | Required for PUBLIC_PROFIT entities |
+| `stockExchange` | string | Conditional | Required for PUBLIC_PROFIT entities |
 
 ### Supported Entity Types
 
@@ -127,24 +120,89 @@ curl -X POST https://core.cloudcontactai.com/api/compliance/brands \
 - `GOVERNMENT`
 - `SOLE_PROPRIETOR`
 
+### Supported Vertical Types
+
+- `AUTOMOTIVE`
+- `AGRICULTURE`
+- `BANKING`
+- `COMMUNICATION`
+- `CONSTRUCTION`
+- `EDUCATION`
+- `ENERGY`
+- `ENTERTAINMENT`
+- `GOVERNMENT`
+- `HEALTHCARE`
+- `HOSPITALITY`
+- `INSURANCE`
+- `LEGAL`
+- `MANUFACTURING`
+- `NON_PROFIT`
+- `PROFESSIONAL`
+- `REAL_ESTATE`
+- `RETAIL`
+- `TECHNOLOGY`
+- `TRANSPORTATION`
+
+### Supported Stock Exchanges (for PUBLIC_PROFIT)
+
+- `NASDAQ`
+- `NYSE`
+- `AMEX`
+- `TSX`
+- `LON`
+- `JPX`
+- `HKEX`
+- `OTHER`
+
 ## Response
 
 ```json
 {
-  "brandId": "BRAND_abc123",
-  "legalName": "Your Company LLC",
-  "status": "PENDING",
-  "createdAt": "2026-08-10T15:00:00Z"
+  "id": 123,
+  "accountId": 456,
+  "legalCompanyName": "Your Company LLC",
+  "entityType": "PRIVATE_PROFIT",
+  "taxId": "123456789",
+  "taxIdCountry": "US",
+  "country": "US",
+  "verticalType": "TECHNOLOGY",
+  "websiteUrl": "https://www.yourcompany.com",
+  "websiteMatchScore": null,
+  "street": "123 Main St",
+  "city": "San Francisco",
+  "state": "CA",
+  "postalCode": "94105",
+  "contactFirstName": "Jane",
+  "contactLastName": "Smith",
+  "contactEmail": "compliance@yourcompany.com",
+  "contactPhone": "+14155551234",
+  "createdAt": "2026-08-10T15:00:00Z",
+  "updatedAt": "2026-08-10T15:00:00Z"
 }
 ```
+
+## Other Brand Endpoints
+
+| Operation | Method | Endpoint |
+|-----------|--------|----------|
+| List brands | GET | `/v1/brands` |
+| Get brand | GET | `/v1/brands/{id}` |
+| Update brand | PATCH | `/v1/brands/{id}` |
+| Delete brand | DELETE | `/v1/brands/{id}` |
+
+## Validation Rules
+
+- Tax ID must be exactly 9 digits for US and CA
+- Website URL must start with `http://` or `https://`
+- Contact email must be a valid email format
+- PUBLIC_PROFIT entities require `stockSymbol` and `stockExchange`
 
 ## What Happens Next
 
 After submitting your brand registration:
 
-1. Your submission enters a **PENDING** state for carrier review
+1. Your submission is created and stored
 2. Review typically takes 1 to 7 business days
-3. You will receive a status update (APPROVED or REJECTED)
-4. Once approved, you can proceed to [Register a Campaign](https://developer.cloudcontactai.com/docs/register-campaign)
+3. Once approved, you can proceed to [Register a Campaign](https://developer.cloudcontactai.com/docs/register-campaign)
 
 Use the [Check Registration Status](https://developer.cloudcontactai.com/docs/check-registration-status) endpoint to monitor your brand approval.

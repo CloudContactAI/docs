@@ -26,56 +26,73 @@ Campaign registration is the second step in A2P 10DLC compliance. After your bra
 
 - An approved brand registration (see [Register Brand](https://developer.cloudcontactai.com/docs/register-brand))
 - Your brand ID from the brand registration response
-- Sample messages that represent your campaign's content
+- 2 to 5 sample messages that represent your campaign's content
 - A defined opt-in flow describing how contacts consent to receive messages
 
 ## Register Your Campaign
 
-Use the CloudContactAI SDK to submit your campaign registration programmatically.
+**Base URL:** `https://compliance.cloudcontactai.com/api`
 
 **Endpoint:**
 
 ```
-POST https://core.cloudcontactai.com/api/compliance/campaigns
+POST /v1/campaigns
 ```
 
 **JavaScript (SDK):**
 
 ```javascript
-const campaign = await ccai.compliance.registerCampaign({
-  brandId: brand.brandId,
+const campaign = await ccai.campaigns.create({
+  brandId: 123,
   useCase: "MARKETING",
   description: "Promotional messages for opted-in customers",
   messageFlow: "Customers opt-in via web form and receive promotional SMS",
+  hasEmbeddedLinks: true,
+  hasEmbeddedPhone: false,
+  isAgeGated: false,
+  isDirectLending: false,
+  optInKeywords: ["START", "YES"],
+  optInMessage: "You are now subscribed to updates from Your Company. Reply STOP to unsubscribe, HELP for help.",
+  optInProofUrl: "https://www.yourcompany.com/sms-opt-in",
+  helpKeywords: ["HELP", "INFO"],
+  helpMessage: "Reply HELP for assistance. Contact support@yourcompany.com or call 1-800-555-0123.",
+  optOutKeywords: ["STOP", "CANCEL", "UNSUBSCRIBE"],
+  optOutMessage: "You have been unsubscribed and will no longer receive messages. Reply START to re-subscribe.",
   sampleMessages: [
-    "Hi ${firstName}, check out our latest deals at https://example.com",
-    "Your order #12345 has shipped! Track it here: https://example.com/track"
-  ],
-  helpMessage: "Reply HELP for assistance. Contact support@yourcompany.com",
-  optOutMessage: "You have been unsubscribed. Reply START to re-subscribe."
+    "Hi Jane, check out our latest deals at https://example.com. Reply STOP to opt out.",
+    "Your order #12345 has shipped! Track it here: https://example.com/track. Reply HELP for help."
+  ]
 });
 
-console.log(`Campaign ID: ${campaign.campaignId}`);
-console.log(`Campaign Status: ${campaign.status}`);
+console.log(`Campaign ID: ${campaign.id}`);
 ```
 
 **cURL:**
 
 ```bash
-curl -X POST https://core.cloudcontactai.com/api/compliance/campaigns \
+curl -X POST https://compliance.cloudcontactai.com/api/v1/campaigns \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "brandId": "BRAND_abc123",
+    "brandId": 123,
     "useCase": "MARKETING",
     "description": "Promotional messages for opted-in customers",
     "messageFlow": "Customers opt-in via web form and receive promotional SMS",
+    "hasEmbeddedLinks": true,
+    "hasEmbeddedPhone": false,
+    "isAgeGated": false,
+    "isDirectLending": false,
+    "optInKeywords": ["START", "YES"],
+    "optInMessage": "You are now subscribed to updates from Your Company. Reply STOP to unsubscribe, HELP for help.",
+    "optInProofUrl": "https://www.yourcompany.com/sms-opt-in",
+    "helpKeywords": ["HELP", "INFO"],
+    "helpMessage": "Reply HELP for assistance. Contact support@yourcompany.com or call 1-800-555-0123.",
+    "optOutKeywords": ["STOP", "CANCEL", "UNSUBSCRIBE"],
+    "optOutMessage": "You have been unsubscribed and will no longer receive messages. Reply START to re-subscribe.",
     "sampleMessages": [
-      "Hi ${firstName}, check out our latest deals at https://example.com",
-      "Your order #12345 has shipped! Track it here: https://example.com/track"
-    ],
-    "helpMessage": "Reply HELP for assistance. Contact support@yourcompany.com",
-    "optOutMessage": "You have been unsubscribed. Reply START to re-subscribe."
+      "Hi Jane, check out our latest deals at https://example.com. Reply STOP to opt out.",
+      "Your order #12345 has shipped! Track it here: https://example.com/track. Reply HELP for help."
+    ]
   }'
 ```
 
@@ -83,51 +100,91 @@ curl -X POST https://core.cloudcontactai.com/api/compliance/campaigns \
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `brandId` | string | Yes | The brand ID from your approved brand registration |
+| `brandId` | integer | Yes | The brand ID from your approved brand registration |
 | `useCase` | string | Yes | The campaign use case type (see options below) |
 | `description` | string | Yes | A clear description of what your campaign does |
 | `messageFlow` | string | Yes | How contacts opt in and what messages they receive |
-| `sampleMessages` | array | Yes | 2-5 sample messages representative of your campaign content |
-| `helpMessage` | string | Yes | The message sent when a contact replies HELP |
-| `optOutMessage` | string | Yes | The message sent when a contact opts out |
+| `hasEmbeddedLinks` | boolean | Yes | Whether messages contain URLs |
+| `hasEmbeddedPhone` | boolean | Yes | Whether messages contain phone numbers |
+| `isAgeGated` | boolean | Yes | Whether content is age-restricted |
+| `isDirectLending` | boolean | Yes | Whether campaign involves direct lending |
+| `optInKeywords` | array | Yes | Keywords that trigger opt-in (e.g., ["START", "YES"]) |
+| `optInMessage` | string | Yes | Message sent when a contact opts in |
+| `optInProofUrl` | string | Yes | URL showing your opt-in mechanism (must start with http:// or https://) |
+| `helpKeywords` | array | Yes | Keywords that trigger help (e.g., ["HELP", "INFO"]) |
+| `helpMessage` | string | Yes | Message sent when a contact replies with a help keyword |
+| `optOutKeywords` | array | Yes | Keywords that trigger opt-out (e.g., ["STOP", "CANCEL"]) |
+| `optOutMessage` | string | Yes | Message sent when a contact opts out (must contain "STOP" or one of your optOutKeywords) |
+| `sampleMessages` | array | Yes | 2 to 5 sample messages representative of your campaign |
+| `subUseCases` | array | Conditional | Required for MIXED/LOW_VOLUME_MIXED (2-3 sub use cases) |
+| `termsLink` | string | No | URL to your terms of service |
+| `privacyLink` | string | No | URL to your privacy policy |
 
 ### Supported Use Cases
 
-- `MARKETING` - Promotional content, sales, and offers
-- `TRANSACTIONAL` - Order confirmations, shipping updates, account alerts
-- `CUSTOMER_CARE` - Support replies and service notifications
-- `ACCOUNT_NOTIFICATION` - Password resets, verification codes, account updates
-- `DELIVERY_NOTIFICATION` - Delivery status and logistics updates
-- `FRAUD_ALERT` - Security and fraud detection alerts
-- `MIXED` - Combination of multiple use cases
-- `POLLING_AND_VOTING` - Surveys, polls, and feedback requests
-- `PUBLIC_SERVICE_ANNOUNCEMENT` - Non-commercial public information
+- `TWO_FACTOR_AUTHENTICATION`
+- `ACCOUNT_NOTIFICATION`
+- `CUSTOMER_CARE`
+- `DELIVERY_NOTIFICATION`
+- `FRAUD_ALERT`
+- `HIGHER_EDUCATION`
+- `LOW_VOLUME_MIXED`
+- `MARKETING`
+- `MIXED`
+- `POLLING_VOTING`
+- `PUBLIC_SERVICE_ANNOUNCEMENT`
+- `SECURITY_ALERT`
+
+### Supported Sub Use Cases (for MIXED/LOW_VOLUME_MIXED)
+
+- `TWO_FACTOR_AUTHENTICATION`
+- `ACCOUNT_NOTIFICATION`
+- `CUSTOMER_CARE`
+- `DELIVERY_NOTIFICATION`
+- `FRAUD_ALERT`
+- `MARKETING`
+- `POLLING_VOTING`
 
 ## Response
 
 ```json
 {
-  "campaignId": "CAMP_xyz789",
-  "brandId": "BRAND_abc123",
+  "id": 789,
+  "accountId": 456,
+  "brandId": 123,
   "useCase": "MARKETING",
-  "status": "PENDING",
-  "createdAt": "2026-08-10T15:30:00Z"
+  "description": "Promotional messages for opted-in customers",
+  "messageFlow": "Customers opt-in via web form and receive promotional SMS",
+  "monthlyFee": 10.00,
+  "createdAt": "2026-08-10T15:30:00Z",
+  "updatedAt": "2026-08-10T15:30:00Z"
 }
 ```
 
-## Best Practices for Approval
+## Other Campaign Endpoints
 
-- **Be specific in your description.** Vague descriptions like "sending messages" are more likely to be rejected.
-- **Sample messages should be realistic.** Include actual dynamic variables and URLs you plan to use.
-- **Clearly describe your opt-in flow.** Carriers want to see that contacts explicitly consent to receive messages.
-- **Include HELP and STOP handling.** Both are required for compliance.
-- **Match your use case to your content.** Do not register as TRANSACTIONAL if you are sending marketing messages.
+| Operation | Method | Endpoint |
+|-----------|--------|----------|
+| List campaigns | GET | `/v1/campaigns` |
+| Get campaign | GET | `/v1/campaigns/{id}` |
+| Update campaign | PATCH | `/v1/campaigns/{id}` |
+| Delete campaign | DELETE | `/v1/campaigns/{id}` |
+
+## Validation Rules
+
+- `sampleMessages` must contain 2 to 5 items
+- At least one sample message must contain "Reply STOP" or "Reply {optOutKeyword}"
+- At least one sample message must contain "Reply HELP" or "Reply {helpKeyword}"
+- `optOutMessage` must contain "STOP" or one of your `optOutKeywords`
+- `helpMessage` must contain "HELP" or one of your `helpKeywords`
+- `optInProofUrl`, `termsLink`, and `privacyLink` must start with `http://` or `https://`
+- MIXED and LOW_VOLUME_MIXED use cases require 2 to 3 `subUseCases`
 
 ## What Happens Next
 
 After submitting your campaign registration:
 
-1. Your campaign enters a **PENDING** state for review
+1. Your campaign is created and stored
 2. Review typically takes 1 to 5 business days
 3. Once approved, your campaign is active and messages will benefit from improved throughput
 4. If rejected, review the rejection reason and resubmit with corrections
