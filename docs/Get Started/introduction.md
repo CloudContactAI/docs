@@ -52,7 +52,7 @@ Learn how to get CloudContactAI setup in your project with our client SDKs.
 
   <Card title="C# Quickstart" href="https://developer.cloudcontactai.com/docs/c#/" icon="fa-duotone fa-cube" />
 
-  <Card title="Java Quickstart" href="https://developer.cloudcontactai.com/docs/java#/" icon="a-duotone fa-mug-hot" />
+  <Card title="Java Quickstart" href="https://developer.cloudcontactai.com/docs/java#/" icon="fa-duotone fa-mug-hot" />
 
   <Card title="PHP Quickstart" href="https://developer.cloudcontactai.com/docs/php#/" icon="fa-duotone fa-file-code" />
 
