@@ -19,28 +19,7 @@ metadata:
     - Kotlin
   robots: index
 ---
-<div style={{ margin: "16px 0 -8px 0" }}>
-  <a
-    href="https://app.cloudcontactai.com/register"
-    style={{
-      display: "inline-flex",
-      alignItems: "center",
-      justifyContent: "center",
-      gap: "8px",
-      backgroundColor: "#2563eb",
-      color: "#ffffff",
-      padding: "12px 20px",
-      borderRadius: "12px",
-      fontSize: "15px",
-      fontWeight: 600,
-      lineHeight: 1,
-      textDecoration: "none",
-      whiteSpace: "nowrap",
-    }}
-  >
-    🔑 Get API Key
-  </a>
-</div>
+> 🔑 [Get API Key](https://app.cloudcontactai.com/register)
 
 A Java client library for interacting with the CloudContactAI API using Spring Boot.
 
