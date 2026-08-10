@@ -1,6 +1,6 @@
 ---
 title: 'HubSpot: How to Setup Integration'
-excerpt: ''
+excerpt: 'How to connect your HubSpot account to CloudContactAI and import contacts.'
 deprecated: false
 hidden: false
 metadata:

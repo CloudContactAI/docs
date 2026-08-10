@@ -5,8 +5,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'CloudContactAI release 02/16/23: Auto-response for inbound SMS, pagination improvements, payment fix.'
+  robots: index
 next:
   description: ''
 ---

@@ -1,6 +1,6 @@
 ---
 title: SMS Compliance
-excerpt: ''
+excerpt: 'TCPA, CCPA, and GDPR compliance settings for SMS and email.'
 deprecated: false
 hidden: false
 metadata:

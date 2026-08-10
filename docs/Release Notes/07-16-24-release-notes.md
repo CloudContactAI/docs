@@ -5,7 +5,7 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
+  description: 'CloudContactAI release 07/16/24: onboarding questionnaire updates, phone number provisioning now optional, dashboard fixes.'
   robots: index
 next:
   description: ''

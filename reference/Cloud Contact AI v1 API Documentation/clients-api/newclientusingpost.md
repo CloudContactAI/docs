@@ -8,8 +8,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'Create a new client account using the CloudContactAI Clients API.'
+  robots: index
 next:
   description: ''
 ---

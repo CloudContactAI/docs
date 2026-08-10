@@ -1,6 +1,6 @@
 ---
 title: SMS Regulations
-excerpt: ''
+excerpt: 'Key SMS compliance rules including consent, opt-in methods, and SHAFT guidelines.'
 deprecated: false
 hidden: false
 metadata:

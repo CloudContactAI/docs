@@ -12,8 +12,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'Create a new SMS campaign using the CloudContactAI Campaigns API. Supports sending and scheduling.'
+  robots: index
 next:
   description: ''
 ---

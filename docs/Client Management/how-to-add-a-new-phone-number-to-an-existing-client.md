@@ -1,6 +1,6 @@
 ---
 title: How to Add a New Phone Number to an Existing Client
-excerpt: ''
+excerpt: 'Provision a new phone number with a specific area code for your client.'
 deprecated: false
 hidden: false
 metadata:

@@ -5,8 +5,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'CloudContactAI release 08/15/23: email timezone scheduling, campaign stats pie chart, and collection campaign SMS builder.'
+  robots: index
 next:
   description: ''
 ---

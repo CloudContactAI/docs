@@ -1,6 +1,6 @@
 ---
 title: How to Edit an Existing Client in CloudContactAI
-excerpt: ''
+excerpt: 'Update a client name or country from the Settings page in CloudContactAI.'
 deprecated: false
 hidden: false
 metadata:

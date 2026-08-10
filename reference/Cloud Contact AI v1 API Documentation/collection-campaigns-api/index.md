@@ -5,8 +5,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'CloudContactAI Collection Campaigns API reference. Manage collection campaign settings and debtors.'
+  robots: index
 next:
   description: ''
 ---

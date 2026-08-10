@@ -5,8 +5,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'CloudContactAI release 06/22/23: email cost and contact limits, dynamic segments, and unsubscribe functionality for campaigns.'
+  robots: index
 next:
   description: ''
 ---

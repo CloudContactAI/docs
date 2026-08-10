@@ -5,8 +5,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'CloudContactAI release 09/28/23: Telnyx SMS/MMS integration, improved contact search performance, and webhook handler updates.'
+  robots: index
 next:
   description: ''
 ---

@@ -5,8 +5,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'CloudContactAI release 03/09/23: Contacts export, edit scheduled campaigns, email history per contact.'
+  robots: index
 next:
   description: ''
 ---

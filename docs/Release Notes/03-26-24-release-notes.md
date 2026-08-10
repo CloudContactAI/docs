@@ -5,7 +5,7 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
+  description: 'CloudContactAI release 03/26/24: campaign ramp-up function for SMS and email, segmented delivery for large contact lists.'
   robots: index
 next:
   description: ''

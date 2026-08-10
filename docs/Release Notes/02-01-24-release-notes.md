@@ -5,7 +5,7 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
+  description: 'CloudContactAI release 02/01/24: HubSpot workflow SMS actions, contacts migrated to Postgres, outbound SMS activity on HubSpot.'
   robots: index
 next:
   description: ''

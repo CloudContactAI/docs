@@ -5,7 +5,7 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
+  description: 'CloudContactAI release 06/11/24: HubSpot SMS activity sync, login attempt lockout after three failures, HubSpot display fixes.'
   robots: index
 next:
   description: ''

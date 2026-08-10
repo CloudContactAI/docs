@@ -5,8 +5,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'CloudContactAI release 01/19/23: CSV uploads auto-add to contact lists, admin verification tools, and improved automated emails.'
+  robots: index
 next:
   description: ''
 ---

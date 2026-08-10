@@ -731,3 +731,21 @@ On your mobile phone, respond to the message that was sent to you by CCAI
 ## &#x20;Try it yourself
 
 See the full source code [here](https://github.com/CloudContactAI/CCAI.NET).
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  "name": "CCAI.NET",
+  "description": "C# .NET SDK for CloudContactAI. Send SMS, MMS, and Email campaigns with async/await support and webhook management.",
+  "codeRepository": "https://github.com/CloudContactAI/CCAI.NET",
+  "programmingLanguage": "C#",
+  "runtimePlatform": ".NET 8.0",
+  "license": "https://opensource.org/licenses/MIT",
+  "author": {
+    "@type": "Organization",
+    "name": "CloudContactAI",
+    "url": "https://cloudcontactai.com"
+  }
+}
+</script>

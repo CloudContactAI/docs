@@ -8,8 +8,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'Retrieve the call record history for a specific contact by ID using the CloudContactAI API.'
+  robots: index
 next:
   description: ''
 ---

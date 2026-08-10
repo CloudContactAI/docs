@@ -5,8 +5,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'CloudContactAI release 07/05/23: white label version for sub client signups.'
+  robots: index
 next:
   description: ''
 ---

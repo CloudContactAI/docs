@@ -1,6 +1,6 @@
 ---
 title: Adding Contacts
-excerpt: ''
+excerpt: 'Import contacts via CSV, manual entry, or the API.'
 deprecated: false
 hidden: false
 metadata:

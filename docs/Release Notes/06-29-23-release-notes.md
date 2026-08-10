@@ -5,8 +5,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'CloudContactAI release 06/29/23: dashboard line graph, blank-slate email builder, and large contact list upload fix.'
+  robots: index
 next:
   description: ''
 ---

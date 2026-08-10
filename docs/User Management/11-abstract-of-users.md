@@ -1,6 +1,6 @@
 ---
 title: Managing Users
-excerpt: ''
+excerpt: 'Overview of user roles and how to invite additional users to your account.'
 deprecated: false
 hidden: false
 metadata:

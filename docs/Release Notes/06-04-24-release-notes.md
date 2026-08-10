@@ -5,7 +5,7 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
+  description: 'CloudContactAI release 06/04/24: flow builder templates and minimap, add contacts to scheduled campaigns, flow autosave.'
   robots: index
 next:
   description: ''

@@ -5,7 +5,7 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
+  description: 'CloudContactAI release 04/16/24: admin billing tools for pausing payments, manual billing triggers, and invoice listing.'
   robots: index
 next:
   description: ''

@@ -8,8 +8,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'Send an SMS message to a specific contact by ID using the CloudContactAI Messages API.'
+  robots: index
 next:
   description: ''
 ---

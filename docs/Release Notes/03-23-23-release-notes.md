@@ -5,8 +5,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'CloudContactAI release 03/23/23: Block inbound calls option, CSV upload alerts, Canadian number fix.'
+  robots: index
 next:
   description: ''
 ---

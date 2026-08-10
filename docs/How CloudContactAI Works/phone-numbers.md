@@ -1,6 +1,6 @@
 ---
 title: Phone Numbers
-excerpt: ''
+excerpt: 'How to acquire, manage, and configure phone numbers for your CCAI account.'
 deprecated: false
 hidden: false
 metadata:

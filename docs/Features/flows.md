@@ -1,6 +1,6 @@
 ---
 title: SMS and Email Workflows
-excerpt: ''
+excerpt: 'Build automated multi-step SMS and email workflows with conditions.'
 deprecated: false
 hidden: false
 metadata:

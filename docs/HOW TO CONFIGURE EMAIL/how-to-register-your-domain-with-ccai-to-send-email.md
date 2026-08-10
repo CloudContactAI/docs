@@ -7,7 +7,7 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
+  description: 'Register your domain with CloudContactAI to send email campaigns. Setup DKIM, SPF, and DMARC for optimal deliverability.'
   image: >-
     https://files.readme.io/ba5ee28dfce9ec7d3017eda238a017629112b99e9a8b0f0eb587a5ce42009399-Group_84_1.png
   keywords:
@@ -22,7 +22,7 @@ next:
       slug: send-emails-from-multiple-domains-with-cloudcontactai
       title: Send Emails from Multiple Domains with CloudContactAI
     - type: basic
-      slug: aws-simple-email-system-how-to-setup-integration
+      slug: configure-aws-ses
       title: 'Amazon SES: How to Setup Integration with the Simple Email Service (SES)'
 ---
 **Step 1:** Domain Registration

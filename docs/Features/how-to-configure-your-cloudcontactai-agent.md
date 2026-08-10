@@ -1,6 +1,6 @@
 ---
 title: How to configure your CloudContactAI Vertical AI Agent
-excerpt: ''
+excerpt: 'Set up a vertical AI agent to handle inbound SMS conversations.'
 deprecated: false
 hidden: false
 metadata:

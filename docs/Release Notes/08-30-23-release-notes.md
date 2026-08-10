@@ -5,8 +5,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'CloudContactAI release 08/30/23: Admin client stats, compliance updates, inbox fixes, and campaign loading improvements.'
+  robots: index
 next:
   description: ''
 ---

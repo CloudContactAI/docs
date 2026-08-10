@@ -5,8 +5,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'CloudContactAI release 04/13/23: Call forwarding, email campaign click tracking, admin account creation.'
+  robots: index
 next:
   description: ''
 ---

@@ -5,7 +5,7 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
+  description: 'CloudContactAI release 05/06/24: Captcha added to registration, email verification removed, login page UI improvements.'
   robots: index
 next:
   description: ''

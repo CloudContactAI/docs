@@ -1,6 +1,6 @@
 ---
 title: SMS Debt Collection with CloudContactAI
-excerpt: ''
+excerpt: 'Step-by-step guide to setting up and sending SMS debt collection campaigns with CloudContactAI.'
 deprecated: false
 hidden: false
 metadata:

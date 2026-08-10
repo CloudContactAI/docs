@@ -1,6 +1,6 @@
 ---
 title: 'Salesforce: iFrame Text Plug-In'
-excerpt: ''
+excerpt: 'Embed CloudContactAI SMS messaging directly into Salesforce contact pages via iFrame.'
 deprecated: false
 hidden: false
 metadata:

@@ -5,7 +5,7 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
+  description: 'CloudContactAI release 02/04/25: multi-account HubSpot mapping, bounced email auto-marking, email flow and campaign fixes.'
   robots: index
 next:
   description: ''

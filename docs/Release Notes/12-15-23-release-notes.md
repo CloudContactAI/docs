@@ -5,7 +5,7 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
+  description: 'CloudContactAI release 12/15/23: email support added to flows, bulk upload over 10K contacts, inbox contact notes toggle.'
   robots: index
 next:
   description: ''

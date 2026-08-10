@@ -1,6 +1,6 @@
 ---
 title: Deleting a User
-excerpt: ''
+excerpt: 'Remove a user from your CloudContactAI account via the Admin tab.'
 deprecated: false
 hidden: false
 metadata:

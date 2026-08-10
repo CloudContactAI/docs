@@ -1,6 +1,6 @@
 ---
 title: SMS, MMS, and Email Campaigns
-excerpt: ''
+excerpt: 'Send bulk SMS, MMS, and email campaigns with templates and scheduling.'
 deprecated: false
 hidden: false
 metadata:

@@ -1,6 +1,6 @@
 ---
 title: Assigning Clients to a User
-excerpt: ''
+excerpt: 'Create multi-tenant clients for separate phone numbers and contacts.'
 deprecated: false
 hidden: false
 metadata:

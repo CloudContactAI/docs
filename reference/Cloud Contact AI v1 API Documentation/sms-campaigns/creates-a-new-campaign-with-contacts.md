@@ -12,8 +12,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'Create an SMS campaign with contacts in a single API call using CloudContactAI.'
+  robots: index
 next:
   description: ''
 ---

@@ -8,8 +8,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'Retrieve debtor information using the CloudContactAI Collection Campaigns API.'
+  robots: index
 next:
   description: ''
 ---

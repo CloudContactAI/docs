@@ -1,15 +1,15 @@
 ---
-title: List Subscriptions
-excerpt: This endpoint allows you to get all the subscriptions for your client
+title: List Webhooks
+excerpt: This endpoint allows you to list all registered webhooks for your account.
 api:
   file: cloudcontactai-webhooks-api-documentation-1.json
-  operationId: List Subscriptions
+  operationId: List Webhooks
 deprecated: false
 hidden: false
 metadata:
   title: ''
   description: ''
-  robots: noindex
+  robots: index
 next:
   description: ''
 ---

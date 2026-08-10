@@ -5,7 +5,7 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
+  description: 'CloudContactAI release 06/25/24: HubSpot activity sync, incoming message webhooks for Telnyx and Twilio, SMS dashboard fixes.'
   robots: index
 next:
   description: ''

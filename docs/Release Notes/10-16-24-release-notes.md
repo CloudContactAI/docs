@@ -5,7 +5,7 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
+  description: 'CloudContactAI release 10/16/24: contact list optimization for SMS and email campaigns, SMS stat calculation fixes.'
   robots: index
 next:
   description: ''

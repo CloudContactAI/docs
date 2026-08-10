@@ -5,7 +5,7 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
+  description: 'CloudContactAI release 08/20/24: Amazon SES email support, bounced email tracking for contacts, email-only user access.'
   robots: index
 next:
   description: ''

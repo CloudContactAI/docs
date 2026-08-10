@@ -5,8 +5,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'CloudContactAI release 11/01/23: Do not email option, admin phone reset, and trial user limited access without phone registration.'
+  robots: index
 next:
   description: ''
 ---

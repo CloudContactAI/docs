@@ -862,3 +862,21 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 * [GitHub Repository](https://github.com/CloudContactAI/ccai-node)
 * [API Reference](https://developer.cloudcontactai.com/reference)
 * [CCAI Dashboard](https://app.cloudcontactai.com)
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  "name": "ccai-node",
+  "description": "Node.js SDK for CloudContactAI. Send SMS, MMS, and Email campaigns programmatically with webhook support.",
+  "codeRepository": "https://github.com/CloudContactAI/ccai-node",
+  "programmingLanguage": "JavaScript",
+  "runtimePlatform": "Node.js",
+  "license": "https://opensource.org/licenses/MIT",
+  "author": {
+    "@type": "Organization",
+    "name": "CloudContactAI",
+    "url": "https://cloudcontactai.com"
+  }
+}
+</script>

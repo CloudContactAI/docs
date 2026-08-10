@@ -8,8 +8,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'Create a new collection campaign using the CloudContactAI Collection Campaigns API.'
+  robots: index
 next:
   description: ''
 ---

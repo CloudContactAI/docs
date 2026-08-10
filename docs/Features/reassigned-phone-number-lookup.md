@@ -1,11 +1,11 @@
 ---
 title: Reassigned Phone Number Lookup
-excerpt: ''
+excerpt: 'Prevent texting reassigned numbers with automatic database lookups.'
 deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
+  description: 'Prevent texting reassigned phone numbers with CloudContactAI. Automatic lookups check the Reassigned Number Database before sending SMS.'
   robots: index
 next:
   description: ''

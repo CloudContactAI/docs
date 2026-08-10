@@ -5,7 +5,7 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
+  description: 'CloudContactAI release 01/06/25: AI chatbot functionality, Captcha on signup, HubSpot integration settings tab redesign.'
   robots: index
 next:
   description: ''

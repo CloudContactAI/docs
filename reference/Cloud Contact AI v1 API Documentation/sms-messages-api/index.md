@@ -5,8 +5,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'CloudContactAI SMS Messages API reference. Send, retrieve, and track SMS messages programmatically.'
+  robots: index
 next:
   description: ''
 ---

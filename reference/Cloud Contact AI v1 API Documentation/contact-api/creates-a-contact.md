@@ -8,8 +8,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'Create a new contact in CloudContactAI using the REST API. Requires client ID and API key.'
+  robots: index
 next:
   description: ''
 ---

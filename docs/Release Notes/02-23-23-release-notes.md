@@ -5,8 +5,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'CloudContactAI release 02/23/23: Admin accounts tab, debt collection autofill variables, security fix.'
+  robots: index
 next:
   description: ''
 ---

@@ -5,7 +5,7 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
+  description: 'CloudContactAI release 03/04/25: billing screen loading improvements, email builder From Email UX updates, new user tutorial.'
   robots: index
 next:
   description: ''

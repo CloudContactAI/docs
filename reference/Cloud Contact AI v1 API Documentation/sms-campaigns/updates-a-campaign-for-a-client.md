@@ -10,8 +10,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'Update an existing SMS campaign by client and campaign ID using the CloudContactAI API.'
+  robots: index
 next:
   description: ''
 ---

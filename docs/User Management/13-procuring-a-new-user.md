@@ -1,6 +1,6 @@
 ---
 title: Adding or Removing a User in CloudContactAI
-excerpt: ''
+excerpt: 'How to invite new users to your CloudContactAI account and assign roles.'
 deprecated: false
 hidden: false
 metadata:

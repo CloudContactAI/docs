@@ -1,6 +1,6 @@
 ---
 title: Opt-Out Messages
-excerpt: ''
+excerpt: 'How contacts unsubscribe and how to manage opt-out requests.'
 deprecated: false
 hidden: false
 metadata:

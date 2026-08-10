@@ -8,8 +8,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'Retrieve a filtered list of CloudContactAI contacts that have a phone number on file.'
+  robots: index
 next:
   description: ''
 ---

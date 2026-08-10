@@ -5,7 +5,7 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
+  description: 'CloudContactAI release 01/16/25: multi-client HubSpot support, SES email configuration improvements, email builder field fixes.'
   robots: index
 next:
   description: ''

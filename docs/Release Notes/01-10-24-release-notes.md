@@ -5,7 +5,7 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
+  description: 'CloudContactAI release 01/10/24: HubSpot workflow support, outbound SMS on HubSpot activity page, duplicate campaign safeguards.'
   robots: index
 next:
   description: ''

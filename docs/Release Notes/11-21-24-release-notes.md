@@ -5,7 +5,7 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
+  description: 'CloudContactAI release 11/21/24: inbox bot functionality, reassigned number protection, multi-account inbox indicators.'
   robots: index
 next:
   description: ''

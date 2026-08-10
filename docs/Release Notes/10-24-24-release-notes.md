@@ -5,7 +5,7 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
+  description: 'CloudContactAI release 10/24/24: ChatGPT-powered configurable chatbot, EKS upgrade, voice campaign module removed.'
   robots: index
 next:
   description: ''

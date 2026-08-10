@@ -8,8 +8,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'Retrieve all SMS messages sent to or received from a specific contact using CloudContactAI.'
+  robots: index
 next:
   description: ''
 ---

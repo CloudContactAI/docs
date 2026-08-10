@@ -5,8 +5,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'CloudContactAI release 01/26/23: Toll-free numbers, Zapier integration, UK texting support.'
+  robots: index
 next:
   description: ''
 ---

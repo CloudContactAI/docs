@@ -5,8 +5,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'CloudContactAI release 05/10/23: shared keyword rules, improved email campaign spacing, and contact phone number search fixes.'
+  robots: index
 next:
   description: ''
 ---

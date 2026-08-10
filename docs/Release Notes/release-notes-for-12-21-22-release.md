@@ -5,8 +5,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'CloudContactAI release 12/22/22: Email scheduled time display, contact search pagination, and SMS campaign list sorting.'
+  robots: index
 next:
   description: ''
 ---

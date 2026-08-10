@@ -5,7 +5,7 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
+  description: 'CloudContactAI release 09/12/24: AWS SES webhook support, campaign requeue option, email bounced contact checkbox.'
   robots: index
 next:
   description: ''

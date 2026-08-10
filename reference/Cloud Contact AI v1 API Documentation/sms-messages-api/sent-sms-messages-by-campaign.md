@@ -8,8 +8,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'List all outbound SMS messages for a specific campaign using the CloudContactAI API.'
+  robots: index
 next:
   description: ''
 ---

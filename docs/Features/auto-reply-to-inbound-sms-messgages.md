@@ -7,7 +7,7 @@ deprecated: false
 hidden: false
 metadata:
   title: Auto-Reply to Inbound SMS Messages without an Agent
-  description: ''
+  description: 'Configure auto-reply messages for inbound SMS in CloudContactAI. Set keyword triggers, custom responses, and opt-in actions per phone number.'
   image: >-
     https://files.readme.io/bad0be854d50f33df558cf713c25155af9af61686194006adbe487e1ad19d188-Group_14.png
   keywords:

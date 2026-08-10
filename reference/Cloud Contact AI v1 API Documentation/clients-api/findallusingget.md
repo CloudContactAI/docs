@@ -8,8 +8,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'List all client accounts in your CloudContactAI organization using the REST API.'
+  robots: index
 next:
   description: ''
 ---

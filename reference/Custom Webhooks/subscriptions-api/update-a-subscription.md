@@ -1,15 +1,15 @@
 ---
-title: Update a Subscription
-excerpt: This endpoint allows you to update a Subscription by its ID.
+title: Update a Webhook
+excerpt: This endpoint allows you to update a webhook by its ID.
 api:
   file: cloudcontactai-webhooks-api-documentation-1.json
-  operationId: Update a Subscription
+  operationId: Update a Webhook
 deprecated: false
 hidden: false
 metadata:
   title: ''
   description: ''
-  robots: noindex
+  robots: index
 next:
   description: ''
 ---

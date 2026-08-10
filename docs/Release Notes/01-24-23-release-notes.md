@@ -5,8 +5,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'CloudContactAI release 01/24/23: HubSpot CRM integration plan, LPS payments using CCAI.'
+  robots: index
 next:
   description: ''
 ---

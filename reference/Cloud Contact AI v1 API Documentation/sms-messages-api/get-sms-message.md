@@ -8,8 +8,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'Retrieve a single SMS message by its ID using the CloudContactAI Messages API.'
+  robots: index
 next:
   description: ''
 ---

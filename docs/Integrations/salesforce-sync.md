@@ -8,7 +8,7 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
+  description: 'Sync contacts and SMS conversations between Salesforce and CloudContactAI automatically. Matches by phone number with hourly updates.'
   robots: index
 next:
   description: ''

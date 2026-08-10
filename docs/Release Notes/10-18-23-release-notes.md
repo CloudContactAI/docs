@@ -5,8 +5,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'CloudContactAI release 10/18/23: Generative AI for trial users, TinyMCE email editor, and scheduled email campaign fixes.'
+  robots: index
 next:
   description: ''
 ---

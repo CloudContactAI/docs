@@ -1,6 +1,6 @@
 ---
 title: SMS Messages Details
-excerpt: ''
+excerpt: 'How SMS message segments work and how character count affects pricing.'
 deprecated: false
 hidden: false
 metadata:

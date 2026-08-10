@@ -8,8 +8,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'Retrieve a single client account by ID using the CloudContactAI Clients API.'
+  robots: index
 next:
   description: ''
 ---

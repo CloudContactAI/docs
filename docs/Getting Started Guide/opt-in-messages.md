@@ -1,6 +1,6 @@
 ---
 title: Opt-In Messages
-excerpt: ''
+excerpt: 'Best practices for obtaining SMS consent from your contacts.'
 deprecated: false
 hidden: false
 metadata:

@@ -2,7 +2,7 @@
 title: >-
   Communications in connection with debt collection - 12 CFR Part 1006
   (Regulation F) -
-excerpt: ''
+excerpt: 'How CloudContactAI enforces CFPB inconvenient timezone rules for debt collection messaging.'
 deprecated: false
 hidden: false
 metadata:

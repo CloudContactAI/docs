@@ -5,8 +5,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'CloudContactAI release 11/21/23: Automated email campaigns, client-specific email config, and improved loading times.'
+  robots: index
 next:
   description: ''
 ---

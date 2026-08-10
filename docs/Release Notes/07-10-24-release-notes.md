@@ -5,7 +5,7 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
+  description: 'CloudContactAI release 07/10/24: email-only configuration option, US phone number validation simplified, billing decimal display.'
   robots: index
 next:
   description: ''

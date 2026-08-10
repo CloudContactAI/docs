@@ -8,8 +8,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'List all outbound SMS messages sent through your CloudContactAI account using the REST API.'
+  robots: index
 next:
   description: ''
 ---

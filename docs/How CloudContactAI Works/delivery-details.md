@@ -1,6 +1,6 @@
 ---
 title: SMS Delivery Details
-excerpt: ''
+excerpt: 'Understand SMS deliverability rates, message statuses, and tips to improve delivery success.'
 deprecated: false
 hidden: false
 metadata:

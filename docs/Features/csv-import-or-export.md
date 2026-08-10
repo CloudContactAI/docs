@@ -1,6 +1,6 @@
 ---
 title: CSV import or export
-excerpt: ''
+excerpt: 'Import and export contacts using CSV files with custom variables.'
 deprecated: false
 hidden: false
 metadata:

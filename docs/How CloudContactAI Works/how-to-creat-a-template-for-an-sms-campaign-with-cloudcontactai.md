@@ -1,6 +1,6 @@
 ---
 title: How to Create a Template for an SMS Campaign
-excerpt: ''
+excerpt: 'Learn how to create and use SMS templates to streamline your campaigns.'
 deprecated: false
 hidden: false
 metadata:

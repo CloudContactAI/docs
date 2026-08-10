@@ -5,8 +5,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'CloudContactAI release 09/06/23: Compliance on by default, SMS limit dialogs updated, and campaign page refresh fixes.'
+  robots: index
 next:
   description: ''
 ---

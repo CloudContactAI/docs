@@ -1,6 +1,6 @@
 ---
 title: Link Shortener
-excerpt: ''
+excerpt: 'Shorten URLs for SMS campaigns and track link clicks.'
 deprecated: false
 hidden: false
 metadata:

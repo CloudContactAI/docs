@@ -10,8 +10,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'Retrieve a list of all SMS campaigns for your CloudContactAI client, sorted by creation date.'
+  robots: index
 next:
   description: ''
 ---

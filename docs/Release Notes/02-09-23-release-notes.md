@@ -5,8 +5,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'CloudContactAI release 02/09/23: SMS stats drill-down by category, onboarding quiz visibility in admin.'
+  robots: index
 next:
   description: ''
 ---

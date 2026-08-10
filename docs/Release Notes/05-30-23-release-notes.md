@@ -5,8 +5,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'CloudContactAI release 05/30/23: separate sent and pending campaign tabs, inbox last-message view, and shift-key configuration.'
+  robots: index
 next:
   description: ''
 ---

@@ -5,8 +5,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'CloudContactAI release 05/17/23: dynamic list updates for scheduled campaigns, contact list search, and email character limit fix.'
+  robots: index
 next:
   description: ''
 ---

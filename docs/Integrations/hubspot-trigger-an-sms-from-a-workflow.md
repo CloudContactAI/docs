@@ -5,7 +5,7 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
+  description: 'Learn how to trigger automated SMS messages from HubSpot workflows using CloudContactAI. Step-by-step setup guide included.'
   image: >-
     https://files.readme.io/e210521af43af7d44bd6d9565a281b0b8ff04cc4d14ddfd6646c44b6734a6286-Group_84_1.png
   keywords:

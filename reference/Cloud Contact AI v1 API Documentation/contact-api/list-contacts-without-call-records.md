@@ -8,8 +8,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'Retrieve CloudContactAI contacts that do not have associated call records.'
+  robots: index
 next:
   description: ''
 ---

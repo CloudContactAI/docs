@@ -8,8 +8,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'Bulk create multiple contacts in a single API call using the CloudContactAI batch contact endpoint.'
+  robots: index
 next:
   description: ''
 ---

@@ -5,8 +5,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'CloudContactAI release 05/23/23: inbox resize bars, campaign character limits, and max contacts per campaign setting.'
+  robots: index
 next:
   description: ''
 ---

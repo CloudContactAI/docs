@@ -8,8 +8,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'Retrieve client settings for collection campaigns using the CloudContactAI API.'
+  robots: index
 next:
   description: ''
 ---

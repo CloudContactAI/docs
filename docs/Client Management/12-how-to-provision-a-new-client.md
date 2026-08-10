@@ -7,7 +7,7 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
+  description: 'Learn how to create and provision a new client in CloudContactAI, including assigning phone numbers and configuring area codes.'
   image: >-
     https://files.readme.io/481f0189171810590d3a83cd134ad0d377ff15ea623d620893cb406f3e9367ba-CCAI_800x800.png
   keywords:

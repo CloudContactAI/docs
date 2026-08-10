@@ -5,7 +5,7 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
+  description: 'CloudContactAI release 12/19/24: HubSpot contact sync, inbox auto-open toggle, billing and sent messages loading improvements.'
   robots: index
 next:
   description: ''

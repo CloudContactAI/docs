@@ -8,8 +8,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'List all incoming SMS messages received by your CloudContactAI phone numbers.'
+  robots: index
 next:
   description: ''
 ---

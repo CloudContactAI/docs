@@ -5,7 +5,7 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
+  description: 'CloudContactAI release 10/03/24: multi-domain email sending, email builder field dropdown, HubSpot chatbot integration.'
   robots: index
 next:
   description: ''

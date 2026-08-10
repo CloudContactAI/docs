@@ -8,8 +8,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'Retrieve the list of known data fields for a specific client using the CloudContactAI API.'
+  robots: index
 next:
   description: ''
 ---

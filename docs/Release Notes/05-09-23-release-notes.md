@@ -5,8 +5,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'CloudContactAI release 05/09/23: activity report downloads, email notification settings, and scheduled campaign pending counts.'
+  robots: index
 next:
   description: ''
 ---

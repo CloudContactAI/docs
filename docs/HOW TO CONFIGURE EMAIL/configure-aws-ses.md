@@ -1,6 +1,6 @@
 ---
 title: 'Amazon SES: How to Setup Integration with the Simple Email Service (SES)'
-excerpt: ''
+excerpt: 'Step-by-step guide to integrating Amazon SES with CloudContactAI for outbound email.'
 deprecated: false
 hidden: false
 metadata:

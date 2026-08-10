@@ -1,6 +1,6 @@
 ---
 title: Managing User Roles
-excerpt: ''
+excerpt: 'Explains the permissions for Client Admin, Client User, and Compliance User roles.'
 deprecated: false
 hidden: false
 metadata:

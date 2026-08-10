@@ -5,8 +5,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'CloudContactAI release 01/31/23: Onboarding wizard, subscription cancellation fix, CSV upload fix.'
+  robots: index
 next:
   description: ''
 ---

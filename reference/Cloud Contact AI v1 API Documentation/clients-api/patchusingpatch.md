@@ -8,8 +8,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'Partially update a client name using the CloudContactAI Clients API PATCH endpoint.'
+  robots: index
 next:
   description: ''
 ---

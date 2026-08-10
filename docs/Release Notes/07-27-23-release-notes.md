@@ -5,8 +5,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'CloudContactAI release 07/27/23: Voice Campaign UI, HubSpot integration, and file-based short links.'
+  robots: index
 next:
   description: ''
 ---

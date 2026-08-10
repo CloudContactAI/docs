@@ -5,7 +5,7 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
+  description: 'CloudContactAI release 02/15/24: improved loading times for login, registration, and password verification pages.'
   robots: index
 next:
   description: ''

@@ -459,3 +459,20 @@ Python 3.10 or higher
 ## Try it yourself
 
 See the full source code [here](https://github.com/CloudContactAI/ccai-python).
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  "name": "ccai-python",
+  "description": "Python SDK for CloudContactAI. Send SMS, MMS, and Email campaigns with async support and webhook management.",
+  "codeRepository": "https://github.com/CloudContactAI/ccai-python",
+  "programmingLanguage": "Python",
+  "license": "https://opensource.org/licenses/MIT",
+  "author": {
+    "@type": "Organization",
+    "name": "CloudContactAI",
+    "url": "https://cloudcontactai.com"
+  }
+}
+</script>

@@ -1,15 +1,15 @@
 ---
-title: Get a Subscription
-excerpt: This endpoint allows you to get a Subscription by its ID.
+title: Get a Webhook
+excerpt: This endpoint allows you to get a webhook by its ID.
 api:
   file: cloudcontactai-webhooks-api-documentation-1.json
-  operationId: Get a Subscription
+  operationId: Get a Webhook
 deprecated: false
 hidden: false
 metadata:
   title: ''
   description: ''
-  robots: noindex
+  robots: index
 next:
   description: ''
 ---

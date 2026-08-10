@@ -11,8 +11,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'Update an existing contact record by ID using the CloudContactAI Contact API. Requires contact ID and API key.'
+  robots: index
 next:
   description: ''
 ---

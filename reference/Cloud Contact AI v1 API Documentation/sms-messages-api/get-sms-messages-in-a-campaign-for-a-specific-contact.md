@@ -8,8 +8,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'Retrieve SMS messages for a specific contact within a campaign using the CloudContactAI API.'
+  robots: index
 next:
   description: ''
 ---

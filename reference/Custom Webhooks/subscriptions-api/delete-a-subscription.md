@@ -1,15 +1,15 @@
 ---
-title: Delete a Subscription
-excerpt: This endpoint allows you to delete a Subscription by its ID.
+title: Delete a Webhook
+excerpt: This endpoint allows you to delete a webhook by its ID.
 api:
   file: cloudcontactai-webhooks-api-documentation-1.json
-  operationId: Delete a Subscription
+  operationId: Delete a Webhook
 deprecated: false
 hidden: false
 metadata:
   title: ''
   description: ''
-  robots: noindex
+  robots: index
 next:
   description: ''
 ---

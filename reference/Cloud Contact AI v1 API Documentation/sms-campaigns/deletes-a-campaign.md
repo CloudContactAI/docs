@@ -8,8 +8,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'Delete an SMS campaign by ID using the CloudContactAI Campaigns API.'
+  robots: index
 next:
   description: ''
 ---

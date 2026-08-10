@@ -5,7 +5,7 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
+  description: 'CloudContactAI release 03/12/24: campaign reports sort by sent date, increased burst email thresholds, AI generation fixes.'
   robots: index
 next:
   description: ''

@@ -1,6 +1,6 @@
 ---
 title: Sending and Receiving Messages
-excerpt: ''
+excerpt: 'Send campaigns, message contacts directly, and manage your inbox.'
 deprecated: false
 hidden: false
 metadata:

@@ -8,8 +8,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'Retrieve a single contact record by ID using the CloudContactAI Contact API.'
+  robots: index
 next:
   description: ''
 ---

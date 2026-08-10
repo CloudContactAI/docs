@@ -1,6 +1,6 @@
 ---
 title: Delivery Error Codes
-excerpt: ''
+excerpt: 'Reference guide for internal CCAI and carrier error codes when SMS delivery fails.'
 deprecated: false
 hidden: false
 metadata:

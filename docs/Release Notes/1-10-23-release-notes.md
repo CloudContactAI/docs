@@ -5,8 +5,8 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: ''
-  robots: noindex
+  description: 'CloudContactAI release 01/10/23: Sign in with Amazon/Google, country-specific messaging, and monthly message counter.'
+  robots: index
 next:
   description: ''
 ---

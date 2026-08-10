@@ -1,6 +1,6 @@
 ---
 title: Managing Contact Info
-excerpt: ''
+excerpt: 'Edit, organize, and add custom properties to your contacts.'
 deprecated: false
 hidden: false
 metadata:
