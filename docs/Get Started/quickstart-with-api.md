@@ -1,5 +1,5 @@
 ---
-title: Quickstart with API
+title: Create API Key
 excerpt: 'Get your API key and send your first campaign via the REST API.'
 deprecated: false
 hidden: false
