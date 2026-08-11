@@ -1,5 +1,3 @@
-- register-brand
-- register-campaign
 - check-registration-status
 - how-cloudcontactai-works
 - sms-messages
@@ -30,9 +28,5 @@
 - reassigned-phone-number-lookup
 - one-time-password-sms-verification
 - send-mms-programmatically
-- sms-regulations
-- compliance-features
 - roles-and-permissions
 - customer-subscription
-- opt-in-messages
-- opt-out-guide
