@@ -1,8 +1,7 @@
 ---
 title: Introduction
 excerpt: >-
-  Build SMS, Email, and AI workflows in minutes.  Unified APIs for messaging and
-  AI: simple SDKs, fast setup, production-ready.
+  Build SMS, Email, and AI workflows in minutes. Unified APIs for messaging and AI: simple SDKs, fast setup, production-ready.
 deprecated: false
 hidden: false
 metadata:
@@ -18,49 +17,37 @@ metadata:
     - developers
   robots: index
 ---
-<div style={{ margin: "16px 0 -8px 0" }}>
-  <a
-    href="https://app.cloudcontactai.com/register"
-    style={{
-      display: "inline-flex",
-      alignItems: "center",
-      justifyContent: "center",
-      gap: "8px",
-      backgroundColor: "#2563eb",
-      color: "#ffffff",
-      padding: "12px 20px",
-      borderRadius: "12px",
-      fontSize: "15px",
-      fontWeight: 600,
-      lineHeight: 1,
-      textDecoration: "none",
-      whiteSpace: "nowrap",
-    }}
-  >
-    🔑 Get API Key
-  </a>
-</div>
 
-# Install the SDK
+CloudContactAI is the messaging API for developers. Send SMS, MMS, and Email — and build AI-powered workflows — using simple SDKs built for production.
 
-Learn how to get CloudContactAI setup in your project with our client SDKs.
+## Before You Begin
 
-<Cards columns={2}>
-  <Card title="Node.js Quickstart" href="https://developer.cloudcontactai.com/docs/nodejs#/" icon="fa-duotone fa-code" />
+You'll need the following to send your first message:
 
-  <Card title="Python Quickstart" href="https://developer.cloudcontactai.com/docs/python#/" icon="fa-duotone fa-snake" />
+- [Create an API Key](/docs/create-api-key) — generate credentials from your account settings
+- [Acquire a Phone Number](/docs/phone-numbers) — required for SMS and MMS
+- [Configure an Email Domain](/docs/configure-email-domain) — required for Email sending
 
-  <Card title="C# Quickstart" href="https://developer.cloudcontactai.com/docs/c#/" icon="fa-duotone fa-cube" />
+## Quickstart
 
-  <Card title="Java Quickstart" href="https://developer.cloudcontactai.com/docs/java#/" icon="fa-duotone fa-mug-hot" />
-
-  <Card title="PHP Quickstart" href="https://developer.cloudcontactai.com/docs/php#/" icon="fa-duotone fa-file-code" />
-
-  <Card title="Ruby Quickstart" href="https://developer.cloudcontactai.com/docs/ruby#/" icon="fa-duotone fa-gem" />
-
-  <Card title="Go Quickstart" href="https://developer.cloudcontactai.com/docs/go#/" icon="fa-duotone fa-rocket" />
-
-  <Card title="Perl Quickstart" href="https://developer.cloudcontactai.com/docs/perl#/" icon="fa-solid fa-terminal" />
+<Cards columns={3}>
+  <Card title="Node.js" href="/docs/nodejs" icon="fa-brands fa-node-js" />
+  <Card title="Python" href="/docs/python" icon="fa-brands fa-python" />
+  <Card title="PHP" href="/docs/php" icon="fa-brands fa-php" />
+  <Card title="Ruby" href="/docs/ruby" icon="fa-brands fa-gem" />
+  <Card title="Go" href="/docs/go" icon="fa-brands fa-golang" />
+  <Card title="Java" href="/docs/java" icon="fa-duotone fa-mug-hot" />
+  <Card title="C#" href="/docs/c" icon="fa-duotone fa-cube" />
+  <Card title="Perl" href="/docs/perl" icon="fa-solid fa-terminal" />
 </Cards>
 
-<br />
+## Explore
+
+<Cards columns={3}>
+  <Card title="SMS & MMS" href="/docs/sending-and-receiving-messages" icon="fa-duotone fa-message-sms" description="Send single messages or bulk campaigns to any phone number." />
+  <Card title="Email" href="/docs/sending-email" icon="fa-duotone fa-envelope" description="Send transactional and marketing emails with your verified domain." />
+  <Card title="AI Agents" href="/docs/ai-agents" icon="fa-duotone fa-robot" description="Build intelligent messaging workflows powered by AI." />
+  <Card title="Webhooks" href="/docs/webhooks" icon="fa-duotone fa-webhook" description="Receive real-time event notifications for messages and contacts." />
+  <Card title="Compliance" href="/docs/compliance-features" icon="fa-duotone fa-shield-check" description="Register your brand and campaigns for A2P 10DLC compliance." />
+  <Card title="API Reference" href="/reference" icon="fa-duotone fa-code" description="Explore the full REST API for contacts, campaigns, and more." />
+</Cards>
