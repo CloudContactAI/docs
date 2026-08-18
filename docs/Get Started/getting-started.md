@@ -1,47 +1,80 @@
 ---
 title: Quickstart with CloudContactAI
 excerpt: >-
-  This page will help you get started with CloudContactAI. You'll be up and
-  running in a jiffy!
+  Get up and running with CloudContactAI in minutes. Send your first SMS or Email using the dashboard or API.
 deprecated: false
 hidden: false
 metadata:
   title: Quickstart with CloudContactAI
   description: >-
-    How to use the CloudContactAI to get sending emails and SMS messages in
-    minutes.
+    Get up and running with CloudContactAI in minutes. Send your first SMS or Email using the dashboard or API.
   image: >-
     https://files.readme.io/25f246c82ca730ffcb9b35c64323e936119d314ca4dacf7031b43ed912c72333-Group_14.png
   keywords:
     - email
     - sms
     - api
+    - quickstart
+    - cloudcontactai
   robots: index
-next:
-  description: ''
 ---
-## Welcome Aboard
 
-Onboarding is a self-serve process.  From the CloudContactAI home [page](http://cloudcontactai.com), you can click "Sign Up" and immediately get going on the signup form.  It's otherwise fairly simple and only requires a working corporate email account, a Gmail account, or an Amazon account to get started.
+CloudContactAI is ready to use the moment your account is created. This guide walks you through signing up, getting oriented in the dashboard, and sending your first message.
 
-![1464](https://files.readme.io/cf6d6fc-Screenshot_2022-09-13_101600.png "Screenshot 2022-09-13 101600.png")
+## Prerequisites
 
-Clicking the "Create Account" button will send you to the following screen where you will need to sign up with a business email and your name.
+- A business email address, Gmail account, or Amazon account to sign up with
+- A phone number or verified email domain to send from (see [Acquire a Phone Number](/docs/phone-numbers) and [Configure Email Domain](/docs/configure-email-domain))
 
-![1196](https://files.readme.io/8a990fc-Screenshot_2022-09-13_102032.png "Screenshot 2022-09-13 102032.png")
+## Steps
 
-![687](https://files.readme.io/20b06d0-Screenshot_2022-09-13_102206.png "Screenshot 2022-09-13 102206.png")
+<Steps>
 
-After accepting the terms and conditions, you will be sent an email to verify your account and establish the account email.  You will then need to create your password, after this step, you will be directed to the CloudContactAI home screen.
+<Step title="Create your account">
 
-![650](https://files.readme.io/bdafce4-Screenshot_2022-09-13_102503.png "Screenshot 2022-09-13 102503.png")
+Go to [cloudcontactai.com](https://cloudcontactai.com) and click **Sign Up**. Enter your business email and name, then click **Create Account**.
 
-![1893](https://files.readme.io/392dfd6-Screenshot_2022-09-13_102732.png "Screenshot 2022-09-13 102732.png")
+![Sign up screen](https://files.readme.io/cf6d6fc-Screenshot_2022-09-13_101600.png)
 
-From here, we will send you some onboarding messages to get you started.  If you are a first-time user of CloudContactAI, the Dashboard will have some video tutorials on how to use our services.
+You'll receive a verification email. Click the link to verify your address, then set your password.
 
-![3152](https://files.readme.io/a6bdddf-Screen_Shot_2023-03-21_at_2.14.37_PM.png "Screen Shot 2023-03-21 at 2.14.37 PM.png")
+![Verification screen](https://files.readme.io/bdafce4-Screenshot_2022-09-13_102503.png)
 
-## Compatibility
+</Step>
 
-Our services provide 2-way text messaging between over forty different countries across the world.  We look forward to working with you on CloudContactAI!
+<Step title="Get oriented in the dashboard">
+
+After logging in you'll land on the CloudContactAI dashboard. From here you can manage contacts, run campaigns, configure phone numbers, and access all settings.
+
+![Dashboard](https://files.readme.io/a6bdddf-Screen_Shot_2023-03-21_at_2.14.37_PM.png)
+
+</Step>
+
+<Step title="Get your API Key">
+
+Navigate to **Account → Settings** to find your **Client ID** and create an **API Key**. You'll need both to use the SDK or REST API.
+
+See [Create API Key](/docs/quickstart-with-api) for a full walkthrough.
+
+</Step>
+
+<Step title="Send your first message">
+
+Choose how you want to send:
+
+<Cards columns={2}>
+  <Card title="Send via SDK" href="/docs/nodejs" icon="fa-duotone fa-code" description="Use one of our SDKs to send SMS or Email programmatically." />
+  <Card title="Send via Dashboard" href="https://app.cloudcontactai.com" icon="fa-duotone fa-browser" description="Send a campaign directly from the CloudContactAI dashboard." />
+</Cards>
+
+</Step>
+
+</Steps>
+
+## Next Steps
+
+<Cards columns={3}>
+  <Card title="Acquire a Phone Number" href="/docs/phone-numbers" icon="fa-duotone fa-phone" />
+  <Card title="Configure Email Domain" href="/docs/configure-email-domain" icon="fa-duotone fa-envelope" />
+  <Card title="Explore the API" href="/reference" icon="fa-duotone fa-code" />
+</Cards>
