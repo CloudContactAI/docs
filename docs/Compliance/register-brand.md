@@ -1,12 +1,16 @@
 ---
-title: Register A2P 10DLC Brand
+title: Register A2P 10DLC Brand with the API
 excerpt: >-
-  Register your brand for A2P 10DLC compliance with CloudContactAI to enable trusted business messaging.
+  Register your brand for A2P 10DLC compliance with CloudContactAI to enable
+  trusted business messaging.
 deprecated: false
 hidden: false
 metadata:
   title: A2P 10DLC Brand Registration | CloudContactAI Compliance API
-  description: Register your brand for A2P 10DLC compliance using the CloudContactAI SDK. Submit your business details programmatically to enable trusted SMS messaging.
+  description: >-
+    Register your brand for A2P 10DLC compliance using the CloudContactAI SDK.
+    Submit your business details programmatically to enable trusted SMS
+    messaging.
   keywords:
     - A2P 10DLC
     - brand registration
