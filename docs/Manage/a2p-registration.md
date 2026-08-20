@@ -72,19 +72,22 @@ CloudContactAI requires a verified phone number to activate SMS, Voice, Short Li
 
 1. Enter your US phone number.
 2. Select **Send Code**.
+
+   ![](https://files.readme.io/39ae4154d282dfaafc1e176f0e53a67b109c5aceb10b34b712066c0fac09e2ea-ccai_a2p_frame_057.png)
 3. Enter the verification code sent to your phone.
 4. Select **Validate Code**.
 
-<Callout icon="triangle-exclamation" theme="warning">
-  If you see **This phone number is already in use**, the number may be associated with another account. Contact [support@cloudcontactai.com](mailto:support@cloudcontactai.com).
-</Callout>
+   ![](https://files.readme.io/0c5c7948f6af3db1c3bb4337d816f16e6f7d87d44ac6d59a3b4dd475324d063c-ccai_a2p_frame_059.png)
 
 ## 5. Open A2P Registration
 
 1. In the left navigation menu, select **A2P Registration**.
 2. Review the available tabs: **Brands** and **Campaigns**.
+3. Select **Add Brands**
 
 Register your brand before you create a campaign.
+
+![](https://files.readme.io/f512722fd54e0d6a046092c140f91b9d0fb9ae3318e93bb61acaf9fd68c20764-ccai_a2p_frame_070.png)
 
 ## 6. Register your brand
 
@@ -131,8 +134,10 @@ After submission, your brand shows **Draft** status while it is reviewed by the 
 ## 7. Create your campaign
 
 1. Select the **Campaigns** tab.
-2. Select **+ Create Campaign**.
+2. Select **Add Campaigns**.
 3. Complete the four steps in the campaign wizard.
+
+   ![](https://files.readme.io/7c5f49c813d9ce01ea2bc680d7cbe48b658bc751b92cb2ccc3454d0f4c5863e6-ccai_a2p_frame_094.png)
 
 ### Campaign Basics
 
