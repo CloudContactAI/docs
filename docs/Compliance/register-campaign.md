@@ -1,12 +1,16 @@
 ---
-title: Register A2P 10DLC Campaign
+title: Register A2P 10DLC Campaign - API
 excerpt: >-
-  Register your messaging campaign for A2P 10DLC compliance after brand approval with CloudContactAI.
+  Register your messaging campaign for A2P 10DLC compliance after brand approval
+  with CloudContactAI.
 deprecated: false
 hidden: false
 metadata:
   title: A2P 10DLC Campaign Registration | CloudContactAI Compliance API
-  description: Register your SMS messaging campaign for A2P 10DLC compliance using the CloudContactAI SDK. Define your use case, message samples, and opt-in flow programmatically.
+  description: >-
+    Register your SMS messaging campaign for A2P 10DLC compliance using the
+    CloudContactAI SDK. Define your use case, message samples, and opt-in flow
+    programmatically.
   keywords:
     - A2P 10DLC
     - campaign registration
