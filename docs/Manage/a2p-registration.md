@@ -4,10 +4,6 @@ excerpt: >-
   Register your brand and messaging campaign with CloudContactAI to send SMS
   messages.
 ---
-You will register your business brand and messaging campaign with CCAI so you can send SMS messages. A2P 10DLC Registration can be found within the left hand navigation menu >> A2P Registration.
-
-![](https://files.readme.io/210fb14275d6e1160d5983c1fcd0057b0a2a7ffe7076c86b1f4fcb91618ff56f-ccai_a2p_frame_072.png)
-
 ## Overview
 
 Mobile carriers require businesses sending SMS messages in the United States to complete A2P 10DLC registration. The process verifies your business identity as a **Brand** and your messaging use case as a **Campaign** with TCR.
@@ -67,6 +63,8 @@ A paid subscription is required to complete A2P registration and send messages.
 4. Submit your payment information.
 
 For credit cards, enter the card number, expiration date, CVC, and billing address. For ACH bank transfers, enter your bank account details.
+
+![](https://files.readme.io/7634e2585d93a66060a93df0c497698b544a37dc26d9c0e5d5f7b589e319ca9e-ccai_a2p_frame_041.png)
 
 ## 4. Verify your phone number
 
