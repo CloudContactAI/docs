@@ -211,7 +211,7 @@ Complete any remaining fields, then submit your campaign.
 
 ## Next steps
 
-After both your brand and campaign show **Verified** status:
+After both your brand and campaign have been submitted, a member of CCAI's compliance team will review your submission and reach out if they have any questions. Brand approval can take 1-5 business days. Campaign approval can take one to two weeks. Once both the brand and campaign have been approved the account is ready for next steps:
 
 1. Assign a phone number to your campaign from **Phone Numbers** in the left navigation.
 2. Launch your first SMS campaign from **SMS Campaign**.
