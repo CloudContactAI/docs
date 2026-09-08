@@ -1,12 +1,14 @@
 ---
 title: Configure Email Domain
 excerpt: >-
-  Step-by-step guide to configuring an email provider for outbound email in CloudContactAI. Supports Amazon SES and Twilio SendGrid.
+  Step-by-step guide to configuring an email provider for outbound email in
+  CloudContactAI. Supports Amazon SES and Twilio SendGrid.
 deprecated: false
 hidden: false
 metadata:
   description: >-
-    Set up your CloudContactAI account to send emails using Amazon SES or Twilio SendGrid.
+    Set up your CloudContactAI account to send emails using Amazon SES or Twilio
+    SendGrid.
   image: >-
     https://files.readme.io/3a0b39a3a80e3732c2f8f6c13d03a367fb2304294426addbb3e1434e6932fa85-Group_84_1.png
   keywords:
@@ -18,7 +20,6 @@ metadata:
     - cloudcontactai
   robots: index
 ---
-
 To send outbound emails with CloudContactAI, you need to connect a third-party email provider. CCAI supports two providers:
 
 <Cards columns={2}>
@@ -26,15 +27,34 @@ To send outbound emails with CloudContactAI, you need to connect a third-party e
   <Card title="Twilio SendGrid" href="#twilio-sendgrid" icon="fa-duotone fa-envelope-open-text" description="Best for teams that want a dedicated email delivery platform." />
 </Cards>
 
----
+***
 
 ## Amazon SES
-<Embed url="https://www.youtube.com/watch?v=yA3PTtwJF1s" title="Setting up CloudContactAI with Amazon SES" favicon="https://www.google.com/favicon.ico" image="https://i.ytimg.com/vi/yA3PTtwJF1s/hqdefault.jpg" provider="youtube.com" href="https://www.youtube.com/watch?v=yA3PTtwJF1s" typeOfEmbed="youtube" html="%3Ciframe%20class%3D%22embedly-embed%22%20src%3D%22%2F%2Fcdn.embedly.com%2Fwidgets%2Fmedia.html%3Fsrc%3Dhttps%253A%252F%252Fwww.youtube.com%252Fembed%252FyA3PTtwJF1s%253Ffeature%253Doembed%26display_name%3DYouTube%26url%3Dhttps%253A%252F%252Fwww.youtube.com%252Fwatch%253Fv%253DyA3PTtwJF1s%26image%3Dhttps%253A%252F%252Fi.ytimg.com%252Fvi%252FyA3PTtwJF1s%252Fhqdefault.jpg%26key%3D7788cb384c9f4d5dbbdbeffd9fe4b92f%26type%3Dtext%252Fhtml%26schema%3Dyoutube%22%20width%3D%22854%22%20height%3D%22480%22%20scrolling%3D%22no%22%20title%3D%22YouTube%20embed%22%20frameborder%3D%220%22%20allow%3D%22autoplay%3B%20fullscreen%3B%20encrypted-media%3B%20picture-in-picture%3B%22%20allowfullscreen%3D%22true%22%3E%3C%2Fiframe%3E" />
+
+<Embed title="" typeOfEmbed="youtube" url="https://www.youtube.com/watch?v=yA3PTtwJF1s" href="https://www.youtube.com/watch?v=yA3PTtwJF1s" html="%3Ciframe%20class%3D%22embedly-embed%22%20src%3D%22%2F%2Fcdn.embedly.com%2Fwidgets%2Fmedia.html%3Fsrc%3Dhttps%253A%252F%252Fwww.youtube.com%252Fembed%252FyA3PTtwJF1s%253Ffeature%253Doembed%26display_name%3DYouTube%26url%3Dhttps%253A%252F%252Fwww.youtube.com%252Fwatch%253Fv%253DyA3PTtwJF1s%26image%3Dhttps%253A%252F%252Fi.ytimg.com%252Fvi%252FyA3PTtwJF1s%252Fhqdefault.jpg%26key%3D7788cb384c9f4d5dbbdbeffd9fe4b92f%26type%3Dtext%252Fhtml%26schema%3Dyoutube%22%20width%3D%22854%22%20height%3D%22480%22%20scrolling%3D%22no%22%20title%3D%22YouTube%20embed%22%20frameborder%3D%220%22%20allow%3D%22autoplay%3B%20fullscreen%3B%20encrypted-media%3B%20picture-in-picture%3B%22%20allowfullscreen%3D%22true%22%3E%3C%2Fiframe%3E" />
 
 ### Prerequisites
 
 - An AWS account with access to IAM and SES
 - A verified email address or domain in Amazon SES
+
+### SES Integration Steps
+
+1\) Sign into your AWS Account. Be sure to set your account to the region you want to operate from using the dropdown in the upper right corner. Any previous services used on this AWS account that are setup fore the SES integration and are relevant to CCAI integration will need to be migrated to this new AWS region.
+
+2\) Navigate to IAM > User > Create User.
+
+3\) Add the user to a group with AmazonSNSFullAccess and AmazonSESFullAccess permissions enabled. If you haven't made a group already, you can make a new group in this same window using the Create Group button under User Groups. One final window will appear afterward to help validate all the correct configurations are implemented.
+
+4\) After returning to the Users screen, drill into the freshly made user and navigate to Create Access Key in the Summary box.
+
+5\) Select the "Other" radio button and click Next. Optional: add a tag for organizational purposes.
+
+6\) Save the provided Access Key and Secret Access Key however is convenient.
+
+7\) Navigate to Amazon SES > Identities > Create Identity. You will need to establish the email address you will be using on CCAI. After confirming the address, AWS will send that address a verification link. If the address uses a unique domain, a domain will also need to be established also through Create Identity.
+
+8\) Return to CCAI and navigate to Email Campaign > Amazon SES. Provide all the relevant credentials in their respective categories and click Save.
 
 <Steps>
 
@@ -111,7 +131,7 @@ CCAI configures bounce, complaint, and delivery event handling automatically. Yo
 
 </Steps>
 
----
+***
 
 ## Twilio SendGrid
 
