@@ -38,7 +38,23 @@ To send outbound emails with CloudContactAI, you need to connect a third-party e
 - An AWS account with access to IAM and SES
 - A verified email address or domain in Amazon SES
 
-###
+### SES Integration Steps
+
+1\) Sign into your AWS Account. Be sure to set your account to the region you want to operate from using the dropdown in the upper right corner. Any previous services used on this AWS account that are setup fore the SES integration and are relevant to CCAI integration will need to be migrated to this new AWS region.
+
+2\) Navigate to IAM > User > Create User.
+
+3\) Add the user to a group with AmazonSNSFullAccess and AmazonSESFullAccess permissions enabled. If you haven't made a group already, you can make a new group in this same window using the Create Group button under User Groups. One final window will appear afterward to help validate all the correct configurations are implemented.
+
+4\) After returning to the Users screen, drill into the freshly made user and navigate to Create Access Key in the Summary box.
+
+5\) Select the "Other" radio button and click Next. Optional: add a tag for organizational purposes.
+
+6\) Save the provided Access Key and Secret Access Key however is convenient.
+
+7\) Navigate to Amazon SES > Identities > Create Identity. You will need to establish the email address you will be using on CCAI. After confirming the address, AWS will send that address a verification link. If the address uses a unique domain, a domain will also need to be established also through Create Identity.
+
+8\) Return to CCAI and navigate to Email Campaign > Amazon SES. Provide all the relevant credentials in their respective categories and click Save.
 
 <Steps>
 
