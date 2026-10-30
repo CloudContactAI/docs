@@ -6,8 +6,13 @@ excerpt: >-
 deprecated: false
 hidden: false
 metadata:
-  title: CFPB Compliance for SMS Debt Collection with CloudContactAI
-  description: CloudContactAI offers CFPB Compliance for SMS Debt Collection
+  title: >-
+    Regulation F Texting Hours for Debt Collectors: CFPB's 8am-9pm Rule (12 CFR
+    1006)
+  description: >-
+    CFPB's Regulation F restricts debt collection texts to 8 AM-9 PM in the
+    consumer's local time zone. See the exact rule and how CloudContactAI
+    enforces it automatically on every SMS campaign.
   keywords:
     - debt collection
     - sms
