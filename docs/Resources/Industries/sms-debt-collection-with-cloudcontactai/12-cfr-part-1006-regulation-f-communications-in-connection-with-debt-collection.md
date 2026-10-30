@@ -2,7 +2,9 @@
 title: >-
   Communications in connection with debt collection - 12 CFR Part 1006
   (Regulation F) -
-excerpt: 'How CloudContactAI enforces CFPB inconvenient timezone rules for debt collection messaging.'
+excerpt: >-
+  How CloudContactAI enforces CFPB inconvenient timezone rules for debt
+  collection messaging.
 deprecated: false
 hidden: false
 metadata:
@@ -17,6 +19,8 @@ metadata:
 next:
   description: ''
 ---
+> 🔑 [Get API Key](https://app.cloudcontactai.com/register)
+
 CloudContactAI by default provides checks to ensure thatc ontacts aren't contacted outside of 8:00 am and 9 pm, local time at the contact's location.
 
 A link to the CFPB inconvenient timezone rule is here
