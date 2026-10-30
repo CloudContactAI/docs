@@ -1,10 +1,8 @@
 ---
-title: >-
-  Communications in connection with debt collection - 12 CFR Part 1006
-  (Regulation F) -
+title: Regulation F Debt Collection Texting Hours (12 CFR Part 1006)
 excerpt: >-
-  How CloudContactAI enforces CFPB inconvenient timezone rules for debt
-  collection messaging.
+  How CloudContactAI automatically enforces the CFPB's 8am-9pm inconvenient-time
+  rule for every SMS campaign.
 deprecated: false
 hidden: false
 metadata:
